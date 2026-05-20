@@ -29,8 +29,8 @@ export default function ToolCard({ tool, index = 0 }: Props) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      <Link href={`/tool/${tool.slug}`} className="block group">
-        <div className="relative p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] transition-all duration-300 hover:shadow-lg hover:shadow-black/5 hover:-translate-y-0.5">
+      <Link href={`/tool/${tool.slug}`} className="block group h-full">
+        <div className="relative p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] transition-all duration-300 hover:shadow-lg hover:shadow-black/5 hover:-translate-y-0.5 flex flex-col h-full">
           <div className="flex items-start justify-between mb-3">
             <div className="w-10 h-10 rounded-xl bg-[var(--muted)] flex items-center justify-center overflow-hidden">
               <img
@@ -52,11 +52,11 @@ export default function ToolCard({ tool, index = 0 }: Props) {
           <h3 className="font-semibold text-base mb-1 group-hover:text-violet-600 transition-colors duration-200">
             {tool.name}
           </h3>
-          <p className="text-sm text-[var(--muted-foreground)] leading-snug line-clamp-2 mb-4">
+          <p className="text-sm text-[var(--muted-foreground)] leading-snug line-clamp-2 mb-4 flex-1">
             {tool.tagline}
           </p>
 
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mt-auto">
             <div className="flex items-center gap-1">
               <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
               <span className="text-sm font-medium">{tool.rating}</span>
