@@ -37,7 +37,6 @@
 
 - [ ] Page **"Soumettre un outil"** — laisser la communauté proposer des outils
 - [ ] **Compteur d'outils réel** dans le badge hero (actuellement hardcodé "22+")
-- [ ] **Dark mode toggle** manuel dans la navbar
 - [ ] **Page About** — expliquer la sélection et le modèle affilié
 
 ## ✅ Fait
@@ -53,3 +52,8 @@
 - [x] Logos SVG officiels pour les 22 outils
 - [x] Composant FeaturedTools Apple-like
 - [x] Cartes outils hauteurs uniformes
+- [x] **DA cohérente Apple/Linear** — palette CSS custom properties unifiée, suppression gradients colorés
+- [x] **Thème 100% light** — suppression du dark mode media query (site toujours blanc)
+- [x] **Hero 2 colonnes** — decoration animée côté droit : dot grid, blobs, glass card "Top outils" + chips flottants
+- [x] **Navbar plus haute** (h-16) avec liquid glass renforcé (blur 48px, saturate 200%)
+- [x] **Category cards** hauteur uniforme via min-h + flex-col
