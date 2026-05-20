@@ -2,19 +2,13 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ExternalLink, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { Tool } from "@/types";
 
 const pricingLabel: Record<Tool["pricing"], string> = {
   free: "Gratuit",
   freemium: "Freemium",
   paid: "Payant",
-};
-
-const pricingColor: Record<Tool["pricing"], string> = {
-  free: "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400",
-  freemium: "bg-sky-100 text-sky-700 dark:bg-sky-900/30 dark:text-sky-400",
-  paid: "bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400",
 };
 
 type Props = {
@@ -25,46 +19,41 @@ type Props = {
 export default function ToolCard({ tool, index = 0 }: Props) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
+      className="h-full"
     >
       <Link href={`/tool/${tool.slug}`} className="block group h-full">
-        <div className="relative p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] transition-all duration-300 hover:shadow-lg hover:shadow-black/5 hover:-translate-y-0.5 flex flex-col h-full">
-          <div className="flex items-start justify-between mb-3">
-            <div className="w-10 h-10 rounded-xl bg-[var(--muted)] flex items-center justify-center overflow-hidden">
+        <div className="relative p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--muted)] hover:border-[var(--border-strong)] transition-all duration-200 flex flex-col h-full">
+          <div className="flex items-start justify-between mb-4">
+            <div className="w-10 h-10 rounded-xl bg-[var(--muted)] group-hover:bg-[var(--border)] flex items-center justify-center overflow-hidden transition-colors duration-200">
               <img
                 src={tool.logo}
                 alt={tool.name}
-                className="w-7 h-7 object-contain"
+                className="w-6 h-6 object-contain"
                 onError={(e) => {
                   const target = e.currentTarget;
                   target.style.display = "none";
-                  target.parentElement!.innerHTML = `<span class="text-lg font-bold text-[var(--muted-foreground)]">${tool.name.charAt(0)}</span>`;
+                  target.parentElement!.innerHTML = `<span class="text-sm font-bold text-[var(--muted-foreground)]">${tool.name.charAt(0)}</span>`;
                 }}
               />
             </div>
-            <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${pricingColor[tool.pricing]}`}>
+            <span className="text-xs text-[var(--muted-foreground)]">
               {pricingLabel[tool.pricing]}
             </span>
           </div>
 
-          <h3 className="font-semibold text-base mb-1 group-hover:text-violet-600 transition-colors duration-200">
+          <h3 className="font-semibold text-sm mb-1 tracking-tight">
             {tool.name}
           </h3>
-          <p className="text-sm text-[var(--muted-foreground)] leading-snug line-clamp-2 mb-4 flex-1">
+          <p className="text-xs text-[var(--muted-foreground)] leading-relaxed line-clamp-2 flex-1 mb-4">
             {tool.tagline}
           </p>
 
-          <div className="flex items-center justify-between mt-auto">
-            <div className="flex items-center gap-1">
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <span className="text-sm font-medium">{tool.rating}</span>
-            </div>
-            <div className="flex items-center gap-1.5 text-xs text-[var(--muted-foreground)] opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-              <span>Voir l'outil</span>
-              <ExternalLink className="w-3 h-3" />
-            </div>
+          <div className="flex items-center gap-1 mt-auto">
+            <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+            <span className="text-xs font-medium text-[var(--muted-foreground)]">{tool.rating}</span>
           </div>
         </div>
       </Link>
