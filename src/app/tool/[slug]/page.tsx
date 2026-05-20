@@ -54,8 +54,17 @@ export default function ToolPage({ params }: Props) {
         </div>
 
         <div className="flex flex-col md:flex-row md:items-start gap-8 mb-12">
-          <div className="w-16 h-16 rounded-2xl bg-[var(--muted)] flex items-center justify-center text-2xl font-bold text-[var(--muted-foreground)] shrink-0">
-            {tool.name.charAt(0)}
+          <div className="w-16 h-16 rounded-2xl bg-[var(--muted)] flex items-center justify-center overflow-hidden shrink-0">
+            <img
+              src={tool.logo}
+              alt={tool.name}
+              className="w-10 h-10 object-contain"
+              onError={(e) => {
+                const target = e.currentTarget;
+                target.style.display = "none";
+                target.parentElement!.innerHTML = `<span class="text-2xl font-bold text-[var(--muted-foreground)]">${tool.name.charAt(0)}</span>`;
+              }}
+            />
           </div>
           <div className="flex-1">
             <div className="flex flex-wrap items-center gap-3 mb-2">

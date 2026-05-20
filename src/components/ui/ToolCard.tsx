@@ -32,8 +32,17 @@ export default function ToolCard({ tool, index = 0 }: Props) {
       <Link href={`/tool/${tool.slug}`} className="block group">
         <div className="relative p-5 rounded-2xl border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--card-hover)] transition-all duration-300 hover:shadow-lg hover:shadow-black/5 hover:-translate-y-0.5">
           <div className="flex items-start justify-between mb-3">
-            <div className="w-10 h-10 rounded-xl bg-[var(--muted)] flex items-center justify-center text-lg font-bold text-[var(--muted-foreground)]">
-              {tool.name.charAt(0)}
+            <div className="w-10 h-10 rounded-xl bg-[var(--muted)] flex items-center justify-center overflow-hidden">
+              <img
+                src={tool.logo}
+                alt={tool.name}
+                className="w-7 h-7 object-contain"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.style.display = "none";
+                  target.parentElement!.innerHTML = `<span class="text-lg font-bold text-[var(--muted-foreground)]">${tool.name.charAt(0)}</span>`;
+                }}
+              />
             </div>
             <span className={`text-xs px-2.5 py-1 rounded-full font-medium ${pricingColor[tool.pricing]}`}>
               {pricingLabel[tool.pricing]}
