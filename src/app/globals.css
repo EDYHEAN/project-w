@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Cal Sans";
+  src: url("/fonts/CalSans-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #050505;
@@ -21,7 +29,7 @@
 }
 
 h1, h2, h3 {
-  font-family: var(--font-cal-sans), var(--font-geist-sans), sans-serif;
+  font-family: "Cal Sans", var(--font-geist-sans), sans-serif;
 }
 
 
