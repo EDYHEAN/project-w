@@ -29,8 +29,6 @@
 - [ ] **Plus d'outils** — objectif 50+ pour couvrir davantage de mots-clés long-tail
   - Ajouter dans `src/data/tools.ts` + logo SVG dans `public/logos/`
 
-- [ ] **Barre de recherche** sur la homepage
-
 - [ ] **Filtres** par pricing (Gratuit / Freemium / Payant) sur les pages catégorie
 
 ## 💡 Priorité basse
@@ -57,3 +55,9 @@
 - [x] **Hero 2 colonnes** — decoration animée côté droit : dot grid, blobs, glass card "Top outils" + chips flottants
 - [x] **Navbar plus haute** (h-16) avec liquid glass renforcé (blur 48px, saturate 200%)
 - [x] **Category cards** hauteur uniforme via min-h + flex-col
+- [x] **Navbar dropdown catégories** + Blog disabled + SearchModal ⌘K
+- [x] **FeaturedTools carousel** — arrows hover, lazy load AllTools + Voir plus, screenshot ratio
+- [x] **Hero copy** — "À un outil de la réussite." + sous-titre rewrote
+- [x] **Logo chest.svg** + wordmark ToolVault en Cal Sans bold (Anton retiré)
+- [x] **Feature descriptions** — 84 bullets réécrits en français accessible
+- [x] **Newsletter** width élargie
