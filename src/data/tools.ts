@@ -22,7 +22,7 @@ export const tools: Tool[] = [
     ],
     rating: 4.5,
     pricing: "paid",
-    featured: false,
+    featured: true,
   },
   {
     slug: "writesonic",
@@ -283,7 +283,7 @@ export const tools: Tool[] = [
     ],
     rating: 4.8,
     pricing: "freemium",
-    featured: false,
+    featured: true,
   },
   {
     slug: "ahrefs",
@@ -348,7 +348,7 @@ export const tools: Tool[] = [
     ],
     rating: 4.9,
     pricing: "freemium",
-    featured: false,
+    featured: true,
   },
   {
     slug: "webflow",

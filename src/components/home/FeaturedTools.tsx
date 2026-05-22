@@ -259,8 +259,7 @@ export default function FeaturedTools({ tools }: Props) {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-3">
         {/* Left — auto-rotating hero card */}
         <div
-          className="relative overflow-hidden rounded-2xl"
-          style={{ minHeight: 370 }}
+          className="relative overflow-hidden rounded-2xl self-stretch"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
@@ -282,14 +281,14 @@ export default function FeaturedTools({ tools }: Props) {
           {/* Prev / Next arrows */}
           <button
             onClick={(e) => { e.preventDefault(); e.stopPropagation(); goPrev(); }}
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full border border-[var(--border)] flex items-center justify-center transition-all duration-150 hover:border-[var(--border-strong)]"
+            className={`absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full border border-[var(--border)] flex items-center justify-center transition-all duration-200 hover:border-[var(--border-strong)] ${paused ? "opacity-100" : "opacity-0 pointer-events-none"}`}
             style={{ background: "rgba(255,255,255,0.82)", backdropFilter: "blur(12px)" }}
           >
             <ArrowLeft className="w-3.5 h-3.5 text-[var(--foreground)]" />
           </button>
           <button
             onClick={(e) => { e.preventDefault(); e.stopPropagation(); goNext(); }}
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full border border-[var(--border)] flex items-center justify-center transition-all duration-150 hover:border-[var(--border-strong)]"
+            className={`absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full border border-[var(--border)] flex items-center justify-center transition-all duration-200 hover:border-[var(--border-strong)] ${paused ? "opacity-100" : "opacity-0 pointer-events-none"}`}
             style={{ background: "rgba(255,255,255,0.82)", backdropFilter: "blur(12px)" }}
           >
             <ArrowRight className="w-3.5 h-3.5 text-[var(--foreground)]" />
