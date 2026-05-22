@@ -16,6 +16,7 @@ export type Tool = {
   website: string;
   affiliateUrl: string;
   logo: string;
+  screenshots?: string[];
   rating: number;
   pricing: "free" | "freemium" | "paid";
   featured: boolean;
