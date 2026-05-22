@@ -105,7 +105,7 @@ function ScreenshotArea({ tool }: { tool: Tool }) {
 function HeroSlide({ tool }: { tool: Tool }) {
   return (
     <Link href={`/tool/${tool.slug}`} className="block group h-full">
-      <div className="relative h-full rounded-2xl border border-[var(--border)] bg-[var(--card)] flex flex-col overflow-hidden hover:border-[var(--border-strong)] transition-colors duration-200 pb-12">
+      <div className="relative h-full rounded-2xl border border-[var(--border)] bg-[var(--card)] flex flex-col overflow-hidden hover:border-[var(--border-strong)] transition-colors duration-200 pb-16">
         <ScreenshotArea tool={tool} />
 
         <div className="relative px-8 py-5 flex flex-col flex-1">
@@ -308,7 +308,7 @@ export default function FeaturedTools({ tools }: Props) {
           </button>
 
           {/* Navigation dots */}
-          <div className="absolute bottom-[18px] left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10">
+          <div className="absolute bottom-[26px] left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10">
             {tools.map((_, i) => (
               <button
                 key={i}
