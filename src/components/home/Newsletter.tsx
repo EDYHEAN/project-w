@@ -19,7 +19,7 @@ export default function Newsletter() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="max-w-2xl mx-auto text-center"
+        className="max-w-4xl mx-auto text-center"
       >
         <div className="relative p-12 rounded-3xl overflow-hidden border border-[var(--border)] bg-gradient-to-br from-violet-500/5 to-pink-500/5">
           <div
@@ -55,7 +55,7 @@ export default function Newsletter() {
                 Rejoins 0 makers qui reçoivent les meilleures découvertes outils
                 directement dans leur boîte mail.
               </p>
-              <form onSubmit={handleSubmit} className="flex gap-2 max-w-sm mx-auto">
+              <form onSubmit={handleSubmit} className="flex gap-2 max-w-md mx-auto">
                 <input
                   type="email"
                   value={email}

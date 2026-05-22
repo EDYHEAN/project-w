@@ -55,7 +55,7 @@ function ScreenshotArea({ tool }: { tool: Tool }) {
         </div>
       </div>
 
-      <div className="h-[210px] relative overflow-hidden bg-[var(--muted)] flex items-center justify-center">
+      <div className="h-[185px] relative overflow-hidden bg-[var(--muted)] flex items-center justify-center">
         {hasScreenshots ? (
           <AnimatePresence mode="wait">
             <motion.img
@@ -105,7 +105,7 @@ function ScreenshotArea({ tool }: { tool: Tool }) {
 function HeroSlide({ tool }: { tool: Tool }) {
   return (
     <Link href={`/tool/${tool.slug}`} className="block group h-full">
-      <div className="relative h-full min-h-[420px] rounded-2xl border border-[var(--border)] bg-[var(--card)] flex flex-col overflow-hidden hover:border-[var(--border-strong)] transition-colors duration-200 pb-8">
+      <div className="relative h-full rounded-2xl border border-[var(--border)] bg-[var(--card)] flex flex-col overflow-hidden hover:border-[var(--border-strong)] transition-colors duration-200 pb-8">
         <ScreenshotArea tool={tool} />
 
         <div className="relative p-6 flex flex-col flex-1">
@@ -130,7 +130,7 @@ function HeroSlide({ tool }: { tool: Tool }) {
             </div>
           )}
 
-          <div className="flex items-center justify-between mt-auto pt-4">
+          <div className="flex items-center justify-between mt-3">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1">
                 <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
@@ -265,7 +265,7 @@ export default function FeaturedTools({ tools }: Props) {
         {/* Left — auto-rotating hero card */}
         <div
           className="relative overflow-hidden rounded-2xl"
-          style={{ minHeight: 420 }}
+          style={{ minHeight: 370 }}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
