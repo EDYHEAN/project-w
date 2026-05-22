@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import { Tool } from "@/types";
 
 const pricingLabel: Record<Tool["pricing"], string> = {
@@ -105,7 +105,7 @@ function ScreenshotArea({ tool }: { tool: Tool }) {
 function HeroSlide({ tool }: { tool: Tool }) {
   return (
     <Link href={`/tool/${tool.slug}`} className="block group h-full">
-      <div className="relative h-full rounded-2xl border border-[var(--border)] bg-[var(--card)] flex flex-col overflow-hidden hover:border-[var(--border-strong)] transition-colors duration-200 pb-8">
+      <div className="relative h-full rounded-2xl border border-[var(--border)] bg-[var(--card)] flex flex-col overflow-hidden hover:border-[var(--border-strong)] transition-colors duration-200 pb-12">
         <ScreenshotArea tool={tool} />
 
         <div className="relative p-6 flex flex-col flex-1">
@@ -237,6 +237,13 @@ export default function FeaturedTools({ tools }: Props) {
     setProgressKey((k) => k + 1);
   }, [current, tools.length]);
 
+  const goPrev = useCallback(() => {
+    const prev = (current - 1 + tools.length) % tools.length;
+    setDirection(-1);
+    setCurrent(prev);
+    setProgressKey((k) => k + 1);
+  }, [current, tools.length]);
+
   useEffect(() => {
     if (paused) return;
     const timer = setTimeout(goNext, SLIDE_DURATION);
@@ -283,6 +290,22 @@ export default function FeaturedTools({ tools }: Props) {
               <HeroSlide tool={tools[current]} />
             </motion.div>
           </AnimatePresence>
+
+          {/* Prev / Next arrows */}
+          <button
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); goPrev(); }}
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full border border-[var(--border)] flex items-center justify-center transition-all duration-150 hover:border-[var(--border-strong)]"
+            style={{ background: "rgba(255,255,255,0.82)", backdropFilter: "blur(12px)" }}
+          >
+            <ArrowLeft className="w-3.5 h-3.5 text-[var(--foreground)]" />
+          </button>
+          <button
+            onClick={(e) => { e.preventDefault(); e.stopPropagation(); goNext(); }}
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full border border-[var(--border)] flex items-center justify-center transition-all duration-150 hover:border-[var(--border-strong)]"
+            style={{ background: "rgba(255,255,255,0.82)", backdropFilter: "blur(12px)" }}
+          >
+            <ArrowRight className="w-3.5 h-3.5 text-[var(--foreground)]" />
+          </button>
 
           {/* Navigation dots */}
           <div className="absolute bottom-[18px] left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10">

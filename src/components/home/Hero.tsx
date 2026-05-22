@@ -145,14 +145,15 @@ export default function Hero() {
           </motion.span>
 
           <h1 className="text-[56px] md:text-[72px] font-bold tracking-[-0.03em] leading-[1.05] mb-6 text-[var(--foreground)]">
-            Les meilleurs outils
+            On a testé les outils.
             <br />
-            pour makers.
+            Voilà les meilleurs.
           </h1>
 
           <p className="text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-lg mb-10">
-            Chaque outil est sélectionné, testé et noté. Trouvez votre stack
-            idéale en quelques minutes.
+            ToolVault sélectionne et recommande honnêtement les meilleures apps
+            pour makers — design, IA, productivité, no-code et plus. Fini de
+            perdre des heures à chercher.
           </p>
 
           <div className="flex items-center gap-3">
