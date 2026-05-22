@@ -44,7 +44,6 @@ function ScreenshotArea({ tool }: { tool: Tool }) {
 
   return (
     <div className="mx-5 mt-5 rounded-xl overflow-hidden border border-[var(--border)] shrink-0">
-      {/* Browser chrome */}
       <div className="flex items-center gap-1.5 px-3 py-2 bg-[var(--muted)] border-b border-[var(--border)]">
         <div className="w-2 h-2 rounded-full bg-red-400/60" />
         <div className="w-2 h-2 rounded-full bg-amber-400/60" />
@@ -56,8 +55,7 @@ function ScreenshotArea({ tool }: { tool: Tool }) {
         </div>
       </div>
 
-      {/* Visual */}
-      <div className="h-[188px] relative overflow-hidden bg-[var(--muted)] flex items-center justify-center">
+      <div className="h-[210px] relative overflow-hidden bg-[var(--muted)] flex items-center justify-center">
         {hasScreenshots ? (
           <AnimatePresence mode="wait">
             <motion.img
@@ -107,7 +105,7 @@ function ScreenshotArea({ tool }: { tool: Tool }) {
 function HeroSlide({ tool }: { tool: Tool }) {
   return (
     <Link href={`/tool/${tool.slug}`} className="block group h-full">
-      <div className="relative h-full min-h-[420px] rounded-2xl border border-[var(--border)] bg-[var(--card)] flex flex-col overflow-hidden hover:border-[var(--border-strong)] transition-colors duration-200 pb-10">
+      <div className="relative h-full min-h-[420px] rounded-2xl border border-[var(--border)] bg-[var(--card)] flex flex-col overflow-hidden hover:border-[var(--border-strong)] transition-colors duration-200 pb-8">
         <ScreenshotArea tool={tool} />
 
         <div className="relative p-6 flex flex-col flex-1">
@@ -115,11 +113,24 @@ function HeroSlide({ tool }: { tool: Tool }) {
             Coup de cœur
           </p>
           <h3 className="text-2xl font-bold mb-2 tracking-tight">{tool.name}</h3>
-          <p className="text-sm text-[var(--muted-foreground)] leading-relaxed line-clamp-2 flex-1">
+          <p className="text-sm text-[var(--muted-foreground)] leading-relaxed line-clamp-2">
             {tool.description}
           </p>
 
-          <div className="flex items-center justify-between mt-4">
+          {tool.features && tool.features.length > 0 && (
+            <div className="flex flex-wrap gap-1.5 mt-3">
+              {tool.features.slice(0, 3).map((f, i) => (
+                <span
+                  key={i}
+                  className="text-xs px-2.5 py-1 rounded-full bg-[var(--muted)] text-[var(--muted-foreground)]"
+                >
+                  {f.title}
+                </span>
+              ))}
+            </div>
+          )}
+
+          <div className="flex items-center justify-between mt-auto pt-4">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1">
                 <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
@@ -143,65 +154,61 @@ function ListCard({
   tool,
   index,
   active,
-  onClick,
 }: {
   tool: Tool;
   index: number;
   active: boolean;
-  onClick: () => void;
 }) {
   return (
-    <motion.button
+    <motion.div
       initial={{ opacity: 0, x: 16 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4, delay: index * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
-      onClick={onClick}
-      className="w-full text-left group"
     >
-      <div
-        className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-colors duration-150 ${
-          active ? "bg-[var(--muted)]" : "hover:bg-[var(--muted)]"
-        }`}
-      >
+      <Link href={`/tool/${tool.slug}`} className="block">
         <div
-          className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 overflow-hidden transition-colors duration-150 ${
-            active ? "bg-[var(--border)]" : "bg-[var(--muted)] group-hover:bg-[var(--border)]"
+          className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-colors duration-150 ${
+            active ? "bg-[var(--muted)]" : "hover:bg-[var(--muted)]"
           }`}
         >
-          <img
-            src={tool.logo}
-            alt={tool.name}
-            className="w-6 h-6 object-contain"
-            onError={(e) => {
-              const t = e.currentTarget;
-              t.style.display = "none";
-              t.parentElement!.innerHTML = `<span class="text-sm font-bold text-[var(--muted-foreground)]">${tool.name.charAt(0)}</span>`;
-            }}
-          />
-        </div>
+          <div
+            className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 overflow-hidden transition-colors duration-150 ${
+              active ? "bg-[var(--border)]" : "bg-[var(--muted)] group-hover:bg-[var(--border)]"
+            }`}
+          >
+            <img
+              src={tool.logo}
+              alt={tool.name}
+              className="w-6 h-6 object-contain"
+              onError={(e) => {
+                const t = e.currentTarget;
+                t.style.display = "none";
+                t.parentElement!.innerHTML = `<span class="text-sm font-bold text-[var(--muted-foreground)]">${tool.name.charAt(0)}</span>`;
+              }}
+            />
+          </div>
 
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-0.5">
-            <span
-              className={`font-medium text-sm ${active ? "text-[var(--foreground)]" : ""}`}
-            >
-              {tool.name}
-            </span>
-            <span className="text-xs text-[var(--muted-foreground)] shrink-0">
-              {pricingLabel[tool.pricing]}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 mb-0.5">
+              <span className={`font-medium text-sm ${active ? "text-[var(--foreground)]" : ""}`}>
+                {tool.name}
+              </span>
+              <span className="text-xs text-[var(--muted-foreground)] shrink-0">
+                {pricingLabel[tool.pricing]}
+              </span>
+            </div>
+            <p className="text-xs text-[var(--muted-foreground)] truncate">{tool.tagline}</p>
+          </div>
+
+          <div className="flex items-center gap-1 shrink-0">
+            <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+            <span className="text-xs font-medium text-[var(--muted-foreground)]">
+              {tool.rating}
             </span>
           </div>
-          <p className="text-xs text-[var(--muted-foreground)] truncate">{tool.tagline}</p>
         </div>
-
-        <div className="flex items-center gap-1 shrink-0">
-          <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-          <span className="text-xs font-medium text-[var(--muted-foreground)]">
-            {tool.rating}
-          </span>
-        </div>
-      </div>
-    </motion.button>
+      </Link>
+    </motion.div>
   );
 }
 
@@ -310,7 +317,7 @@ export default function FeaturedTools({ tools }: Props) {
           </div>
         </div>
 
-        {/* Right — clickable list */}
+        {/* Right — list navigates to tool pages */}
         <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-2 flex flex-col justify-center divide-y divide-[var(--border)]">
           {tools.map((tool, i) => (
             <ListCard
@@ -318,7 +325,6 @@ export default function FeaturedTools({ tools }: Props) {
               tool={tool}
               index={i}
               active={i === current}
-              onClick={() => goTo(i)}
             />
           ))}
         </div>
