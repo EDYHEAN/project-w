@@ -128,9 +128,9 @@ function HeroSlide({ tool }: { tool: Tool }) {
                 {pricingLabel[tool.pricing]}
               </span>
             </div>
-            <div className="w-8 h-8 rounded-full border border-[var(--border)] flex items-center justify-center group-hover:border-[var(--border-strong)] group-hover:bg-[var(--muted)] transition-all duration-200">
-              <ArrowRight className="w-4 h-4 text-[var(--muted-foreground)]" />
-            </div>
+            <span className="text-xs text-[var(--muted-foreground)] group-hover:text-[var(--foreground)] transition-colors duration-150">
+              Voir la fiche&nbsp;→
+            </span>
           </div>
         </div>
       </div>
