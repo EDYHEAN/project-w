@@ -22,7 +22,7 @@ export const tools: Tool[] = [
     ],
     rating: 4.5,
     pricing: "paid",
-    featured: true,
+    featured: false,
   },
   {
     slug: "writesonic",
@@ -131,7 +131,7 @@ export const tools: Tool[] = [
     ],
     rating: 4.8,
     pricing: "paid",
-    featured: true,
+    featured: false,
   },
   {
     slug: "canva",
@@ -261,7 +261,7 @@ export const tools: Tool[] = [
     ],
     rating: 4.7,
     pricing: "paid",
-    featured: true,
+    featured: false,
   },
   {
     slug: "beehiiv",
@@ -283,7 +283,7 @@ export const tools: Tool[] = [
     ],
     rating: 4.8,
     pricing: "freemium",
-    featured: true,
+    featured: false,
   },
   {
     slug: "ahrefs",
@@ -348,7 +348,7 @@ export const tools: Tool[] = [
     ],
     rating: 4.9,
     pricing: "freemium",
-    featured: true,
+    featured: false,
   },
   {
     slug: "webflow",
@@ -370,7 +370,7 @@ export const tools: Tool[] = [
     ],
     rating: 4.7,
     pricing: "freemium",
-    featured: true,
+    featured: false,
   },
   {
     slug: "supabase",
@@ -434,7 +434,7 @@ export const tools: Tool[] = [
     ],
     rating: 4.6,
     pricing: "paid",
-    featured: true,
+    featured: false,
   },
   {
     slug: "qonto",

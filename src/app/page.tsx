@@ -1,9 +1,10 @@
 import Hero from "@/components/home/Hero";
 import FeaturedTools from "@/components/home/FeaturedTools";
+import AllTools from "@/components/home/AllTools";
 import Newsletter from "@/components/home/Newsletter";
 import CategoryCard from "@/components/ui/CategoryCard";
 import { categories } from "@/data/categories";
-import { getFeaturedTools } from "@/data/tools";
+import { getFeaturedTools, tools } from "@/data/tools";
 
 export default function Home() {
   const featuredTools = getFeaturedTools();
@@ -27,6 +28,8 @@ export default function Home() {
       </section>
 
       <FeaturedTools tools={featuredTools} />
+
+      <AllTools tools={tools} />
 
       <Newsletter />
     </>
