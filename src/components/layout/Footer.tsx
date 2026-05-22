@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
 import { categories } from "@/data/categories";
 
 export default function Footer() {
@@ -9,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2 font-semibold mb-4">
-              <Sparkles className="w-4 h-4 text-violet-600" />
+              <img src="/main-logo/chest.svg" alt="" className="w-4 h-4" />
               <span>ToolVault</span>
             </Link>
             <p className="text-sm text-[var(--muted-foreground)] leading-relaxed max-w-sm">
