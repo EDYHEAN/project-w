@@ -153,10 +153,6 @@ export default function ToolPage({ params }: Props) {
                 Site officiel
                 <ExternalLink className="w-3 h-3" />
               </a>
-              <p className="text-xs text-[var(--muted-foreground)] text-center mt-3 leading-relaxed">
-                Lien affilié — on perçoit une commission si vous souscrivez, sans
-                surcoût pour vous.
-              </p>
             </div>
 
             <div className="p-4 rounded-xl bg-[var(--muted)] text-sm space-y-2">

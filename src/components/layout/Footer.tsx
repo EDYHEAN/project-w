@@ -16,10 +16,6 @@ export default function Footer() {
               Les meilleurs outils, sélectionnés et testés. Trouvez votre stack
               idéale et économisez des heures de recherche.
             </p>
-            <p className="text-xs text-[var(--muted-foreground)] mt-4">
-              Certains liens sont affiliés — on gagne une commission si vous
-              achetez, sans surcoût pour vous.
-            </p>
           </div>
 
           <div>
@@ -71,11 +67,20 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-[var(--border)] flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-[var(--muted-foreground)]">
-            © 2025 ToolVault. Tous droits réservés.
+            © 2026 ToolVault. Tous droits réservés.
           </p>
-          <p className="text-xs text-[var(--muted-foreground)]">
-            Fait avec ❤️ pour les makers ambitieux
-          </p>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/mentions-legales"
+              className="text-xs text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+            >
+              Mentions légales
+            </Link>
+            <span className="text-xs text-[var(--muted-foreground)]">·</span>
+            <p className="text-xs text-[var(--muted-foreground)]">
+              Fait avec ❤️ pour les makers ambitieux
+            </p>
+          </div>
         </div>
       </div>
     </footer>
