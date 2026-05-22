@@ -26,13 +26,11 @@ const slideVariants = {
   }),
 };
 
-function ScreenshotArea({ tool }: { tool: Tool }) {
+function HeroSlide({ tool }: { tool: Tool }) {
   const [imgIndex, setImgIndex] = useState(0);
   const hasScreenshots = tool.screenshots && tool.screenshots.length > 0;
 
-  useEffect(() => {
-    setImgIndex(0);
-  }, [tool.slug]);
+  useEffect(() => { setImgIndex(0); }, [tool.slug]);
 
   useEffect(() => {
     if (!hasScreenshots || tool.screenshots!.length < 2) return;
@@ -43,72 +41,67 @@ function ScreenshotArea({ tool }: { tool: Tool }) {
   }, [hasScreenshots, tool.screenshots, tool.slug]);
 
   return (
-    <div className="mx-6 mt-6 rounded-xl overflow-hidden border border-[var(--border)] shrink-0">
-      <div className="flex items-center gap-1.5 px-3 py-2 bg-[var(--muted)] border-b border-[var(--border)]">
-        <div className="w-2 h-2 rounded-full bg-red-400/60" />
-        <div className="w-2 h-2 rounded-full bg-amber-400/60" />
-        <div className="w-2 h-2 rounded-full bg-emerald-400/60" />
-        <div className="flex-1 ml-2 h-4 rounded-md bg-[var(--border)] flex items-center px-2 overflow-hidden">
-          <span className="text-[10px] text-[var(--muted-foreground)] truncate leading-none">
-            {tool.website.replace("https://", "")}
-          </span>
-        </div>
-      </div>
-
-      <div className="h-[185px] relative overflow-hidden bg-[var(--muted)] flex items-center justify-center">
-        {hasScreenshots ? (
-          <AnimatePresence mode="wait">
-            <motion.img
-              key={imgIndex}
-              src={tool.screenshots![imgIndex]}
-              alt={tool.name}
-              className="w-full h-full object-cover"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            />
-          </AnimatePresence>
-        ) : (
-          <>
-            <div
-              className="absolute inset-0 opacity-[0.35]"
-              style={{
-                backgroundImage: "radial-gradient(circle, #c7c7cc 1px, transparent 1px)",
-                backgroundSize: "20px 20px",
-              }}
-            />
-            <img
-              src={tool.logo}
-              alt={tool.name}
-              className="w-14 h-14 object-contain relative z-10 opacity-90"
-              onError={(e) => {
-                const t = e.currentTarget;
-                t.style.display = "none";
-                const parent = t.parentElement;
-                if (parent) {
-                  const span = document.createElement("span");
-                  span.className =
-                    "text-4xl font-bold text-[var(--muted-foreground)] relative z-10";
-                  span.textContent = tool.name.charAt(0);
-                  parent.appendChild(span);
-                }
-              }}
-            />
-          </>
-        )}
-      </div>
-    </div>
-  );
-}
-
-function HeroSlide({ tool }: { tool: Tool }) {
-  return (
     <Link href={`/tool/${tool.slug}`} className="block group h-full">
-      <div className="relative h-full rounded-2xl border border-[var(--border)] bg-[var(--card)] flex flex-col overflow-hidden hover:border-[var(--border-strong)] transition-colors duration-200 pb-16">
-        <ScreenshotArea tool={tool} />
+      <div className="relative h-full rounded-2xl border border-[var(--border)] bg-[var(--card)] flex flex-col overflow-hidden hover:border-[var(--border-strong)] transition-colors duration-200">
 
-        <div className="relative px-8 py-5 flex flex-col flex-1">
+        {/* Screenshot — prend tout l'espace disponible */}
+        <div className="flex-1 mx-6 mt-6 rounded-xl overflow-hidden border border-[var(--border)] flex flex-col min-h-0">
+          <div className="flex items-center gap-1.5 px-3 py-2 bg-[var(--muted)] border-b border-[var(--border)] shrink-0">
+            <div className="w-2 h-2 rounded-full bg-red-400/60" />
+            <div className="w-2 h-2 rounded-full bg-amber-400/60" />
+            <div className="w-2 h-2 rounded-full bg-emerald-400/60" />
+            <div className="flex-1 ml-2 h-4 rounded-md bg-[var(--border)] flex items-center px-2 overflow-hidden">
+              <span className="text-[10px] text-[var(--muted-foreground)] truncate leading-none">
+                {tool.website.replace("https://", "")}
+              </span>
+            </div>
+          </div>
+          <div className="flex-1 relative overflow-hidden bg-[var(--muted)] flex items-center justify-center min-h-0">
+            {hasScreenshots ? (
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={imgIndex}
+                  src={tool.screenshots![imgIndex]}
+                  alt={tool.name}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5 }}
+                />
+              </AnimatePresence>
+            ) : (
+              <>
+                <div
+                  className="absolute inset-0 opacity-[0.35]"
+                  style={{
+                    backgroundImage: "radial-gradient(circle, #c7c7cc 1px, transparent 1px)",
+                    backgroundSize: "20px 20px",
+                  }}
+                />
+                <img
+                  src={tool.logo}
+                  alt={tool.name}
+                  className="w-14 h-14 object-contain relative z-10 opacity-90"
+                  onError={(e) => {
+                    const el = e.currentTarget;
+                    el.style.display = "none";
+                    const parent = el.parentElement;
+                    if (parent) {
+                      const span = document.createElement("span");
+                      span.className = "text-4xl font-bold text-[var(--muted-foreground)] relative z-10";
+                      span.textContent = tool.name.charAt(0);
+                      parent.appendChild(span);
+                    }
+                  }}
+                />
+              </>
+            )}
+          </div>
+        </div>
+
+        {/* Contenu — hauteur naturelle, jamais compressé */}
+        <div className="shrink-0 px-8 pt-5 pb-12">
           <p className="text-xs font-medium text-[var(--muted-foreground)] uppercase tracking-widest mb-2">
             Coup de cœur
           </p>
@@ -116,21 +109,16 @@ function HeroSlide({ tool }: { tool: Tool }) {
           <p className="text-sm text-[var(--muted-foreground)] leading-relaxed line-clamp-2">
             {tool.description}
           </p>
-
           {tool.features && tool.features.length > 0 && (
             <div className="flex flex-wrap gap-1.5 mt-3">
               {tool.features.slice(0, 3).map((f, i) => (
-                <span
-                  key={i}
-                  className="text-xs px-2.5 py-1 rounded-full bg-[var(--muted)] text-[var(--muted-foreground)]"
-                >
+                <span key={i} className="text-xs px-2.5 py-1 rounded-full bg-[var(--muted)] text-[var(--muted-foreground)]">
                   {f.title}
                 </span>
               ))}
             </div>
           )}
-
-          <div className="flex items-center justify-between mt-3">
+          <div className="flex items-center justify-between mt-4">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1">
                 <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
