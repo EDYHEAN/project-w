@@ -43,7 +43,7 @@ function ScreenshotArea({ tool }: { tool: Tool }) {
   }, [hasScreenshots, tool.screenshots, tool.slug]);
 
   return (
-    <div className="mx-5 mt-5 rounded-xl overflow-hidden border border-[var(--border)] shrink-0">
+    <div className="mx-6 mt-6 rounded-xl overflow-hidden border border-[var(--border)] shrink-0">
       <div className="flex items-center gap-1.5 px-3 py-2 bg-[var(--muted)] border-b border-[var(--border)]">
         <div className="w-2 h-2 rounded-full bg-red-400/60" />
         <div className="w-2 h-2 rounded-full bg-amber-400/60" />
@@ -108,7 +108,7 @@ function HeroSlide({ tool }: { tool: Tool }) {
       <div className="relative h-full rounded-2xl border border-[var(--border)] bg-[var(--card)] flex flex-col overflow-hidden hover:border-[var(--border-strong)] transition-colors duration-200 pb-12">
         <ScreenshotArea tool={tool} />
 
-        <div className="relative p-6 flex flex-col flex-1">
+        <div className="relative px-8 py-5 flex flex-col flex-1">
           <p className="text-xs font-medium text-[var(--muted-foreground)] uppercase tracking-widest mb-2">
             Coup de cœur
           </p>
