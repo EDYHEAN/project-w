@@ -145,9 +145,9 @@ export default function Hero() {
           </motion.span>
 
           <h1 className="text-[56px] md:text-[72px] font-bold tracking-[-0.03em] leading-[1.05] mb-6 text-[var(--foreground)]">
-            On a testé les outils.
+            À un outil
             <br />
-            Voilà les meilleurs.
+            de la réussite.
           </h1>
 
           <p className="text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-lg mb-10">
