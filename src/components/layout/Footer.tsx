@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2 font-semibold mb-4">
               <img src="/main-logo/chest.svg" alt="" className="w-4 h-4" />
-              <span>ToolVault</span>
+              <span style={{ fontFamily: "var(--font-anton)" }}>ToolVault</span>
             </Link>
             <p className="text-sm text-[var(--muted-foreground)] leading-relaxed max-w-sm">
               Les meilleurs outils, sélectionnés et testés. Trouvez votre stack

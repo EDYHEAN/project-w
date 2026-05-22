@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Anton } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -14,6 +15,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const anton = Anton({
+  variable: "--font-anton",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const calSans = localFont({
+  src: "../../public/fonts/CalSans-SemiBold.woff2",
+  variable: "--font-cal-sans",
+  weight: "600",
+});
+
 export const metadata: Metadata = {
   title: "ToolVault — Les meilleurs outils pour makers",
   description:
@@ -26,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="fr" className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} ${calSans.variable}`}>
       <body className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)]">
         <Navbar />
         <main className="flex-1 pt-14">{children}</main>

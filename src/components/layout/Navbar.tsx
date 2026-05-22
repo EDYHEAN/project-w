@@ -49,7 +49,7 @@ export default function Navbar() {
         <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2 mr-auto">
             <img src="/main-logo/chest.svg" alt="" className="w-5 h-5" />
-            <span className="text-sm font-semibold tracking-tight">ToolVault</span>
+            <span className="text-sm tracking-wide" style={{ fontFamily: "var(--font-anton)" }}>ToolVault</span>
           </Link>
 
           {/* Search button */}

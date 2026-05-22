@@ -20,6 +20,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
+h1, h2, h3 {
+  font-family: var(--font-cal-sans), var(--font-geist-sans), sans-serif;
+}
+
 
 * {
   box-sizing: border-box;
