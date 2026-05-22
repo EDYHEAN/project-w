@@ -103,22 +103,32 @@ export default function ToolPage({ params }: Props) {
               {tool.description}
             </p>
 
-            <div className="mt-8">
-              <h3 className="text-lg font-semibold mb-4">Pourquoi on l'aime</h3>
-              <ul className="space-y-3">
-                {[
-                  "Interface intuitive et bien pensée",
-                  "Mises à jour régulières et roadmap active",
-                  "Communauté et ressources disponibles",
-                  "Bon rapport qualité / prix",
-                ].map((point) => (
-                  <li key={point} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                    <span className="text-sm text-[var(--muted-foreground)]">{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {tool.features && tool.features.length > 0 && (
+              <div className="mt-10">
+                <h3 className="text-lg font-semibold mb-5">Fonctionnalités clés</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {tool.features.map((feature, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.1 + i * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
+                      className="p-4 rounded-xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--border-strong)] transition-colors duration-200"
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className="w-6 h-6 rounded-full bg-[var(--muted)] flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-3 h-3 text-emerald-500" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-sm mb-0.5">{feature.title}</div>
+                          <div className="text-xs text-[var(--muted-foreground)] leading-relaxed">{feature.description}</div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="space-y-4">

@@ -141,7 +141,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 text-xs text-[var(--muted-foreground)] mb-8"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-            22 outils sélectionnés · mis à jour en mai 2025
+            21 outils sélectionnés · mis à jour en mai 2026
           </motion.span>
 
           <h1 className="text-[56px] md:text-[72px] font-bold tracking-[-0.03em] leading-[1.05] mb-6 text-[var(--foreground)]">
@@ -181,7 +181,7 @@ export default function Hero() {
             className="mt-14 flex items-center gap-10"
           >
             {[
-              { value: "22+", label: "outils" },
+              { value: "21+", label: "outils" },
               { value: "6", label: "catégories" },
               { value: "100%", label: "indépendant" },
             ].map((stat) => (
