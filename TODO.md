@@ -4,10 +4,6 @@
 
 ## 🔥 Priorité haute
 
-- [ ] **Connecter le domaine `myfrenchtool.com` sur Vercel**
-  - Vercel → Settings → Domains → ajouter myfrenchtool.com
-  - Mettre à jour les DNS sur Namecheap selon les instructions Vercel
-
 - [ ] **Vraies URLs affiliées** — s'inscrire aux programmes français
   - Brevo : programme affilié → brevo.com/fr/programme-partenaires
   - Qonto : programme partenaire → qonto.com
@@ -32,7 +28,7 @@
   - Mots-clés cibles : "alternative française à X", "logiciel français pour Y"
 
 - [ ] **Plus d'outils** — objectif 40+ outils 100% français
-  - Ajouter dans `src/data/tools.ts` + logo dans `public/logos/` + screenshot OG
+  - Ajouter dans `src/data/tools.ts` + logo (picto SVG > PNG) dans `public/logos/` + screenshot OG
 
 - [ ] **Domaine myfrenchtool.fr** — acheter quand SIRET micro-entreprise dispo
   - Johan a une micro-entreprise design existante, récupérer le SIRET
@@ -40,12 +36,13 @@
 
 - [ ] **Filtres** par pricing (Gratuit / Freemium / Payant) sur les pages catégorie
 
+- [ ] **Screenshots manquants** — Brevo, Talkspirit, OVHcloud, Plezi (sites bloquaient le scraping)
+
 ## 💡 Priorité basse
 
 - [ ] Page **"Soumettre un outil"** — laisser la communauté proposer des outils
 - [ ] **Page About** — expliquer la sélection, le positionnement 100% français, le modèle affilié
 - [ ] **Blog** — articles SEO "meilleur outil français pour X"
-- [ ] **Screenshots manquants** — Brevo, Talkspirit, OVHcloud, Plezi (sites bloquaient le scraping)
 
 ## ✅ Fait
 
@@ -56,13 +53,16 @@
 - [x] Pages détail outil avec CTA affilié + outils similaires
 - [x] Navbar glassmorphism + Footer
 - [x] Design Apple/Linear cohérent, micro-animations Framer Motion
-- [x] Logos SVG + screenshots OG pour les 16 outils français
 - [x] **Pivot MyFrenchTool** — 16 outils 100% français, logo coq, branding complet
-- [x] **Domaine myfrenchtool.com** acheté sur Namecheap
+- [x] **Domaine myfrenchtool.com** acheté + connecté sur Vercel (live sur www.myfrenchtool.com)
 - [x] **Compteur d'outils réactif** — `tools.length` partout dans le hero
-- [x] **Hero copy** — "À un outil de la réussite." + copy myfrenchtool + RGPD
 - [x] **Navbar** h-72px, coq +15%, menu text-[13-15px]
 - [x] **FeaturedTools carousel** — arrows hover, screenshots OG réels
 - [x] **Lazy load AllTools** + bouton "Voir plus"
 - [x] **SearchModal** ⌘K + dropdown catégories navbar
 - [x] **Cal Sans** wordmark bold, thème 100% light
+- [x] **Vrais logos** pour les 16 outils — 0 placeholder, picto préféré au wordmark
+- [x] **Hero copy** — "Parce que l'excellence n'a pas besoin d'un accent américain..."
+- [x] **Right-click context menu** sur logo outil → téléchargement auto du logo
+- [x] **Suppression lien "Site officiel"** — tout le trafic sortant passe par affiliateUrl
+- [x] **bypassPermissions** configuré dans `.claude/settings.json`
