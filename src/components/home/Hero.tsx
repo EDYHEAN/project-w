@@ -147,9 +147,10 @@ export default function Hero() {
           </motion.span>
 
           <h1 className="text-[56px] md:text-[72px] font-bold tracking-[-0.03em] leading-[1.05] mb-6 text-[var(--foreground)]">
-            À un outil
+            L'outil qu'il
             <br />
-            de la réussite.
+            vous faut{" "}
+            <span style={{ color: "var(--accent)" }}>est ici</span>
           </h1>
 
           <p className="text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-lg mb-10">
