@@ -211,7 +211,7 @@ export const tools: Tool[] = [
     tags: ["b2b", "automation", "leads"],
     website: "https://plezi.co",
     affiliateUrl: "https://plezi.co/?ref=myfrenchtool",
-    logo: "/logos/plezi.svg",
+    logo: "/logos/plezi.webp",
     features: [
       { title: "Alternative simple à HubSpot", description: "Toute la puissance du marketing automation B2B, sans passer 3 mois à configurer l'outil." },
       { title: "Nurturing automatique de vos leads", description: "Plezi envoie automatiquement le bon contenu à chaque prospect selon où il en est dans sa réflexion." },
