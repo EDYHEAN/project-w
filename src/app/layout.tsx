@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "ToolVault — Les meilleurs outils pour makers",
+  title: "MyFrenchTool — Les meilleurs outils français",
   description:
-    "Découvrez les meilleurs outils pour designers, makers et entrepreneurs. Sélectionnés et notés par des professionnels.",
+    "Découvrez les meilleurs outils français pour designers, makers et entrepreneurs. Alternatives françaises, données en France, sélectionnées et testées.",
 };
 
 export default function RootLayout({

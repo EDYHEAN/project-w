@@ -8,8 +8,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center gap-2 font-semibold mb-4">
-              <img src="/main-logo/chest.svg" alt="" className="w-4 h-4" />
-              <span style={{ fontFamily: '"Cal Sans", sans-serif', fontWeight: 700 }}>ToolVault</span>
+              <img src="/main-logo/rooster.svg" alt="" className="w-4 h-4" />
+              <span style={{ fontFamily: '"Cal Sans", sans-serif', fontWeight: 700 }}>myfrenchtool</span>
             </Link>
             <p className="text-sm text-[var(--muted-foreground)] leading-relaxed max-w-sm">
               Les meilleurs outils, sélectionnés et testés. Trouvez votre stack
