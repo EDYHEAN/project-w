@@ -4,12 +4,9 @@
 
 ## 🔥 Priorité haute
 
-- [ ] **Migrer l'hébergement vers Clever Cloud** (français, gratuit)
-  - Créer un compte sur clever-cloud.com
-  - Créer une app Node.js et connecter le repo GitHub
-  - Configurer les variables d'environnement
-  - Connecter le domaine `myfrenchtool.com`
-  - Supprimer le projet Vercel après migration validée
+- [ ] **Connecter le domaine `myfrenchtool.com` sur Vercel**
+  - Vercel → Settings → Domains → ajouter myfrenchtool.com
+  - Mettre à jour les DNS sur Namecheap selon les instructions Vercel
 
 - [ ] **Vraies URLs affiliées** — s'inscrire aux programmes français
   - Brevo : programme affilié → brevo.com/fr/programme-partenaires
