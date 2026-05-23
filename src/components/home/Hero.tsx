@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { tools } from "@/data/tools";
+import { categories } from "@/data/categories";
 
 function HeroDecoration() {
   return (
@@ -93,7 +95,7 @@ function HeroDecoration() {
           padding: "10px 16px",
         }}
       >
-        <div className="text-sm font-bold">22+</div>
+        <div className="text-sm font-bold">{tools.length}+</div>
         <div className="text-[10px] text-[var(--muted-foreground)] mt-0.5">outils curatés</div>
       </motion.div>
 
@@ -141,7 +143,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 text-xs text-[var(--muted-foreground)] mb-8"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-            21 outils sélectionnés · mis à jour en mai 2026
+            {tools.length} outils français sélectionnés · mis à jour en mai 2026
           </motion.span>
 
           <h1 className="text-[56px] md:text-[72px] font-bold tracking-[-0.03em] leading-[1.05] mb-6 text-[var(--foreground)]">
@@ -151,9 +153,9 @@ export default function Hero() {
           </h1>
 
           <p className="text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-lg mb-10">
-            ToolVault sélectionne et recommande honnêtement les meilleures apps
-            pour makers — design, IA, productivité, no-code et plus. Fini de
-            perdre des heures à chercher.
+            MyFrenchTool sélectionne et recommande honnêtement les meilleurs
+            outils français — design, IA, productivité, finance et plus. Données
+            en France, conformes RGPD.
           </p>
 
           <div className="flex items-center gap-3">
@@ -182,8 +184,8 @@ export default function Hero() {
             className="mt-14 flex items-center gap-10"
           >
             {[
-              { value: "21+", label: "outils" },
-              { value: "6", label: "catégories" },
+              { value: `${tools.length}+`, label: "outils" },
+              { value: `${categories.length}`, label: "catégories" },
               { value: "100%", label: "indépendant" },
             ].map((stat) => (
               <div key={stat.label}>
