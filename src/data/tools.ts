@@ -12,7 +12,7 @@ export const tools: Tool[] = [
     tags: ["llm", "ia", "open-source"],
     website: "https://mistral.ai",
     affiliateUrl: "https://mistral.ai/?ref=myfrenchtool",
-    logo: "/logos/mistral.svg",
+    logo: "/logos/mistral-icon.png",
     screenshots: ["/screenshots/mistral-1.jpg"],
     features: [
       { title: "Fait à Paris", description: "Mistral AI est une startup parisienne — vos données sont traitées en Europe, loin des GAFAM." },
@@ -167,7 +167,7 @@ export const tools: Tool[] = [
     tags: ["email", "outreach", "sales"],
     website: "https://lemlist.com",
     affiliateUrl: "https://lemlist.com/?ref=myfrenchtool",
-    logo: "/logos/lemlist.avif",
+    logo: "/logos/lemlist-icon.webp",
     screenshots: ["/screenshots/lemlist-1.png"],
     features: [
       { title: "Emails personnalisés à grande échelle", description: "Lemlist génère des images et vidéos personnalisées pour chaque prospect — automatiquement." },
@@ -277,7 +277,7 @@ export const tools: Tool[] = [
     tags: ["accounting", "invoicing", "french"],
     website: "https://pennylane.com",
     affiliateUrl: "https://pennylane.com/?ref=myfrenchtool",
-    logo: "/logos/pennylane.svg",
+    logo: "/logos/pennylane.png",
     screenshots: ["/screenshots/pennylane-1.jpg"],
     features: [
       { title: "Vos dépenses classées automatiquement", description: "Connectez votre banque et Pennylane trie vos transactions sans que vous ayez à le faire." },
@@ -299,7 +299,7 @@ export const tools: Tool[] = [
     tags: ["banking", "business", "payments"],
     website: "https://qonto.com",
     affiliateUrl: "https://qonto.com/?ref=myfrenchtool",
-    logo: "/logos/qonto.svg",
+    logo: "/logos/qonto.png",
     screenshots: ["/screenshots/qonto-1.jpg"],
     features: [
       { title: "Compte ouvert en 24h en ligne", description: "Vous obtenez un vrai IBAN français sans rendez-vous en agence ni paperasse interminable." },
