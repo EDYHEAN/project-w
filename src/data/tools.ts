@@ -58,7 +58,7 @@ export const tools: Tool[] = [
     tags: ["wiki", "notes", "documentation"],
     website: "https://slite.com",
     affiliateUrl: "https://slite.com/?ref=myfrenchtool",
-    logo: "/logos/slite.svg",
+    logo: "/logos/slite.webp",
     screenshots: ["/screenshots/slite-1.jpg"],
     features: [
       { title: "Tout ce que sait votre équipe, au même endroit", description: "Procédures, notes de réunion, onboarding — plus personne ne perd le fil." },
@@ -80,7 +80,7 @@ export const tools: Tool[] = [
     tags: ["messaging", "collaboration", "french"],
     website: "https://talkspirit.com",
     affiliateUrl: "https://talkspirit.com/?ref=myfrenchtool",
-    logo: "/logos/talkspirit.svg",
+    logo: "/logos/talkspirit.png",
     features: [
       { title: "Alternative souveraine à Slack", description: "Même confort que Slack — canaux, messages directs, réactions — mais les données restent en France." },
       { title: "Visio intégrée", description: "Lancez une réunion vidéo en un clic, sans installer Zoom ou Teams." },
@@ -123,7 +123,7 @@ export const tools: Tool[] = [
     tags: ["webinar", "video", "events"],
     website: "https://livestorm.co",
     affiliateUrl: "https://livestorm.co/?ref=myfrenchtool",
-    logo: "/logos/livestorm.svg",
+    logo: "/logos/livestorm.png",
     screenshots: ["/screenshots/livestorm-1.jpg"],
     features: [
       { title: "Aucune installation pour vos participants", description: "Vos invités rejoignent directement depuis leur navigateur — pas de téléchargement, pas de compte à créer." },
@@ -167,7 +167,7 @@ export const tools: Tool[] = [
     tags: ["email", "outreach", "sales"],
     website: "https://lemlist.com",
     affiliateUrl: "https://lemlist.com/?ref=myfrenchtool",
-    logo: "/logos/lemlist.svg",
+    logo: "/logos/lemlist.avif",
     screenshots: ["/screenshots/lemlist-1.png"],
     features: [
       { title: "Emails personnalisés à grande échelle", description: "Lemlist génère des images et vidéos personnalisées pour chaque prospect — automatiquement." },
@@ -189,7 +189,7 @@ export const tools: Tool[] = [
     tags: ["chat", "support", "crm"],
     website: "https://crisp.chat",
     affiliateUrl: "https://crisp.chat/?ref=myfrenchtool",
-    logo: "/logos/crisp.svg",
+    logo: "/logos/crisp.png",
     screenshots: ["/screenshots/crisp-1.png"],
     features: [
       { title: "Tous vos canaux dans une boîte de réception", description: "Email, chat, WhatsApp, Instagram, Messenger — vos clients écrivent où ils veulent, vous répondez au même endroit." },
@@ -343,7 +343,7 @@ export const tools: Tool[] = [
     tags: ["accounting", "freelance", "tax"],
     website: "https://indy.fr",
     affiliateUrl: "https://indy.fr/?ref=myfrenchtool",
-    logo: "/logos/indy.svg",
+    logo: "/logos/indy.png",
     screenshots: ["/screenshots/indy-1.jpg"],
     features: [
       { title: "Comptabilité 100% automatique", description: "Connectez votre banque, Indy catégorise vos transactions et tient votre comptabilité à jour." },
