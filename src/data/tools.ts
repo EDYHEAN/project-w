@@ -13,6 +13,7 @@ export const tools: Tool[] = [
     website: "https://mistral.ai",
     affiliateUrl: "https://mistral.ai/?ref=myfrenchtool",
     logo: "/logos/mistral.svg",
+    screenshots: ["/screenshots/mistral-1.jpg"],
     features: [
       { title: "Fait à Paris", description: "Mistral AI est une startup parisienne — vos données sont traitées en Europe, loin des GAFAM." },
       { title: "Aussi puissant que ChatGPT", description: "Les benchmarks parlent d'eux-mêmes : Mistral tient tête aux meilleurs modèles américains." },
@@ -35,6 +36,7 @@ export const tools: Tool[] = [
     website: "https://penpot.app",
     affiliateUrl: "https://penpot.app/?ref=myfrenchtool",
     logo: "/logos/penpot.svg",
+    screenshots: ["/screenshots/penpot-1.webp"],
     features: [
       { title: "Gratuit et open-source", description: "Penpot ne coûte rien et vous pouvez l'héberger vous-même si vous voulez garder le contrôle." },
       { title: "Travail d'équipe en direct", description: "Toute l'équipe voit les modifications en temps réel — comme Figma, mais sans les contraintes." },
@@ -57,6 +59,7 @@ export const tools: Tool[] = [
     website: "https://slite.com",
     affiliateUrl: "https://slite.com/?ref=myfrenchtool",
     logo: "/logos/slite.svg",
+    screenshots: ["/screenshots/slite-1.jpg"],
     features: [
       { title: "Tout ce que sait votre équipe, au même endroit", description: "Procédures, notes de réunion, onboarding — plus personne ne perd le fil." },
       { title: "IA pour retrouver l'information", description: "Posez une question en français, Slite cherche dans tous vos documents et vous répond." },
@@ -99,6 +102,7 @@ export const tools: Tool[] = [
     website: "https://yousign.com",
     affiliateUrl: "https://yousign.com/?ref=myfrenchtool",
     logo: "/logos/yousign.svg",
+    screenshots: ["/screenshots/yousign-1.png"],
     features: [
       { title: "Légalement valide en France", description: "Conforme au règlement européen eIDAS — vos contrats signés ont la même valeur qu'un original papier." },
       { title: "Envoyez un document en 2 minutes", description: "Importez votre PDF, ajoutez les signataires, envoyez — ils reçoivent un email et signent en un clic." },
@@ -120,6 +124,7 @@ export const tools: Tool[] = [
     website: "https://livestorm.co",
     affiliateUrl: "https://livestorm.co/?ref=myfrenchtool",
     logo: "/logos/livestorm.svg",
+    screenshots: ["/screenshots/livestorm-1.jpg"],
     features: [
       { title: "Aucune installation pour vos participants", description: "Vos invités rejoignent directement depuis leur navigateur — pas de téléchargement, pas de compte à créer." },
       { title: "Q&A, sondages et chat en direct", description: "Animez votre webinaire avec des interactions en temps réel pour garder l'attention." },
@@ -163,6 +168,7 @@ export const tools: Tool[] = [
     website: "https://lemlist.com",
     affiliateUrl: "https://lemlist.com/?ref=myfrenchtool",
     logo: "/logos/lemlist.svg",
+    screenshots: ["/screenshots/lemlist-1.png"],
     features: [
       { title: "Emails personnalisés à grande échelle", description: "Lemlist génère des images et vidéos personnalisées pour chaque prospect — automatiquement." },
       { title: "Email, LinkedIn et téléphone en un", description: "Créez des séquences qui combinent plusieurs canaux pour maximiser vos chances de réponse." },
@@ -184,6 +190,7 @@ export const tools: Tool[] = [
     website: "https://crisp.chat",
     affiliateUrl: "https://crisp.chat/?ref=myfrenchtool",
     logo: "/logos/crisp.svg",
+    screenshots: ["/screenshots/crisp-1.png"],
     features: [
       { title: "Tous vos canaux dans une boîte de réception", description: "Email, chat, WhatsApp, Instagram, Messenger — vos clients écrivent où ils veulent, vous répondez au même endroit." },
       { title: "Chatbot sans coder", description: "Créez un chatbot qui répond aux questions fréquentes et qualifie vos leads, sans une ligne de code." },
@@ -227,6 +234,7 @@ export const tools: Tool[] = [
     website: "https://scaleway.com",
     affiliateUrl: "https://scaleway.com/?ref=myfrenchtool",
     logo: "/logos/scaleway.svg",
+    screenshots: ["/screenshots/scaleway-1.png"],
     features: [
       { title: "Alternative souveraine à AWS", description: "Toute la puissance du cloud — serveurs, stockage, bases de données — avec vos données hébergées en France." },
       { title: "GPU pour l'intelligence artificielle", description: "Accédez à des GPU haute performance pour entraîner vos modèles IA, sans vous ruiner." },
@@ -270,6 +278,7 @@ export const tools: Tool[] = [
     website: "https://pennylane.com",
     affiliateUrl: "https://pennylane.com/?ref=myfrenchtool",
     logo: "/logos/pennylane.svg",
+    screenshots: ["/screenshots/pennylane-1.jpg"],
     features: [
       { title: "Vos dépenses classées automatiquement", description: "Connectez votre banque et Pennylane trie vos transactions sans que vous ayez à le faire." },
       { title: "Devis et factures en quelques clics", description: "Créez des documents aux normes françaises et envoyez-les directement depuis l'app." },
@@ -291,6 +300,7 @@ export const tools: Tool[] = [
     website: "https://qonto.com",
     affiliateUrl: "https://qonto.com/?ref=myfrenchtool",
     logo: "/logos/qonto.svg",
+    screenshots: ["/screenshots/qonto-1.jpg"],
     features: [
       { title: "Compte ouvert en 24h en ligne", description: "Vous obtenez un vrai IBAN français sans rendez-vous en agence ni paperasse interminable." },
       { title: "Cartes virtuelles à volonté", description: "Créez une carte différente pour chaque abonnement ou collaborateur — et bloquez-la en un clic." },
@@ -312,6 +322,7 @@ export const tools: Tool[] = [
     website: "https://shine.fr",
     affiliateUrl: "https://shine.fr/?ref=myfrenchtool",
     logo: "/logos/shine.svg",
+    screenshots: ["/screenshots/shine-1.png"],
     features: [
       { title: "Fait pour les auto-entrepreneurs", description: "Shine comprend les spécificités françaises — TVA, URSSAF, plafonds micro — et vous guide pas à pas." },
       { title: "Compte + facturation en un", description: "Créez et envoyez vos factures depuis l'app, les paiements arrivent directement sur votre compte." },
@@ -333,6 +344,7 @@ export const tools: Tool[] = [
     website: "https://indy.fr",
     affiliateUrl: "https://indy.fr/?ref=myfrenchtool",
     logo: "/logos/indy.svg",
+    screenshots: ["/screenshots/indy-1.jpg"],
     features: [
       { title: "Comptabilité 100% automatique", description: "Connectez votre banque, Indy catégorise vos transactions et tient votre comptabilité à jour." },
       { title: "Déclarations fiscales incluses", description: "Liasse fiscale, déclarations de revenus, TVA — Indy prépare tout et vous n'avez plus qu'à valider." },
