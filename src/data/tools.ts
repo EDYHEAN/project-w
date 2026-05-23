@@ -123,7 +123,7 @@ export const tools: Tool[] = [
     tags: ["webinar", "video", "events"],
     website: "https://livestorm.co",
     affiliateUrl: "https://livestorm.co/?ref=myfrenchtool",
-    logo: "/logos/livestorm.png",
+    logo: "/logos/livestorm.svg",
     screenshots: ["/screenshots/livestorm-1.jpg"],
     features: [
       { title: "Aucune installation pour vos participants", description: "Vos invités rejoignent directement depuis leur navigateur — pas de téléchargement, pas de compte à créer." },
@@ -189,7 +189,7 @@ export const tools: Tool[] = [
     tags: ["chat", "support", "crm"],
     website: "https://crisp.chat",
     affiliateUrl: "https://crisp.chat/?ref=myfrenchtool",
-    logo: "/logos/crisp.png",
+    logo: "/logos/crisp.svg",
     screenshots: ["/screenshots/crisp-1.png"],
     features: [
       { title: "Tous vos canaux dans une boîte de réception", description: "Email, chat, WhatsApp, Instagram, Messenger — vos clients écrivent où ils veulent, vous répondez au même endroit." },
