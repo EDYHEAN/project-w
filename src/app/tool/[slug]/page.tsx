@@ -175,15 +175,7 @@ export default function ToolPage({ params }: Props) {
                 Essayer {tool.name}
                 <ExternalLink className="w-4 h-4" />
               </motion.a>
-              <a
-                href={tool.website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-3 mt-2 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-              >
-                Site officiel
-                <ExternalLink className="w-3 h-3" />
-              </a>
+
             </div>
 
             <div className="p-4 rounded-xl bg-[var(--muted)] text-sm space-y-2">
