@@ -46,16 +46,16 @@ export default function Navbar() {
           WebkitBackdropFilter: "blur(48px) saturate(200%)",
         }}
       >
-        <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-2 mr-auto">
-            <img src="/main-logo/rooster.svg" alt="" className="w-5 h-5" />
-            <span className="text-sm tracking-wide" style={{ fontFamily: '"Cal Sans", sans-serif', fontWeight: 700 }}>myfrenchtool</span>
+        <nav className="max-w-7xl mx-auto px-6 h-[72px] flex items-center gap-4">
+          <Link href="/" className="flex items-center gap-2.5 mr-auto">
+            <img src="/main-logo/rooster.svg" alt="" className="w-[23px] h-[23px]" />
+            <span className="text-[15px] tracking-wide" style={{ fontFamily: '"Cal Sans", sans-serif', fontWeight: 700 }}>myfrenchtool</span>
           </Link>
 
           {/* Search button */}
           <button
             onClick={() => setSearchOpen(true)}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-all duration-150"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-[13px] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-all duration-150"
           >
             <Search className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">Rechercher</span>
@@ -71,7 +71,7 @@ export default function Navbar() {
             onMouseLeave={onLeave}
           >
             <button
-              className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm transition-all duration-150 ${
+              className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-[13px] transition-all duration-150 ${
                 open || isInCategory
                   ? "bg-[var(--muted)] text-[var(--foreground)] font-medium"
                   : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
@@ -123,13 +123,13 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          <span className="px-3 py-1.5 rounded-lg text-sm text-[var(--muted-foreground)] opacity-40 cursor-not-allowed select-none">
+          <span className="px-3 py-1.5 rounded-lg text-[13px] text-[var(--muted-foreground)] opacity-40 cursor-not-allowed select-none">
             Blog
           </span>
 
           <a
             href="#newsletter"
-            className="px-4 py-1.5 text-sm font-medium border border-[var(--border-strong)] rounded-full hover:bg-[var(--muted)] transition-colors duration-150"
+            className="px-4 py-1.5 text-[13px] font-medium border border-[var(--border-strong)] rounded-full hover:bg-[var(--muted)] transition-colors duration-150"
           >
             Newsletter
           </a>
