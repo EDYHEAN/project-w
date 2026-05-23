@@ -101,7 +101,7 @@ export const tools: Tool[] = [
     tags: ["signature", "documents", "legal"],
     website: "https://yousign.com",
     affiliateUrl: "https://yousign.com/?ref=myfrenchtool",
-    logo: "/logos/yousign.svg",
+    logo: "/logos/yousign.png",
     screenshots: ["/screenshots/yousign-1.png"],
     features: [
       { title: "Légalement valide en France", description: "Conforme au règlement européen eIDAS — vos contrats signés ont la même valeur qu'un original papier." },
