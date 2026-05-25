@@ -5,14 +5,14 @@
 ## 🔥 Priorité haute
 
 - [ ] **Vraies URLs affiliées** — s'inscrire aux programmes français
-  - Brevo : programme affilié → brevo.com/fr/programme-partenaires
-  - Qonto : programme partenaire → qonto.com
-  - Pennylane : programme affilié → pennylane.com
-  - Lemlist : programme affilié → lemlist.com/affiliate
-  - Mistral AI : API reseller / affilié → console.mistral.ai
-  - Scaleway : programme partenaire → scaleway.com/fr/partenaires
+  - ~~Brevo~~ ✅ candidature envoyée sur PartnerStack (en attente review)
+  - ~~Lemlist~~ ✅ candidature envoyée sur PartnerStack (en attente review)
   - Crisp : programme affilié → crisp.chat/affiliates
+  - Scaleway : programme partenaire → scaleway.com/fr/partenaires
+  - Qonto : programme partenaire → qonto.com (parrainage depuis compte client)
+  - Pennylane : programme affilié → pennylane.com (parrainage depuis compte client)
   - Yousign : programme partenaire → yousign.com
+  - Mistral AI : API reseller / affilié → console.mistral.ai
 
 - [ ] **Connecter la newsletter à Brevo** (français, remplace beehiiv)
   - Créer compte Brevo gratuit (300 emails/jour)
@@ -22,9 +22,10 @@
 ## 📈 Priorité moyenne
 
 - [ ] **SEO** — indispensable pour le trafic organique
-  - `sitemap.xml` dynamique (`src/app/sitemap.ts`)
-  - Metadata dynamiques par page outil et catégorie (title, description, og:image)
-  - `robots.txt`
+  - ~~`sitemap.xml` dynamique~~ ✅ live sur /sitemap.xml, soumis à Google Search Console
+  - ~~Metadata dynamiques par page outil et catégorie~~ ✅ title, description, og:image
+  - ~~`robots.txt`~~ ✅ live
+  - Google Search Console ✅ propriété vérifiée, sitemap soumis, indexation HP demandée
   - Mots-clés cibles : "alternative française à X", "logiciel français pour Y"
 
 - [ ] **Plus d'outils** — objectif 40+ outils 100% français
@@ -66,3 +67,6 @@
 - [x] **Right-click context menu** sur logo outil → téléchargement auto du logo
 - [x] **Suppression lien "Site officiel"** — tout le trafic sortant passe par affiliateUrl
 - [x] **bypassPermissions** configuré dans `.claude/settings.json`
+- [x] **SEO technique** — sitemap.xml dynamique, robots.txt, metadata par page outil + catégorie
+- [x] **Google Search Console** — propriété vérifiée (TXT DNS), sitemap soumis (24 pages)
+- [x] **PartnerStack réseau** — profil créé (Éditeur + Affilié), candidatures Brevo + Lemlist envoyées
