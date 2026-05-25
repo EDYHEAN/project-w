@@ -1,13 +1,14 @@
-"use client";
-
 import { notFound } from "next/navigation";
-import { use, useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Star, ExternalLink, ArrowLeft, Check, Download } from "lucide-react";
+import type { Metadata } from "next";
+import { motion } from "framer-motion";
+import { Star, ExternalLink, ArrowLeft, Check } from "lucide-react";
 import Link from "next/link";
 import { tools, getToolsByCategory } from "@/data/tools";
 import { categories } from "@/data/categories";
 import ToolCard from "@/components/ui/ToolCard";
+import LogoWithContextMenu from "@/components/ui/LogoWithContextMenu";
+
+const BASE_URL = "https://www.myfrenchtool.com";
 
 const pricingLabel: Record<string, string> = {
   free: "Gratuit",
@@ -17,20 +18,38 @@ const pricingLabel: Record<string, string> = {
 
 type Props = { params: Promise<{ slug: string }> };
 
-export default function ToolPage({ params }: Props) {
-  const { slug } = use(params);
+export async function generateStaticParams() {
+  return tools.map((t) => ({ slug: t.slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
   const tool = tools.find((t) => t.slug === slug);
+  if (!tool) return {};
 
-  const [ctxMenu, setCtxMenu] = useState<{ x: number; y: number } | null>(null);
+  const description = `${tool.tagline} — Découvrez ${tool.name}, outil français ${tool.pricing === "free" ? "gratuit" : tool.pricing === "freemium" ? "freemium" : "payant"} dans la catégorie ${tool.category}. Données hébergées en France, conforme RGPD.`;
 
-  useEffect(() => {
-    const close = () => setCtxMenu(null);
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setCtxMenu(null); };
-    window.addEventListener("click", close);
-    window.addEventListener("keydown", onKey);
-    return () => { window.removeEventListener("click", close); window.removeEventListener("keydown", onKey); };
-  }, []);
+  return {
+    title: `${tool.name} — MyFrenchTool`,
+    description,
+    openGraph: {
+      title: `${tool.name} — MyFrenchTool`,
+      description,
+      url: `${BASE_URL}/tool/${tool.slug}`,
+      ...(tool.screenshots?.[0] && { images: [{ url: `${BASE_URL}${tool.screenshots[0]}` }] }),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${tool.name} — MyFrenchTool`,
+      description,
+      ...(tool.screenshots?.[0] && { images: [`${BASE_URL}${tool.screenshots[0]}`] }),
+    },
+  };
+}
 
+export default async function ToolPage({ params }: Props) {
+  const { slug } = await params;
+  const tool = tools.find((t) => t.slug === slug);
   if (!tool) notFound();
 
   const category = categories.find((c) => c.slug === tool.category);
@@ -38,24 +57,7 @@ export default function ToolPage({ params }: Props) {
     .filter((t) => t.slug !== tool.slug)
     .slice(0, 4);
 
-  const handleLogoContextMenu = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setCtxMenu({ x: e.clientX, y: e.clientY });
-  };
-
-  const downloadLogo = () => {
-    const ext = tool.logo.split(".").pop() || "png";
-    const a = document.createElement("a");
-    a.href = tool.logo;
-    a.download = `logo-${tool.slug}.${ext}`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    setCtxMenu(null);
-  };
-
   return (
-    <>
     <div className="max-w-4xl mx-auto px-6 py-16">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -82,21 +84,7 @@ export default function ToolPage({ params }: Props) {
         </div>
 
         <div className="flex flex-col md:flex-row md:items-start gap-8 mb-12">
-          <div
-            className="w-16 h-16 rounded-2xl bg-[var(--muted)] flex items-center justify-center overflow-hidden shrink-0 cursor-context-menu"
-            onContextMenu={handleLogoContextMenu}
-          >
-            <img
-              src={tool.logo}
-              alt={tool.name}
-              className="w-10 h-10 object-contain"
-              onError={(e) => {
-                const target = e.currentTarget;
-                target.style.display = "none";
-                target.parentElement!.innerHTML = `<span class="text-2xl font-bold text-[var(--muted-foreground)]">${tool.name.charAt(0)}</span>`;
-              }}
-            />
-          </div>
+          <LogoWithContextMenu logo={tool.logo} name={tool.name} slug={tool.slug} />
           <div className="flex-1">
             <div className="flex flex-wrap items-center gap-3 mb-2">
               <h1 className="text-3xl font-bold">{tool.name}</h1>
@@ -175,7 +163,6 @@ export default function ToolPage({ params }: Props) {
                 Essayer {tool.name}
                 <ExternalLink className="w-4 h-4" />
               </motion.a>
-
             </div>
 
             <div className="p-4 rounded-xl bg-[var(--muted)] text-sm space-y-2">
@@ -221,35 +208,5 @@ export default function ToolPage({ params }: Props) {
         )}
       </motion.div>
     </div>
-    <AnimatePresence>
-      {ctxMenu && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, y: -4 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: -4 }}
-          transition={{ duration: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="fixed z-50 rounded-xl border border-[var(--border)] overflow-hidden"
-          style={{
-            top: ctxMenu.y,
-            left: ctxMenu.x,
-            background: "rgba(255,255,255,0.96)",
-            backdropFilter: "blur(32px)",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.10), 0 1px 0 rgba(255,255,255,0.9) inset",
-          }}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="p-1.5">
-            <button
-              onClick={downloadLogo}
-              className="flex items-center gap-2.5 w-full px-3 py-2 rounded-lg text-sm text-left text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors duration-100"
-            >
-              <Download className="w-3.5 h-3.5 text-[var(--muted-foreground)] shrink-0" />
-              Télécharger le logo de {tool.name}
-            </button>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-    </>
   );
 }
