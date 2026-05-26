@@ -15,18 +15,44 @@ export default function Newsletter() {
 
   return (
     <section id="newsletter" className="mt-8 bg-[var(--foreground)] text-[var(--background)] relative overflow-hidden">
-      {/* Dot grid */}
-      <motion.div
+      {/* Dot grid — static, full coverage */}
+      <div
         aria-hidden
-        animate={{ x: [0, 24, 0], y: [0, 18, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.14) 1px, transparent 1px)",
           backgroundSize: "24px 24px",
-          maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 55%, transparent 70%)",
-          WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 55%, transparent 70%)",
         }}
+      />
+      {/* Eraser circle 1 */}
+      <motion.div
+        aria-hidden
+        className="absolute pointer-events-none"
+        style={{
+          width: 260,
+          height: 260,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, #050505 30%, transparent 72%)",
+          top: "-10%",
+          left: "0%",
+        }}
+        animate={{ x: [0, 280, 520, 180, 0], y: [0, 60, 10, 100, 0] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+      />
+      {/* Eraser circle 2 */}
+      <motion.div
+        aria-hidden
+        className="absolute pointer-events-none"
+        style={{
+          width: 200,
+          height: 200,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, #050505 30%, transparent 72%)",
+          bottom: "-5%",
+          right: "5%",
+        }}
+        animate={{ x: [0, -240, -420, -120, 0], y: [0, -50, 30, -80, 0] }}
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 3 }}
       />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
