@@ -15,27 +15,18 @@ export default function Newsletter() {
 
   return (
     <section id="newsletter" className="mt-8 bg-[var(--foreground)] text-[var(--background)] relative overflow-hidden">
-      {/* Background blobs */}
+      {/* Dot grid */}
       <motion.div
         aria-hidden
-        animate={{ x: [0, 30, 0], y: [0, -20, 0] }}
-        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-[-60px] left-[10%] w-[320px] h-[320px] rounded-full pointer-events-none"
-        style={{ background: "rgba(0,82,204,0.12)", filter: "blur(80px)" }}
-      />
-      <motion.div
-        aria-hidden
-        animate={{ x: [0, -20, 0], y: [0, 25, 0] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute bottom-[-40px] right-[15%] w-[280px] h-[280px] rounded-full pointer-events-none"
-        style={{ background: "rgba(239,65,53,0.08)", filter: "blur(80px)" }}
-      />
-      <motion.div
-        aria-hidden
-        animate={{ x: [0, 15, 0], y: [0, -15, 0] }}
-        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-        className="absolute top-[30%] right-[35%] w-[160px] h-[160px] rounded-full pointer-events-none"
-        style={{ background: "rgba(0,82,204,0.07)", filter: "blur(60px)" }}
+        animate={{ x: [0, 12, 0], y: [0, 10, 0] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+          maskImage: "radial-gradient(ellipse 100% 100% at 50% 50%, black 40%, transparent 100%)",
+          WebkitMaskImage: "radial-gradient(ellipse 100% 100% at 50% 50%, black 40%, transparent 100%)",
+        }}
       />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
