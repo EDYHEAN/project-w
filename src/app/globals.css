@@ -17,8 +17,8 @@
   --border-strong: #d2d2d7;
   --card: #ffffff;
   --card-hover: #f5f5f7;
-  --accent: #5b21b6;
-  --accent-soft: #7c3aed;
+  --accent: #0052CC;
+  --accent-soft: #1a6fe0;
 }
 
 @theme inline {
@@ -53,7 +53,7 @@ body {
 }
 
 ::selection {
-  background: rgba(124, 58, 237, 0.12);
+  background: rgba(0, 82, 204, 0.12);
 }
 
 .glass {

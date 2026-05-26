@@ -38,23 +38,15 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/about"
+                  href="/mentions-legales"
                   className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
                 >
-                  Notre sélection
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/submit"
-                  className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-                >
-                  Soumettre un outil
+                  Mentions légales
                 </Link>
               </li>
               <li>
                 <a
-                  href="mailto:hello@toolvault.co"
+                  href="mailto:johan@myfrenchtool.com"
                   className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
                 >
                   Contact
@@ -66,18 +58,17 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-[var(--border)] flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-[var(--muted-foreground)]">
-            © 2026 ToolVault. Tous droits réservés.
+            © 2026 MyFrenchTool. Tous droits réservés.
           </p>
           <div className="flex items-center gap-4">
-            <Link
-              href="/mentions-legales"
-              className="text-xs text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-            >
-              Mentions légales
-            </Link>
+            <div className="flex items-center gap-1" aria-hidden>
+              <span className="w-2 h-2 rounded-full bg-[#0052CC]" />
+              <span className="w-2 h-2 rounded-full bg-[var(--border)]" />
+              <span className="w-2 h-2 rounded-full bg-[#EF4135]" />
+            </div>
             <span className="text-xs text-[var(--muted-foreground)]">·</span>
             <p className="text-xs text-[var(--muted-foreground)]">
-              Fait avec ❤️ pour les makers ambitieux
+              Fait en France, pour la France
             </p>
           </div>
         </div>

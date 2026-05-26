@@ -24,7 +24,7 @@ export default function Newsletter() {
       >
         <div className="flex-1">
           <span className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-white/10 text-white/70 mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
             Hebdomadaire · Gratuit
           </span>
 

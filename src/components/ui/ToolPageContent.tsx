@@ -121,7 +121,7 @@ export default function ToolPageContent({ tool, category, related }: Props) {
                 rel="noopener noreferrer nofollow"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="flex items-center justify-center gap-2 w-full py-3 bg-violet-600 hover:bg-violet-700 text-white font-medium rounded-xl transition-colors text-sm"
+                className="flex items-center justify-center gap-2 w-full py-3 bg-[#0052CC] hover:bg-[#003fa3] text-white font-medium rounded-xl transition-colors text-sm"
               >
                 Essayer {tool.name}
                 <ExternalLink className="w-4 h-4" />
@@ -133,7 +133,7 @@ export default function ToolPageContent({ tool, category, related }: Props) {
                 <span className="text-[var(--muted-foreground)]">Catégorie</span>
                 <Link
                   href={`/category/${tool.category}`}
-                  className="font-medium hover:text-violet-600 transition-colors"
+                  className="font-medium hover:text-[#0052CC] transition-colors"
                 >
                   {category?.name}
                 </Link>
@@ -156,7 +156,7 @@ export default function ToolPageContent({ tool, category, related }: Props) {
               <h2 className="text-xl font-semibold">Dans la même catégorie</h2>
               <Link
                 href={`/category/${tool.category}`}
-                className="flex items-center gap-1 text-sm text-violet-600 hover:text-violet-700 transition-colors"
+                className="flex items-center gap-1 text-sm text-[#0052CC] hover:text-[#003fa3] transition-colors"
               >
                 <ArrowLeft className="w-4 h-4 rotate-180" />
                 Voir tout

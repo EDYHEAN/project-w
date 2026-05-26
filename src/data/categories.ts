@@ -6,7 +6,7 @@ export const categories: Category[] = [
     name: "AI & Writing",
     description: "Outils IA pour écrire, créer et automatiser.",
     icon: "Sparkles",
-    color: "violet",
+    color: "blue",
   },
   {
     slug: "design",
