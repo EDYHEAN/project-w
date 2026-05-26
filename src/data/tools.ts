@@ -321,7 +321,7 @@ export const tools: Tool[] = [
     tags: ["banking", "freelance", "invoicing"],
     website: "https://shine.fr",
     affiliateUrl: "https://shine.fr/?ref=myfrenchtool",
-    logo: "/logos/shine.svg",
+    logo: "/logos/shine-icon.svg",
     screenshots: ["/screenshots/shine-1.png"],
     features: [
       { title: "Fait pour les auto-entrepreneurs", description: "Shine comprend les spécificités françaises — TVA, URSSAF, plafonds micro — et vous guide pas à pas." },
