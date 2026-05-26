@@ -15,10 +15,10 @@ export default function Newsletter() {
 
   return (
     <section id="newsletter" className="mt-8 bg-[var(--foreground)] text-[var(--background)] relative overflow-hidden">
-      {/* Dot grid — static, full coverage */}
+      {/* Dot grid */}
       <div
         aria-hidden
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none z-0"
         style={{
           backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.14) 1px, transparent 1px)",
           backgroundSize: "24px 24px",
@@ -27,39 +27,39 @@ export default function Newsletter() {
       {/* Eraser circle 1 */}
       <motion.div
         aria-hidden
-        className="absolute pointer-events-none"
+        className="absolute pointer-events-none z-[1]"
         style={{
-          width: 260,
-          height: 260,
+          width: 480,
+          height: 480,
           borderRadius: "50%",
           background: "radial-gradient(circle, #050505 30%, transparent 72%)",
-          top: "-10%",
-          left: "0%",
+          top: "-20%",
+          left: "-5%",
         }}
-        animate={{ x: [0, 280, 520, 180, 0], y: [0, 60, 10, 100, 0] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        animate={{ x: [0, 320, 580, 200, 0], y: [0, 80, 20, 120, 0] }}
+        transition={{ duration: 35, repeat: Infinity, ease: "easeInOut" }}
       />
       {/* Eraser circle 2 */}
       <motion.div
         aria-hidden
-        className="absolute pointer-events-none"
+        className="absolute pointer-events-none z-[1]"
         style={{
-          width: 200,
-          height: 200,
+          width: 380,
+          height: 380,
           borderRadius: "50%",
           background: "radial-gradient(circle, #050505 30%, transparent 72%)",
-          bottom: "-5%",
-          right: "5%",
+          bottom: "-15%",
+          right: "0%",
         }}
-        animate={{ x: [0, -240, -420, -120, 0], y: [0, -50, 30, -80, 0] }}
-        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+        animate={{ x: [0, -280, -480, -140, 0], y: [0, -60, 40, -90, 0] }}
+        transition={{ duration: 28, repeat: Infinity, ease: "easeInOut", delay: 4 }}
       />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="max-w-7xl mx-auto px-6 py-20 md:py-24 flex flex-col md:flex-row md:items-center gap-10 md:gap-16"
+        className="relative z-10 max-w-7xl mx-auto px-6 py-20 md:py-24 flex flex-col md:flex-row md:items-center gap-10 md:gap-16"
       >
         <div className="flex-1">
           <span className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-white/10 text-white/70 mb-6">
