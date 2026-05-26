@@ -18,14 +18,14 @@ export default function Newsletter() {
       {/* Dot grid */}
       <motion.div
         aria-hidden
-        animate={{ x: [0, 12, 0], y: [0, 10, 0] }}
+        animate={{ x: [0, 24, 0], y: [0, 18, 0] }}
         transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px)",
           backgroundSize: "24px 24px",
-          maskImage: "radial-gradient(ellipse 100% 100% at 50% 50%, black 40%, transparent 100%)",
-          WebkitMaskImage: "radial-gradient(ellipse 100% 100% at 50% 50%, black 40%, transparent 100%)",
+          maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 55%, transparent 70%)",
+          WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 55%, transparent 70%)",
         }}
       />
       <motion.div
