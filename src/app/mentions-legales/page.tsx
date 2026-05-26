@@ -2,8 +2,8 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mentions légales — ToolVault",
-  description: "Mentions légales, politique d'affiliation et informations éditeur de ToolVault.",
+  title: "Mentions légales — MyFrenchTool",
+  description: "Mentions légales, politique d'affiliation et informations éditeur de MyFrenchTool.",
 };
 
 export default function MentionsLegales() {
@@ -24,8 +24,9 @@ export default function MentionsLegales() {
         <section>
           <h2 className="font-semibold text-base mb-3">Éditeur du site</h2>
           <div className="space-y-1 text-[var(--muted-foreground)]">
-            <p>ToolVault est édité par Johan Trigeard, micro-entrepreneur.</p>
-            <p>E-mail : <a href="mailto:johan.trigeard@gmail.com" className="text-[var(--foreground)] hover:underline">johan.trigeard@gmail.com</a></p>
+            <p>MyFrenchTool est édité par Johan Trigeard, micro-entrepreneur.</p>
+            <p>SIRET : 878 661 941 00020</p>
+            <p>E-mail : <a href="mailto:johan@myfrenchtool.com" className="text-[var(--foreground)] hover:underline">johan@myfrenchtool.com</a></p>
             <p>Activité enregistrée en France.</p>
           </div>
         </section>
@@ -43,7 +44,7 @@ export default function MentionsLegales() {
           <h2 className="font-semibold text-base mb-3">Liens affiliés</h2>
           <div className="space-y-3 text-[var(--muted-foreground)]">
             <p>
-              Certains liens présents sur ToolVault sont des liens affiliés. Cela signifie que si vous cliquez sur un lien et souscrivez à un service, nous pouvons percevoir une commission — sans aucun surcoût pour vous.
+              Certains liens présents sur MyFrenchTool sont des liens affiliés. Cela signifie que si vous cliquez sur un lien et souscrivez à un service, nous pouvons percevoir une commission — sans aucun surcoût pour vous.
             </p>
             <p>
               Ces commissions nous permettent de maintenir le site gratuitement et de continuer à sélectionner et tester des outils. Elles n'influencent pas nos recommandations : nous ne mettons en avant que les outils que nous jugeons réellement utiles.
@@ -57,14 +58,14 @@ export default function MentionsLegales() {
         <section>
           <h2 className="font-semibold text-base mb-3">Propriété intellectuelle</h2>
           <p className="text-[var(--muted-foreground)]">
-            L'ensemble des contenus de ce site (textes, descriptions, structure) est la propriété de ToolVault, sauf mention contraire. Les logos et marques des outils référencés appartiennent à leurs propriétaires respectifs et sont utilisés à titre informatif uniquement.
+            L'ensemble des contenus de ce site (textes, descriptions, structure) est la propriété de MyFrenchTool, sauf mention contraire. Les logos et marques des outils référencés appartiennent à leurs propriétaires respectifs et sont utilisés à titre informatif uniquement.
           </p>
         </section>
 
         <section>
           <h2 className="font-semibold text-base mb-3">Données personnelles</h2>
           <p className="text-[var(--muted-foreground)]">
-            ToolVault ne collecte aucune donnée personnelle directement. Si vous vous inscrivez à la newsletter, votre adresse e-mail est transmise à notre prestataire d'envoi (beehiiv) et traitée conformément à leur politique de confidentialité. Vous pouvez vous désinscrire à tout moment via le lien présent dans chaque email.
+            MyFrenchTool ne collecte aucune donnée personnelle directement. Si vous vous inscrivez à la newsletter, votre adresse e-mail est transmise à Brevo (Sendinblue SAS, 55 rue d'Amsterdam, 75008 Paris) et traitée conformément à leur politique de confidentialité. Vous pouvez vous désinscrire à tout moment via le lien présent dans chaque email.
           </p>
         </section>
 
