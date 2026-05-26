@@ -4,45 +4,44 @@
 
 ## 🔥 Priorité haute
 
-- [ ] **Vraies URLs affiliées** — s'inscrire aux programmes français
-  - ~~Brevo~~ ✅ candidature envoyée sur PartnerStack (en attente review)
-  - ~~Lemlist~~ ✅ candidature envoyée sur PartnerStack (en attente review)
-  - Crisp : programme affilié → crisp.chat/affiliates
-  - Scaleway : programme partenaire → scaleway.com/fr/partenaires
-  - Qonto : programme partenaire → qonto.com (parrainage depuis compte client)
-  - Pennylane : programme affilié → pennylane.com (parrainage depuis compte client)
-  - Yousign : programme partenaire → yousign.com
-  - Mistral AI : API reseller / affilié → console.mistral.ai
+- [ ] **Affiliés restants**
+  - ~~Brevo~~ ✅ accepté — vrai lien en prod
+  - ~~Lemlist~~ ⏳ en attente PartnerStack
+  - ~~Yousign~~ ⏳ candidature Affilae envoyée (100€/abonnement annuel)
+  - ~~Qonto~~ ⏳ candidature Affilae envoyée
+  - ~~Shine~~ ⏳ candidature Affilae envoyée
+  - ~~Crisp~~ 📨 message de contact envoyé
+  - ~~Scaleway~~ 📨 message contact sales envoyé
+  - OVHcloud : programme affilié à trouver sur ovhcloud.com
+  - Livestorm : programme affilié à trouver sur livestorm.co
+  - Indy : parrainage depuis compte client
+  - Pennylane : parrainage depuis compte client
+  - Mistral AI : pas de programme connu
 
-- [ ] **Connecter la newsletter à Brevo** (français, remplace beehiiv)
-  - Créer compte Brevo gratuit (300 emails/jour)
-  - Récupérer l'embed form ou l'API
-  - Remplacer le `handleSubmit` dans `src/components/home/Newsletter.tsx`
+- [ ] **Connecter la newsletter à Brevo**
+  - Récupérer l'embed form ou l'API Brevo
+  - Remplacer le `handleSubmit` mock dans `src/components/home/Newsletter.tsx`
 
 ## 📈 Priorité moyenne
-
-- [ ] **SEO** — indispensable pour le trafic organique
-  - ~~`sitemap.xml` dynamique~~ ✅ live sur /sitemap.xml, soumis à Google Search Console
-  - ~~Metadata dynamiques par page outil et catégorie~~ ✅ title, description, og:image
-  - ~~`robots.txt`~~ ✅ live
-  - Google Search Console ✅ propriété vérifiée, sitemap soumis, indexation HP demandée
-  - Mots-clés cibles : "alternative française à X", "logiciel français pour Y"
 
 - [ ] **Plus d'outils** — objectif 40+ outils 100% français
   - Ajouter dans `src/data/tools.ts` + logo (picto SVG > PNG) dans `public/logos/` + screenshot OG
 
-- [ ] **Domaine myfrenchtool.fr** — acheter quand SIRET micro-entreprise dispo
-  - Johan a une micro-entreprise design existante, récupérer le SIRET
-  - Acheter sur Namecheap avec le SIRET
+- [ ] **Pages outil enrichies** — transformer en vraies landing pages
+  - Prix détaillés, pros/cons, screenshot hero, témoignages
+
+- [ ] **Domaine myfrenchtool.fr** — acheter avec SIRET micro-entreprise
+  - SIRET : 878 661 941 00020
 
 - [ ] **Filtres** par pricing (Gratuit / Freemium / Payant) sur les pages catégorie
 
-- [ ] **Screenshots manquants** — Brevo, Talkspirit, OVHcloud, Plezi (sites bloquaient le scraping)
+- [ ] **Screenshots manquants** — Brevo, Talkspirit, OVHcloud, Plezi
 
 ## 💡 Priorité basse
 
-- [ ] Page **"Soumettre un outil"** — laisser la communauté proposer des outils
-- [ ] **Page About** — expliquer la sélection, le positionnement 100% français, le modèle affilié
+- [ ] **Page "Soumettre un outil"** (`/submit`) — à remettre quand prêt
+- [ ] **Page Contact** (`/contact`) — form de contact (lien grisé en attendant)
+- [ ] **Page About** — sélection, positionnement 100% français, modèle affilié
 - [ ] **Blog** — articles SEO "meilleur outil français pour X"
 
 ## ✅ Fait
@@ -68,5 +67,13 @@
 - [x] **Suppression lien "Site officiel"** — tout le trafic sortant passe par affiliateUrl
 - [x] **bypassPermissions** configuré dans `.claude/settings.json`
 - [x] **SEO technique** — sitemap.xml dynamique, robots.txt, metadata par page outil + catégorie
-- [x] **Google Search Console** — propriété vérifiée (TXT DNS), sitemap soumis (24 pages)
-- [x] **PartnerStack réseau** — profil créé (Éditeur + Affilié), candidatures Brevo + Lemlist envoyées
+- [x] **Google Search Console** — propriété vérifiée, sitemap soumis (24 pages), indexation HP demandée
+- [x] **PartnerStack** — profil réseau créé, candidatures Brevo + Lemlist envoyées
+- [x] **Affilae** — compte créé + RIB configuré, candidatures Yousign + Qonto + Shine
+- [x] **Brevo affilié** — accepté, vrai lien en prod (`https://get.brevo.com/l2qmecqaww8b`)
+- [x] **Vercel Analytics** — installé et actif
+- [x] **Newsletter redesign** — section dark full-width, layout 2 colonnes, copy outils/updates
+- [x] **Hero decoration** — outils français réels (Mistral, Brevo, Qonto, Penpot) au lieu de Notion/Figma
+- [x] **Accent French blue** — violet → #0052CC partout, tricolor footer, mentions légales clean
+- [x] **Mentions légales** — MyFrenchTool, SIRET, email pro, Brevo comme prestataire newsletter
+- [x] **Footer** — clean, liens morts grisés (Contact, Blog), "Fait maison, en France."
