@@ -58,10 +58,10 @@ function HeroDecoration() {
           Top outils
         </div>
         {[
-          { name: "Notion", rating: "4.9", color: "#000000" },
-          { name: "Figma", rating: "4.8", color: "#f24e1e" },
-          { name: "Linear", rating: "4.9", color: "#5e6ad2" },
-          { name: "Framer", rating: "4.7", color: "#0099ff" },
+          { name: "Mistral AI", rating: "4.8", color: "#FF7000" },
+          { name: "Brevo", rating: "4.7", color: "#0092FF" },
+          { name: "Qonto", rating: "4.7", color: "#111111" },
+          { name: "Penpot", rating: "4.6", color: "#7238EA" },
         ].map((item) => (
           <div
             key={item.name}
