@@ -49,7 +49,7 @@ export default function Footer() {
                   href="mailto:johan@myfrenchtool.com"
                   className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
                 >
-                  Contact
+                  johan@myfrenchtool.com
                 </a>
               </li>
             </ul>
@@ -68,7 +68,7 @@ export default function Footer() {
             </div>
             <span className="text-xs text-[var(--muted-foreground)]">·</span>
             <p className="text-xs text-[var(--muted-foreground)]">
-              Fait en France, pour la France
+              Fait maison, en France.
             </p>
           </div>
         </div>
