@@ -45,12 +45,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="mailto:johan@myfrenchtool.com"
-                  className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-                >
-                  johan@myfrenchtool.com
-                </a>
+                <span className="text-sm text-[var(--muted-foreground)] opacity-40 cursor-not-allowed select-none">
+                  Contact
+                </span>
               </li>
             </ul>
           </div>
