@@ -145,7 +145,7 @@ export const tools: Tool[] = [
     category: "marketing",
     tags: ["email", "sms", "automation"],
     website: "https://brevo.com",
-    affiliateUrl: "https://brevo.com/?ref=myfrenchtool",
+    affiliateUrl: "https://get.brevo.com/l2qmecqaww8b",
     logo: "/logos/brevo.svg",
     features: [
       { title: "Alternative française à Mailchimp", description: "Même puissance que Mailchimp — campagnes, automation, templates — mais avec vos données en Europe." },
