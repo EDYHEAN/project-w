@@ -3,6 +3,10 @@ import { tools } from "@/data/tools";
 
 const BASE_URL = "https://www.myfrenchtool.com";
 
+function esc(str: string): string {
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
 function welcomeEmail(email: string, toolCount: number): string {
   const toolsWithScreenshots = tools.filter(t => t.screenshots && t.screenshots.length > 0);
   const featured = toolsWithScreenshots[Math.floor(Math.random() * toolsWithScreenshots.length)];
@@ -54,7 +58,7 @@ function welcomeEmail(email: string, toolCount: number): string {
               <table cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:20px;">
                 <tr>
                   <td style="border-radius:14px;overflow:hidden;border:1px solid #e5e5ea;">
-                    <img src="${screenshotUrl}" width="480" alt="${featured.name}" style="display:block;width:100%;height:auto;border-radius:14px;" />
+                    <img src="${screenshotUrl}" width="480" alt="${esc(featured.name)}" style="display:block;width:100%;height:auto;border-radius:14px;" />
                   </td>
                 </tr>
               </table>
@@ -63,11 +67,11 @@ function welcomeEmail(email: string, toolCount: number): string {
               <table cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:28px;">
                 <tr>
                   <td style="vertical-align:middle;padding-right:12px;" width="36">
-                    <img src="${logoUrl}" width="32" height="32" alt="${featured.name}" style="display:block;border-radius:8px;" />
+                    <img src="${logoUrl}" width="32" height="32" alt="${esc(featured.name)}" style="display:block;border-radius:8px;" />
                   </td>
                   <td style="vertical-align:middle;">
-                    <p style="margin:0;font-size:14px;font-weight:600;color:#1d1d1f;">${featured.name}</p>
-                    <p style="margin:2px 0 0;font-size:13px;color:#6e6e73;">${featured.tagline}</p>
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#1d1d1f;">${esc(featured.name)}</p>
+                    <p style="margin:2px 0 0;font-size:13px;color:#6e6e73;">${esc(featured.tagline)}</p>
                   </td>
                   <td style="vertical-align:middle;" align="right">
                     <a href="${BASE_URL}/tool/${featured.slug}" target="_blank"
@@ -100,12 +104,9 @@ function welcomeEmail(email: string, toolCount: number): string {
           <!-- Footer -->
           <tr>
             <td align="center" style="padding:24px 0 0;">
-              <p style="margin:0 0 6px;font-size:12px;color:#86868b;line-height:1.5;">
+              <p style="margin:0;font-size:12px;color:#86868b;line-height:1.5;">
                 Parce que l'excellence n'a pas besoin d'un accent américain.<br/>
                 Fait maison, en France.
-              </p>
-              <p style="margin:0;font-size:11px;color:#adadb8;">
-                Pour te désabonner, réponds à cet email avec "stop".
               </p>
             </td>
           </tr>
