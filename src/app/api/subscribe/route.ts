@@ -21,92 +21,114 @@ function welcomeEmail(email: string, toolCount: number): string {
 <title>Bienvenue sur MyFrenchTool</title>
 </head>
 <body style="margin:0;padding:0;background:#f5f5f7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f5f5f7;padding:40px 16px;">
+  <table width="100%" cellpadding="0" cellspacing="0"
+    style="background-color:#f5f5f7;background-image:radial-gradient(circle,rgba(0,0,0,0.08) 1px,transparent 1px);background-size:24px 24px;padding:48px 16px;">
     <tr>
       <td align="center">
         <table width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;">
 
-          <!-- Header -->
+          <!-- Logo -->
           <tr>
-            <td align="center" style="padding-bottom:28px;">
+            <td style="padding-bottom:40px;">
               <table cellpadding="0" cellspacing="0">
                 <tr>
                   <td style="vertical-align:middle;padding-right:8px;">
-                    <img src="${BASE_URL}/main-logo/rooster.svg" width="26" height="26" alt="" style="display:block;" />
+                    <img src="${BASE_URL}/main-logo/rooster.svg" width="24" height="24" alt="" style="display:block;" />
                   </td>
                   <td style="vertical-align:middle;">
-                    <span style="font-size:20px;font-weight:700;letter-spacing:-0.3px;color:#1d1d1f;">myfrenchtool</span>
+                    <span style="font-size:17px;font-weight:700;letter-spacing:-0.2px;color:#1d1d1f;">myfrenchtool</span>
                   </td>
                 </tr>
               </table>
             </td>
           </tr>
 
-          <!-- Main card -->
+          <!-- Heading -->
           <tr>
-            <td style="background:#ffffff;border-radius:20px;padding:40px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
-
-              <h1 style="margin:0 0 14px;font-size:30px;font-weight:700;line-height:1.15;letter-spacing:-0.5px;color:#1d1d1f;">
+            <td style="padding-bottom:16px;">
+              <h1 style="margin:0;font-size:36px;font-weight:700;line-height:1.1;letter-spacing:-0.8px;color:#1d1d1f;">
                 Bienvenue parmi<br/>les curieux.
               </h1>
+            </td>
+          </tr>
 
-              <p style="margin:0 0 28px;font-size:15px;line-height:1.65;color:#6e6e73;">
-                Tu suis maintenant le meilleur du SaaS made in France — <strong style="color:#1d1d1f;">${toolCount} outils</strong> référencés, et ça grandit chaque semaine.
+          <!-- Subtext -->
+          <tr>
+            <td style="padding-bottom:36px;">
+              <p style="margin:0;font-size:16px;line-height:1.65;color:#6e6e73;">
+                Tu suis maintenant le meilleur du SaaS made in France — <span style="color:#1d1d1f;font-weight:600;">${toolCount} outils</span> référencés, et ça grandit chaque semaine.
               </p>
+            </td>
+          </tr>
 
-              <!-- Featured tool screenshot -->
-              <table cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:20px;">
-                <tr>
-                  <td style="border-radius:14px;overflow:hidden;border:1px solid #e5e5ea;">
-                    <img src="${screenshotUrl}" width="480" alt="${esc(featured.name)}" style="display:block;width:100%;height:auto;border-radius:14px;" />
-                  </td>
-                </tr>
-              </table>
+          <!-- Tool label -->
+          <tr>
+            <td style="padding-bottom:12px;">
+              <p style="margin:0;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#0052CC;">L'outil du moment</p>
+            </td>
+          </tr>
 
-              <!-- Tool info -->
-              <table cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:28px;">
+          <!-- Screenshot -->
+          <tr>
+            <td style="padding-bottom:16px;border-radius:16px;overflow:hidden;">
+              <img src="${screenshotUrl}" width="560" alt="${esc(featured.name)}"
+                style="display:block;width:100%;height:auto;border-radius:16px;" />
+            </td>
+          </tr>
+
+          <!-- Tool name + tagline -->
+          <tr>
+            <td style="padding-bottom:12px;">
+              <table cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                   <td style="vertical-align:middle;padding-right:12px;" width="36">
-                    <img src="${logoUrl}" width="32" height="32" alt="${esc(featured.name)}" style="display:block;border-radius:8px;" />
+                    <img src="${logoUrl}" width="32" height="32" alt="${esc(featured.name)}"
+                      style="display:block;border-radius:8px;" />
                   </td>
                   <td style="vertical-align:middle;">
-                    <p style="margin:0;font-size:14px;font-weight:600;color:#1d1d1f;">${esc(featured.name)}</p>
+                    <p style="margin:0;font-size:15px;font-weight:600;color:#1d1d1f;">${esc(featured.name)}</p>
                     <p style="margin:2px 0 0;font-size:13px;color:#6e6e73;">${esc(featured.tagline)}</p>
-                  </td>
-                  <td style="vertical-align:middle;" align="right">
-                    <a href="${BASE_URL}/tool/${featured.slug}" target="_blank"
-                       style="font-size:13px;font-weight:600;color:#0052CC;text-decoration:none;">
-                      Voir la fiche →
-                    </a>
                   </td>
                 </tr>
               </table>
+            </td>
+          </tr>
 
-              <p style="margin:0 0 28px;font-size:15px;line-height:1.65;color:#6e6e73;">
+          <!-- Separator -->
+          <tr><td style="height:1px;background:rgba(255,255,255,0.08);margin:24px 0;display:block;"></td></tr>
+          <tr><td style="height:32px;"></td></tr>
+
+          <!-- Body text -->
+          <tr>
+            <td style="padding-bottom:32px;">
+              <p style="margin:0;font-size:15px;line-height:1.7;color:#6e6e73;">
                 Chaque semaine : un outil à la une, les mises à jour importantes, les bons plans — seulement ce qui vaut le détour.
               </p>
+            </td>
+          </tr>
 
-              <!-- CTA -->
+          <!-- CTA -->
+          <tr>
+            <td style="padding-bottom:56px;">
               <table cellpadding="0" cellspacing="0">
                 <tr>
                   <td style="background:#0052CC;border-radius:12px;">
-                    <a href="${BASE_URL}" target="_blank"
-                       style="display:inline-block;padding:13px 26px;font-size:14px;font-weight:600;color:#ffffff;text-decoration:none;letter-spacing:-0.1px;">
-                      Découvrir tous les outils →
+                    <a href="${BASE_URL}/tool/${featured.slug}" target="_blank"
+                       style="display:inline-block;padding:14px 28px;font-size:14px;font-weight:600;color:#ffffff;text-decoration:none;letter-spacing:-0.1px;">
+                      Découvrir ${esc(featured.name)} →
                     </a>
                   </td>
                 </tr>
               </table>
-
             </td>
           </tr>
 
           <!-- Footer -->
           <tr>
-            <td align="center" style="padding:24px 0 0;">
-              <p style="margin:0;font-size:12px;color:#86868b;line-height:1.5;">
-                Parce que l'excellence n'a pas besoin d'un accent américain.<br/>
-                Fait maison, en France.
+            <td style="border-top:1px solid rgba(0,0,0,0.08);padding-top:24px;">
+              <p style="margin:0;font-size:12px;color:#adadb8;line-height:1.6;">
+                myfrenchtool &middot; Fait maison, en France.<br/>
+                Parce que l'excellence n'a pas besoin d'un accent am&eacute;ricain.
               </p>
             </td>
           </tr>
