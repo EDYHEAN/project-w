@@ -42,14 +42,12 @@ function welcomeEmail(email: string, toolCount: number): string {
           <tr>
             <td style="background:#ffffff;border-radius:20px;padding:40px;box-shadow:0 1px 3px rgba(0,0,0,0.06);">
 
-              <p style="margin:0 0 6px;font-size:11px;font-weight:700;color:#0052CC;letter-spacing:1px;text-transform:uppercase;">Newsletter</p>
-
               <h1 style="margin:0 0 14px;font-size:30px;font-weight:700;line-height:1.15;letter-spacing:-0.5px;color:#1d1d1f;">
                 Bienvenue parmi<br/>les curieux.
               </h1>
 
               <p style="margin:0 0 28px;font-size:15px;line-height:1.65;color:#6e6e73;">
-                Tu rejoins la newsletter qui surveille le meilleur du SaaS made in France — <strong style="color:#1d1d1f;">${toolCount} outils</strong> référencés, et ça grandit chaque semaine.
+                Tu suis maintenant le meilleur du SaaS made in France — <strong style="color:#1d1d1f;">${toolCount} outils</strong> référencés, et ça grandit chaque semaine.
               </p>
 
               <!-- Featured tool screenshot -->
@@ -107,7 +105,7 @@ function welcomeEmail(email: string, toolCount: number): string {
                 Fait maison, en France.
               </p>
               <p style="margin:0;font-size:11px;color:#adadb8;">
-                <a href="${BASE_URL}/api/unsubscribe?email=${encodeURIComponent(email)}" style="color:#adadb8;">Se désabonner</a>
+                Pour te désabonner, réponds à cet email avec "stop".
               </p>
             </td>
           </tr>
@@ -156,7 +154,7 @@ export async function POST(req: NextRequest) {
     body: JSON.stringify({
       sender: { name: "MyFrenchTool", email: "johan@myfrenchtool.com" },
       to: [{ email }],
-      subject: "Les outils français les plus affutés vous attendent.",
+      subject: "Bienvenue sur MyFrenchTool 🐓",
       htmlContent: welcomeEmail(email, tools.length),
     }),
   });
