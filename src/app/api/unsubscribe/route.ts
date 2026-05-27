@@ -7,15 +7,13 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ error: "Email manquant" }, { status: 400 });
   }
 
-  await fetch(`https://api.brevo.com/v3/contacts/${encodeURIComponent(email)}`, {
-    method: "PUT",
+  await fetch(`https://api.brevo.com/v3/contacts/lists/${process.env.BREVO_LIST_ID}/contacts/remove`, {
+    method: "POST",
     headers: {
       "api-key": process.env.BREVO_API_KEY!,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      listUnsubscription: [Number(process.env.BREVO_LIST_ID)],
-    }),
+    body: JSON.stringify({ emails: [email] }),
   });
 
   return new NextResponse(

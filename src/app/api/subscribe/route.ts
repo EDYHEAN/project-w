@@ -4,25 +4,10 @@ import { tools } from "@/data/tools";
 const BASE_URL = "https://www.myfrenchtool.com";
 
 function welcomeEmail(email: string, toolCount: number): string {
-  const showcase = [
-    { name: "Mistral AI", logo: `${BASE_URL}/logos/mistral-icon.png`, bg: "#f5f0ff" },
-    { name: "Brevo", logo: `${BASE_URL}/logos/brevo.svg`, bg: "#f0fff5" },
-    { name: "Qonto", logo: `${BASE_URL}/logos/qonto.png`, bg: "#fff0f0" },
-    { name: "Pennylane", logo: `${BASE_URL}/logos/pennylane.png`, bg: "#f0f5ff" },
-  ];
-
-  const toolCards = showcase.map(t => `
-    <td width="25%" style="padding:6px;">
-      <table cellpadding="0" cellspacing="0" width="100%">
-        <tr>
-          <td align="center" style="background:${t.bg};border-radius:12px;padding:14px 8px;">
-            <img src="${t.logo}" width="28" height="28" alt="${t.name}" style="display:block;margin:0 auto 8px;" />
-            <span style="font-size:10px;font-weight:600;color:#1d1d1f;letter-spacing:-0.1px;">${t.name}</span>
-          </td>
-        </tr>
-      </table>
-    </td>
-  `).join("");
+  const toolsWithScreenshots = tools.filter(t => t.screenshots && t.screenshots.length > 0);
+  const featured = toolsWithScreenshots[Math.floor(Math.random() * toolsWithScreenshots.length)];
+  const screenshotUrl = `${BASE_URL}${featured.screenshots![0]}`;
+  const logoUrl = `${BASE_URL}${featured.logo}`;
 
   return `<!DOCTYPE html>
 <html lang="fr">
@@ -67,9 +52,32 @@ function welcomeEmail(email: string, toolCount: number): string {
                 Tu rejoins la newsletter qui surveille le meilleur du SaaS made in France — <strong style="color:#1d1d1f;">${toolCount} outils</strong> référencés, et ça grandit chaque semaine.
               </p>
 
-              <!-- Tool showcase -->
+              <!-- Featured tool screenshot -->
+              <table cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:20px;">
+                <tr>
+                  <td style="border-radius:14px;overflow:hidden;border:1px solid #e5e5ea;">
+                    <img src="${screenshotUrl}" width="480" alt="${featured.name}" style="display:block;width:100%;height:auto;border-radius:14px;" />
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Tool info -->
               <table cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:28px;">
-                <tr>${toolCards}</tr>
+                <tr>
+                  <td style="vertical-align:middle;padding-right:12px;" width="36">
+                    <img src="${logoUrl}" width="32" height="32" alt="${featured.name}" style="display:block;border-radius:8px;" />
+                  </td>
+                  <td style="vertical-align:middle;">
+                    <p style="margin:0;font-size:14px;font-weight:600;color:#1d1d1f;">${featured.name}</p>
+                    <p style="margin:2px 0 0;font-size:13px;color:#6e6e73;">${featured.tagline}</p>
+                  </td>
+                  <td style="vertical-align:middle;" align="right">
+                    <a href="${BASE_URL}/tool/${featured.slug}" target="_blank"
+                       style="font-size:13px;font-weight:600;color:#0052CC;text-decoration:none;">
+                      Voir la fiche →
+                    </a>
+                  </td>
+                </tr>
               </table>
 
               <p style="margin:0 0 28px;font-size:15px;line-height:1.65;color:#6e6e73;">
@@ -82,7 +90,7 @@ function welcomeEmail(email: string, toolCount: number): string {
                   <td style="background:#0052CC;border-radius:12px;">
                     <a href="${BASE_URL}" target="_blank"
                        style="display:inline-block;padding:13px 26px;font-size:14px;font-weight:600;color:#ffffff;text-decoration:none;letter-spacing:-0.1px;">
-                      Découvrir les outils →
+                      Découvrir tous les outils →
                     </a>
                   </td>
                 </tr>
@@ -119,7 +127,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Email invalide" }, { status: 400 });
   }
 
-  // Add to Brevo list
   const res = await fetch("https://api.brevo.com/v3/contacts", {
     method: "POST",
     headers: {
@@ -140,7 +147,6 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // Send welcome email
   await fetch("https://api.brevo.com/v3/smtp/email", {
     method: "POST",
     headers: {
