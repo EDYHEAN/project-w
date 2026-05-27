@@ -107,8 +107,6 @@ export async function POST(req: NextRequest) {
     }),
   });
 
-  const isNewContact = res.status === 201;
-
   if (!res.ok && res.status !== 204) {
     const data = await res.json().catch(() => ({}));
     if (data.code !== "duplicate_parameter") {
@@ -116,9 +114,7 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // Send welcome email only for new contacts
-  if (isNewContact) {
-    await fetch("https://api.brevo.com/v3/smtp/email", {
+  await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
       headers: {
         "api-key": process.env.BREVO_API_KEY!,
