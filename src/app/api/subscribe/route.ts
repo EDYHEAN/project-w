@@ -114,20 +114,22 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  await fetch("https://api.brevo.com/v3/smtp/email", {
-      method: "POST",
-      headers: {
-        "api-key": process.env.BREVO_API_KEY!,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        sender: { name: "MyFrenchTool", email: "johan@myfrenchtool.com" },
-        to: [{ email }],
-        subject: "Les outils français les plus futés vous attendent.",
-        htmlContent: welcomeEmail(email, tools.length),
-      }),
-    });
-  }
+  const emailRes = await fetch("https://api.brevo.com/v3/smtp/email", {
+    method: "POST",
+    headers: {
+      "api-key": process.env.BREVO_API_KEY!,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      sender: { name: "MyFrenchTool", email: "johan@myfrenchtool.com" },
+      to: [{ email }],
+      subject: "Les outils français les plus futés vous attendent.",
+      htmlContent: welcomeEmail(email, tools.length),
+    }),
+  });
+
+  const emailData = await emailRes.json().catch(() => ({}));
+  console.log("[subscribe] email status:", emailRes.status, emailData);
 
   return NextResponse.json({ ok: true });
 }
