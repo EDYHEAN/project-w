@@ -51,7 +51,7 @@ function welcomeEmail(_email: string, toolCount: number): string {
           <!-- Logo -->
           <tr>
             <td style="padding-bottom:40px;">
-              <span style="font-size:16px;font-weight:700;letter-spacing:-0.2px;color:#1d1d1f;">myfrenchtool</span>
+              <img src="${BASE_URL}/main-logo/email-logo.png" width="160" height="24" alt="myfrenchtool" style="display:block;" />
             </td>
           </tr>
 
