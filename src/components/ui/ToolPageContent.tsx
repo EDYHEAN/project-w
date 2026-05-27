@@ -118,7 +118,7 @@ export default function ToolPageContent({ tool, category, related }: Props) {
               <motion.a
                 href={tool.affiliateUrl}
                 target="_blank"
-                rel="noopener noreferrer nofollow"
+                rel="noopener sponsored"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="flex items-center justify-center gap-2 w-full py-3 bg-[#0052CC] hover:bg-[#003fa3] text-white font-medium rounded-xl transition-colors text-sm"
