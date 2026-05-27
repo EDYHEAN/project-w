@@ -18,9 +18,16 @@
   - Pennylane : parrainage depuis compte client
   - Mistral AI : pas de programme connu
 
-- [ ] **Connecter la newsletter à Brevo**
-  - Récupérer l'embed form ou l'API Brevo
-  - Remplacer le `handleSubmit` mock dans `src/components/home/Newsletter.tsx`
+- [ ] **⚠️ Bannière cookies + politique RGPD** — Vercel Analytics + cookies affiliés tiers (PartnerStack, Affilae) nécessitent consentement
+  - Bannière cookie simple (accept/refuse)
+  - Page politique de cookies
+  - Mettre à jour les mentions légales
+
+- [ ] **Newsletter Brevo — setup complet**
+  - Connecter le form (`handleSubmit` dans `Newsletter.tsx`) à l'API Brevo
+  - Créer template mail hebdo (1 outil à la une, 1-2 news, 1 bon plan)
+  - Définir routine éditoriale : fréquence, format, process de rédaction
+  - Prévoir segment mailing affilié (offres partenaires aux abonnés)
 
 ## 📈 Priorité moyenne
 
