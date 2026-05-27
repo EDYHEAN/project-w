@@ -9,9 +9,9 @@ function esc(str: string): string {
 
 const heroTools = [
   { name: "Mistral AI", logo: "/logos/mistral-icon.png", tag: "IA" },
-  { name: "Brevo", logo: "/logos/brevo.svg", tag: "Marketing" },
   { name: "Qonto", logo: "/logos/qonto.png", tag: "Finance" },
-  { name: "Penpot", logo: "/logos/penpot.svg", tag: "Design" },
+  { name: "Yousign", logo: "/logos/yousign.png", tag: "Légal" },
+  { name: "Talkspirit", logo: "/logos/talkspirit.png", tag: "Productivité" },
 ];
 
 function welcomeEmail(_email: string, toolCount: number): string {
@@ -51,16 +51,7 @@ function welcomeEmail(_email: string, toolCount: number): string {
           <!-- Logo -->
           <tr>
             <td style="padding-bottom:40px;">
-              <table cellpadding="0" cellspacing="0">
-                <tr>
-                  <td style="vertical-align:middle;padding-right:8px;">
-                    <img src="${BASE_URL}/main-logo/rooster.svg" width="22" height="22" alt="" style="display:block;" />
-                  </td>
-                  <td style="vertical-align:middle;">
-                    <span style="font-size:16px;font-weight:700;letter-spacing:-0.2px;color:#1d1d1f;">myfrenchtool</span>
-                  </td>
-                </tr>
-              </table>
+              <span style="font-size:16px;font-weight:700;letter-spacing:-0.2px;color:#1d1d1f;">myfrenchtool</span>
             </td>
           </tr>
 
@@ -183,8 +174,9 @@ export async function POST(req: NextRequest) {
     body: JSON.stringify({
       sender: { name: "MyFrenchTool", email: "johan@myfrenchtool.com" },
       to: [{ email }],
-      subject: "Bienvenue sur MyFrenchTool 🐓",
+      subject: "Bienvenue sur MyFrenchTool",
       htmlContent: welcomeEmail(email, tools.length),
+      textContent: `Bienvenue parmi les curieux.\n\nTu suis maintenant le meilleur du SaaS made in France — ${tools.length} outils référencés, et ça grandit chaque semaine.\n\nChaque semaine : un outil à la une, les mises à jour importantes, les bons plans — seulement ce qui vaut le détour.\n\nDécouvrir tous les outils : ${BASE_URL}\n\n—\nmyfrenchtool · Fait maison, en France.`,
     }),
   });
 
