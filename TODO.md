@@ -27,16 +27,12 @@
   - Page politique de cookies
   - Mettre à jour les mentions légales
 
-- [ ] **⚠️ Email deliverability — toujours pas réglé**
-  - ❌ Gmail : tombe en Promotions (pas en boîte principale)
-  - ❌ Hotmail/Outlook : tombe en Spam
-  - ✅ Déjà tenté : textContent, suppression emoji sujet, logos PNG only, email-logo.png
-  - **Suspect n°1 : SPF / DKIM / DMARC pas configurés** → vérifier dans Namecheap + Brevo sender auth
-    - Brevo demande d'ajouter des CNAME (DKIM) + TXT (SPF) sur le domaine myfrenchtool.com
-    - Sans ça, les ESP (Gmail, Hotmail) ne font pas confiance à l'expéditeur → spam
-  - **Suspect n°2 : réputation IP Brevo shared** → si DKIM OK, tester avec un objet ultra-sobre
-  - **Piste Gmail Promotions** : simplifier l'email (moins de colonnes, moins de CTA stylé, pas de bg couleur sur bouton) ou utiliser `one-click` List-Unsubscribe header proprement
-  - Référence : mail Vinyl Run (dark bg, simple, texte + 1 CTA) → tombe en inbox
+- [ ] **Email deliverability — à retester**
+  - SPF ajouté sur Namecheap ✅ (`v=spf1 include:sendinblue.com ~all`)
+  - Template simplifié ✅ : plus de hero card, plus de bouton stylé, lien texte simple
+  - DNS complet : DKIM ✅ DMARC ✅ SPF ✅ brevo-code ✅
+  - vinyl-run a le même DNS et tombe en inbox → diff = âge domaine + contenu
+  - Si toujours spam après test : cause = réputation domaine récent → se règle avec le temps (envois réguliers)
 
 - [ ] **Newsletter Brevo — suite**
   - Créer template mail hebdo (1 outil à la une, 1-2 news, 1 bon plan)
