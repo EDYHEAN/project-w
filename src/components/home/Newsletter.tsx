@@ -7,10 +7,29 @@ import { ArrowRight, Check } from "lucide-react";
 export default function Newsletter() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) setSubmitted(true);
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError("Une erreur est survenue, réessaie.");
+      }
+    } catch {
+      setError("Une erreur est survenue, réessaie.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -115,21 +134,25 @@ export default function Newsletter() {
                 />
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-white/90 text-black text-sm font-medium rounded-xl transition-colors shrink-0"
+                  disabled={loading}
+                  whileHover={{ scale: loading ? 1 : 1.02 }}
+                  whileTap={{ scale: loading ? 1 : 0.98 }}
+                  className="flex items-center justify-center gap-2 px-6 py-3 bg-white hover:bg-white/90 text-black text-sm font-medium rounded-xl transition-colors shrink-0 disabled:opacity-60"
                 >
-                  S'inscrire
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  {loading ? "..." : "S'inscrire"}
+                  {!loading && <ArrowRight className="w-3.5 h-3.5" />}
                 </motion.button>
               </motion.form>
             )}
           </AnimatePresence>
 
           {!submitted && (
-            <p className="text-white/30 text-xs mt-4">
-              Pas de spam. Désabonnement en 1 clic.
-            </p>
+            <>
+              {error && <p className="text-red-400 text-xs mt-3">{error}</p>}
+              <p className="text-white/30 text-xs mt-4">
+                Pas de spam. Désabonnement en 1 clic.
+              </p>
+            </>
           )}
         </div>
       </motion.div>
