@@ -10,21 +10,35 @@
   - ~~Yousign~~ ⏳ candidature Affilae envoyée (100€/abonnement annuel)
   - ~~Qonto~~ ⏳ candidature Affilae envoyée
   - ~~Shine~~ ⏳ candidature Affilae envoyée
-  - ~~Crisp~~ 📨 message de contact envoyé
+  - ~~Indy~~ ⏳ candidature Affilae envoyée (jusqu'à 345€/lead)
+  - ~~Pennylane~~ ⏳ candidature Affilae envoyée
+  - ~~Livestorm~~ ⏳ candidature PartnerStack envoyée
+  - ~~Plezi~~ 📨 message form de contact envoyé (40% récurrents an 1)
+  - ~~Crisp~~ 🟡 en discussion avec Chrysan (social partnerships)
   - ~~Scaleway~~ 📨 message contact sales envoyé
-  - OVHcloud : programme affilié à trouver sur ovhcloud.com
-  - Livestorm : programme affilié à trouver sur livestorm.co
-  - Indy : parrainage depuis compte client
-  - Pennylane : parrainage depuis compte client
+  - ~~Talkspirit~~ 📨 message form de contact envoyé
+  - ~~OVHcloud~~ 🚫 abandonné (trop complexe, demande n° TVA)
   - Mistral AI : pas de programme connu
+  - Penpot : open-source, pas de programme affilié
+  - Slite : programme via Sovrn/VigLink (50% commission) — à postuler
 
 - [ ] **⚠️ Bannière cookies + politique RGPD** — Vercel Analytics + cookies affiliés tiers (PartnerStack, Affilae) nécessitent consentement
   - Bannière cookie simple (accept/refuse)
   - Page politique de cookies
   - Mettre à jour les mentions légales
 
-- [ ] **Newsletter Brevo — setup complet**
-  - Connecter le form (`handleSubmit` dans `Newsletter.tsx`) à l'API Brevo
+- [ ] **⚠️ Email deliverability — toujours pas réglé**
+  - ❌ Gmail : tombe en Promotions (pas en boîte principale)
+  - ❌ Hotmail/Outlook : tombe en Spam
+  - ✅ Déjà tenté : textContent, suppression emoji sujet, logos PNG only, email-logo.png
+  - **Suspect n°1 : SPF / DKIM / DMARC pas configurés** → vérifier dans Namecheap + Brevo sender auth
+    - Brevo demande d'ajouter des CNAME (DKIM) + TXT (SPF) sur le domaine myfrenchtool.com
+    - Sans ça, les ESP (Gmail, Hotmail) ne font pas confiance à l'expéditeur → spam
+  - **Suspect n°2 : réputation IP Brevo shared** → si DKIM OK, tester avec un objet ultra-sobre
+  - **Piste Gmail Promotions** : simplifier l'email (moins de colonnes, moins de CTA stylé, pas de bg couleur sur bouton) ou utiliser `one-click` List-Unsubscribe header proprement
+  - Référence : mail Vinyl Run (dark bg, simple, texte + 1 CTA) → tombe en inbox
+
+- [ ] **Newsletter Brevo — suite**
   - Créer template mail hebdo (1 outil à la une, 1-2 news, 1 bon plan)
   - Définir routine éditoriale : fréquence, format, process de rédaction
   - Prévoir segment mailing affilié (offres partenaires aux abonnés)
@@ -75,12 +89,16 @@
 - [x] **bypassPermissions** configuré dans `.claude/settings.json`
 - [x] **SEO technique** — sitemap.xml dynamique, robots.txt, metadata par page outil + catégorie
 - [x] **Google Search Console** — propriété vérifiée, sitemap soumis (24 pages), indexation HP demandée
-- [x] **PartnerStack** — profil réseau créé, candidatures Brevo + Lemlist envoyées
-- [x] **Affilae** — compte créé + RIB configuré, candidatures Yousign + Qonto + Shine
+- [x] **PartnerStack** — profil réseau ACCEPTÉ, candidatures Lemlist + Livestorm envoyées
+- [x] **Affilae** — compte créé + RIB configuré, candidatures Yousign + Qonto + Shine + Indy + Pennylane
 - [x] **Brevo affilié** — accepté, vrai lien en prod (`https://get.brevo.com/l2qmecqaww8b`)
 - [x] **Vercel Analytics** — installé et actif
-- [x] **Newsletter redesign** — section dark full-width, layout 2 colonnes, copy outils/updates
+- [x] **Newsletter redesign** — section dark full-width, layout 2 colonnes, dot grid animé avec cercles effaceurs
 - [x] **Hero decoration** — outils français réels (Mistral, Brevo, Qonto, Penpot) au lieu de Notion/Figma
 - [x] **Accent French blue** — violet → #0052CC partout, tricolor footer, mentions légales clean
 - [x] **Mentions légales** — MyFrenchTool, SIRET, email pro, Brevo comme prestataire newsletter
 - [x] **Footer** — clean, liens morts grisés (Contact, Blog), "Fait maison, en France."
+- [x] **Newsletter form** — connecté à Brevo (`/api/subscribe`), contact ajouté à la liste, welcome email envoyé
+- [x] **Welcome email** — design coq + carte outils français, logo PNG email-logo.png, textContent, sujet sans emoji
+- [x] **Unsubscribe endpoint** — `/api/unsubscribe?email=...` retire le contact de la liste Brevo
+- [x] **JSON-LD schema** — `SoftwareApplication` + `BreadcrumbList` sur toutes les pages outil (rich results Google)
