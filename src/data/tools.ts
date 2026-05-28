@@ -166,7 +166,7 @@ export const tools: Tool[] = [
     category: "marketing",
     tags: ["email", "outreach", "sales"],
     website: "https://lemlist.com",
-    affiliateUrl: "https://lemlist.com/?ref=myfrenchtool",
+    affiliateUrl: "https://get.lemlist.com/49y3f5w9pa24",
     logo: "/logos/lemlist-icon.webp",
     screenshots: ["/screenshots/lemlist-1.png"],
     features: [
