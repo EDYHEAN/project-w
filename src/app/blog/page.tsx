@@ -33,8 +33,8 @@ export default function BlogPage() {
       <div className="mb-14">
         <span className="text-xs font-semibold tracking-widest text-[var(--accent)] uppercase">Blog</span>
         <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight text-[var(--foreground)] leading-tight">
-          Pas des tableaux de features.<br />
-          <span className="text-[var(--muted-foreground)] font-normal">Des prises de position.</span>
+          Le SaaS français est meilleur<br />
+          <span className="text-[var(--muted-foreground)] font-normal">qu'on ne le croit.</span>
         </h1>
       </div>
 
