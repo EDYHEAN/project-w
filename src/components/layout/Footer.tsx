@@ -53,9 +53,20 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <span className="text-sm text-[var(--muted-foreground)] opacity-40 cursor-not-allowed select-none">
+                <Link
+                  href="/contact"
+                  className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+                >
                   Contact
-                </span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/submit"
+                  className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+                >
+                  Proposer un outil
+                </Link>
               </li>
             </ul>
           </div>
