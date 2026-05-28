@@ -57,9 +57,18 @@ export default function MentionsLegales() {
 
         <section>
           <h2 className="font-semibold text-base mb-3">Propriété intellectuelle</h2>
-          <p className="text-[var(--muted-foreground)]">
-            L'ensemble des contenus de ce site (textes, descriptions, structure) est la propriété de MyFrenchTool, sauf mention contraire. Les logos et marques des outils référencés appartiennent à leurs propriétaires respectifs et sont utilisés à titre informatif uniquement.
-          </p>
+          <div className="space-y-3 text-[var(--muted-foreground)]">
+            <p>
+              L'ensemble des contenus de ce site (textes, descriptions, structure) est la propriété de MyFrenchTool, sauf mention contraire. Les logos et marques des outils référencés appartiennent à leurs propriétaires respectifs et sont utilisés à titre informatif uniquement.
+            </p>
+            <p>
+              L'icône du coq utilisée dans le logo de MyFrenchTool a été créée par{" "}
+              <a href="https://thenounproject.com/gregor.cresnar/" target="_blank" rel="noopener noreferrer" className="text-[var(--foreground)] hover:underline">Gregor Cresnar</a>
+              {" "}et est distribuée sous licence{" "}
+              <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer" className="text-[var(--foreground)] hover:underline">CC BY 3.0</a>
+              {" "}via The Noun Project.
+            </p>
+          </div>
         </section>
 
         <section>
