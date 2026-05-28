@@ -39,6 +39,9 @@ yarn-error.log*
 # claude code (local settings, machine-specific)
 .claude/settings.local.json
 
+# brand assets (extracted files committed separately)
+public/logos/Crisp/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

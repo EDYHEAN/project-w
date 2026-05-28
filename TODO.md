@@ -14,7 +14,7 @@
   - ~~Pennylane~~ ⏳ candidature Affilae envoyée
   - ~~Livestorm~~ ⏳ candidature PartnerStack envoyée
   - ~~Plezi~~ 📨 message form de contact envoyé (40% récurrents an 1)
-  - ~~Crisp~~ 🟡 en discussion avec Chrysan — fiche mise à jour (Hugo IA, omnicanal), en attente réponse sur trafic
+  - ~~Crisp~~ 🟡 onboarding en cours — fiche + logo officiel mis à jour, infos perso envoyées à Chrysan, en attente confirmation
   - ~~Scaleway~~ 📨 message contact sales envoyé
   - ~~Talkspirit~~ 📨 message form de contact envoyé
   - ~~OVHcloud~~ 🚫 abandonné (trop complexe, demande n° TVA)
@@ -98,3 +98,6 @@
 - [x] **Welcome email** — design coq + carte outils français, logo PNG email-logo.png, textContent, sujet sans emoji
 - [x] **Unsubscribe endpoint** — `/api/unsubscribe?email=...` retire le contact de la liste Brevo
 - [x] **JSON-LD schema** — `SoftwareApplication` + `BreadcrumbList` sur toutes les pages outil (rich results Google)
+- [x] **Email pro** — `johan@myfrenchtool.com` configuré dans Gmail via Brevo SMTP, forwarding Namecheap, signature HTML
+- [x] **Lemlist affilié** — accepté PartnerStack, 25% / 12 mois, lien prod live
+- [x] **Crisp logo** — mis à jour avec assets officiels (SVG coloré fourni par Chrysan)
