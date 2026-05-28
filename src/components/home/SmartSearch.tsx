@@ -30,6 +30,35 @@ const fuse = new Fuse(tools, {
 
 const PREFIX_RE = /^(je cherche\s+)?(un outil\s+)?(pour\s+)?/i;
 
+// Intent map — checked before Fuse, covers common French queries
+const INTENT_MAP: { keywords: string[]; slugs: string[] }[] = [
+  { keywords: ["factur", "devis", "comptab", "liasse", "bilan", "fiscalit"], slugs: ["pennylane", "indy", "shine"] },
+  { keywords: ["banque", "compte pro", "virement", "tréso"], slugs: ["qonto", "shine"] },
+  { keywords: ["newsletter", "emailing", "campagne email", "mailing", "abonné"], slugs: ["brevo"] },
+  { keywords: ["cold email", "outreach", "prospecter", "démarch"], slugs: ["lemlist"] },
+  { keywords: ["signer", "signature", "contrat électronique", "paraph"], slugs: ["yousign"] },
+  { keywords: ["chat", "live chat", "support client", "service client"], slugs: ["crisp"] },
+  { keywords: ["intelligence artificielle", "chatgpt", "llm", "génératif"], slugs: ["mistral"] },
+  { keywords: ["maquette", "figma", "prototyp", "ui design", "ux design"], slugs: ["penpot"] },
+  { keywords: ["wiki", "documentation interne", "base de connaissance", "notes équipe"], slugs: ["slite", "talkspirit"] },
+  { keywords: ["webinar", "visioconf", "conférence en ligne", "présentation en ligne"], slugs: ["livestorm"] },
+  { keywords: ["cloud", "hébergement", "serveur", "vps", "infra"], slugs: ["scaleway", "ovhcloud"] },
+  { keywords: ["marketing automation", "inbound", "génér leads", "lead nurturing"], slugs: ["plezi", "brevo"] },
+  { keywords: ["messagerie équipe", "collaboration interne", "réseau social entreprise"], slugs: ["talkspirit"] },
+];
+
+function intentSearch(raw: string): Tool[] {
+  const lower = raw.toLowerCase();
+  for (const entry of INTENT_MAP) {
+    if (entry.keywords.some((kw) => lower.includes(kw))) {
+      return entry.slugs
+        .map((slug) => tools.find((t) => t.slug === slug))
+        .filter(Boolean) as Tool[];
+    }
+  }
+  return [];
+}
+
 const STOP_WORDS = new Set([
   "de", "des", "du", "le", "la", "les", "un", "une", "et", "ou",
   "pour", "par", "avec", "en", "dans", "sur", "au", "aux", "mon",
@@ -109,9 +138,13 @@ export default function SmartSearch() {
     }
   }, [focused, query]);
 
-  // Search
+  // Search — intent map first, Fuse fallback
   useEffect(() => {
-    const cleaned = normalize(query.replace(PREFIX_RE, "").trim());
+    const raw = query.replace(PREFIX_RE, "").trim();
+    if (raw.length < 2) { setResults([]); return; }
+    const intentResults = intentSearch(raw);
+    if (intentResults.length > 0) { setResults(intentResults); return; }
+    const cleaned = normalize(raw);
     if (cleaned.length < 2) { setResults([]); return; }
     setResults(fuse.search(cleaned, { limit: 3 }).map((r) => r.item));
   }, [query]);
@@ -119,7 +152,8 @@ export default function SmartSearch() {
   const isIdle = !focused && !query;
 
   return (
-    <section className="px-6 max-w-3xl mx-auto mb-12">
+    <section className="sticky top-[72px] z-30 bg-white/80 backdrop-blur-md border-b border-[var(--border)] px-6 py-3 mb-8">
+    <div className="max-w-3xl mx-auto">
       {/* Search bar */}
       <div
         onClick={() => inputRef.current?.focus()}
@@ -180,6 +214,7 @@ export default function SmartSearch() {
           ))}
         </div>
       )}
+    </div>
     </section>
   );
 }
