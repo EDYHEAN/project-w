@@ -154,7 +154,7 @@ export default function Hero() {
             <span style={{ color: "var(--accent)" }}>est ici</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-lg mb-10">
+          <p className="text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-lg mb-5">
             Parce que l'excellence n'a pas besoin d'un accent américain. On
             sélectionne les meilleurs outils français — design, IA, finance et
             plus — et on vous dit pourquoi.

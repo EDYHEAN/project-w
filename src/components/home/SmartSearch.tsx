@@ -5,7 +5,7 @@ import { tools } from "@/data/tools";
 import { Tool } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Search } from "lucide-react";
 
 const EXAMPLES = [
   "envoyer des emails marketing",
@@ -156,8 +156,9 @@ export default function SmartSearch() {
       {/* Search bar */}
       <div
         onClick={() => inputRef.current?.focus()}
-        className="flex items-center gap-0 rounded-2xl border border-[var(--border)] bg-white shadow-sm px-5 py-3.5 cursor-text focus-within:border-[var(--accent)] focus-within:shadow-md transition-all"
+        className="flex items-center rounded-2xl border border-neutral-300 bg-white shadow-md px-4 py-3.5 cursor-text focus-within:border-[var(--accent)] focus-within:shadow-lg transition-all"
       >
+        <Search className="w-4 h-4 text-[var(--accent)] shrink-0 mr-2.5" />
         {/* Fixed prefix */}
         <span className="text-[15px] text-[var(--foreground)] whitespace-nowrap shrink-0 select-none">
           Je cherche un outil pour&nbsp;
