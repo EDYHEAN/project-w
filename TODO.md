@@ -59,8 +59,9 @@
 - [ ] **Page "Soumettre un outil"** (`/submit`) — à remettre quand prêt
 - [ ] **Page Contact** (`/contact`) — form de contact (lien grisé en attendant)
 - [ ] **Page About** — sélection, positionnement 100% français, modèle affilié
-- [ ] **Blog** — articles SEO "meilleur outil français pour X"
-  - ⏳ Brief en cours avec Lamia (Lemlist) — angle choisi : "lemlist vs Instantly vs Apollo : ce que les comparatifs ne te disent pas" → à transformer en article + newsletter dès réception
+- [ ] **Blog — suite**
+  - Envoyer l'article lemlist à Lamia dès qu'elle répond au message précédent (message prêt en mémoire)
+  - Routine articles autonome ✅ — CronCreate chaque mardi 8h03, réactivable avec "relance la routine articles"
 
 ## ✅ Fait
 
@@ -102,3 +103,11 @@
 - [x] **Email pro** — `johan@myfrenchtool.com` configuré dans Gmail via Brevo SMTP, forwarding Namecheap, signature HTML
 - [x] **Lemlist affilié** — accepté PartnerStack, 25% / 12 mois, lien prod live
 - [x] **Crisp logo** — mis à jour avec assets officiels (SVG coloré fourni par Chrysan)
+- [x] **Blog** — setup complet (MDX, @next/mdx, remark-gfm Turbopack, listing + article pages, barre de progression, outils liés, CTA affilié)
+- [x] **Article 1** — "lemlist vs Instantly vs Apollo : ce que les comparatifs ne te disent pas" (live, JSON-LD Article)
+- [x] **Article 2** — "Brevo vs Mailchimp : pourquoi les équipes françaises font le mauvais choix" (live)
+- [x] **Welcome email** — dernière article affiché en carte dans l'email de bienvenue
+- [x] **Sitemap** — blog posts (listing + articles) ajoutés au sitemap dynamique
+- [x] **DNS myfrenchtool.com** — DKIM ✅ DMARC ✅ SPF ✅ (ajouté session 2026-05-28)
+- [x] **Mentions légales** — attribution Gregor Cresnar (CC BY 3.0, Noun Project) pour l'icône coq
+- [x] **Hero decoration** — Penpot remplacé par lemlist
