@@ -19,17 +19,44 @@ const EXAMPLES = [
 const fuse = new Fuse(tools, {
   keys: [
     { name: "name", weight: 0.5 },
-    { name: "tagline", weight: 0.35 },
-    { name: "description", weight: 0.1 },
-    { name: "tags", weight: 0.05 },
+    { name: "tagline", weight: 0.4 },
+    { name: "tags", weight: 0.1 },
   ],
-  threshold: 0.45,
+  threshold: 0.3,
   includeScore: true,
   minMatchCharLength: 2,
   ignoreLocation: true,
 });
 
 const PREFIX_RE = /^(je cherche\s+)?(un outil\s+)?(pour\s+)?/i;
+
+const SYNONYMS: Record<string, string> = {
+  mails: "email",
+  mail: "email",
+  courriel: "email",
+  courriels: "email",
+  facture: "facturation",
+  factures: "facturation",
+  facturer: "facturation",
+  signer: "signature",
+  contrat: "signature",
+  contrats: "signature",
+  ia: "intelligence artificielle",
+  prospect: "prospection",
+  prospects: "prospection",
+  compta: "comptabilité",
+  comptable: "comptabilité",
+  design: "design ui",
+  designer: "design ui",
+  maquette: "design ui",
+};
+
+function normalize(q: string): string {
+  return q
+    .split(/\s+/)
+    .map((w) => SYNONYMS[w.toLowerCase()] ?? w)
+    .join(" ");
+}
 
 export default function SmartSearch() {
   const [query, setQuery] = useState("");
@@ -44,7 +71,7 @@ export default function SmartSearch() {
   }, [focused, query]);
 
   useEffect(() => {
-    const cleaned = query.replace(PREFIX_RE, "").trim();
+    const cleaned = normalize(query.replace(PREFIX_RE, "").trim());
     if (cleaned.length < 2) { setResults([]); return; }
     setResults(fuse.search(cleaned, { limit: 3 }).map((r) => r.item));
   }, [query]);
