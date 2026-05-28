@@ -1,3 +1,12 @@
+export type AffiliateCta = {
+  toolSlug: string;
+  name: string;
+  logo: string;
+  tagline: string;
+  affiliateUrl: string;
+  cta: string;
+};
+
 export type Post = {
   slug: string;
   title: string;
@@ -7,6 +16,7 @@ export type Post = {
   imageAlt: string;
   tags: string[];
   readingTime: number;
+  affiliateCta?: AffiliateCta;
 };
 
 export const posts: Post[] = [
@@ -19,6 +29,14 @@ export const posts: Post[] = [
     imageAlt: "Personne travaillant sur un MacBook Pro dans un espace de coworking",
     tags: ["cold-email", "rgpd", "comparatif"],
     readingTime: 6,
+    affiliateCta: {
+      toolSlug: "lemlist",
+      name: "lemlist",
+      logo: "/logos/lemlist-icon.webp",
+      tagline: "Personnalisation avancée, multicanal, hébergement Europe. L'outil cold email pensé pour les équipes qui vendent en B2B européen.",
+      affiliateUrl: "https://get.lemlist.com/49y3f5w9pa24",
+      cta: "Essayer lemlist gratuitement",
+    },
   },
 ];
 

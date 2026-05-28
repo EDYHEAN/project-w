@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { posts, getPost } from "@/content/posts";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 
 const BASE_URL = "https://www.myfrenchtool.com";
 
@@ -62,9 +62,10 @@ export default async function BlogPostPage({ params }: Props) {
     description: post.description,
     image: `${BASE_URL}${post.image}`,
     datePublished: post.date,
-    author: { "@type": "Organization", name: "MyFrenchTool" },
+    author: { "@type": "Organization", name: "MyFrenchTool", url: BASE_URL },
     publisher: { "@type": "Organization", name: "MyFrenchTool", url: BASE_URL },
     url: `${BASE_URL}/blog/${post.slug}`,
+    keywords: post.tags.join(", "),
   };
 
   return (
@@ -131,6 +132,46 @@ export default async function BlogPostPage({ params }: Props) {
         ">
           <Content />
         </div>
+
+        {/* Affiliate CTA card */}
+        {post.affiliateCta && (
+          <div className="mt-14 rounded-2xl border border-[var(--border)] bg-[var(--muted)] p-8">
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src={post.affiliateCta.logo}
+                alt={post.affiliateCta.name}
+                width={32}
+                height={32}
+                className="rounded-lg"
+              />
+              <span className="font-semibold text-[var(--foreground)]">{post.affiliateCta.name}</span>
+            </div>
+            <p className="text-sm text-[var(--muted-foreground)] leading-relaxed mb-6">
+              {post.affiliateCta.tagline}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href={post.affiliateCta.affiliateUrl}
+                target="_blank"
+                rel="noopener sponsored"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[var(--accent)] hover:bg-[var(--accent-soft)] text-white text-sm font-semibold rounded-xl transition-colors"
+              >
+                {post.affiliateCta.cta}
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+              <Link
+                href={`/tool/${post.affiliateCta.toolSlug}`}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-[var(--border-strong)] text-[var(--foreground)] text-sm font-medium rounded-xl hover:bg-white transition-colors"
+              >
+                Voir la fiche
+                <ExternalLink className="w-3 h-3" />
+              </Link>
+            </div>
+            <p className="text-[11px] text-[var(--muted-foreground)] mt-4">
+              Lien affilié — MyFrenchTool perçoit une commission si tu souscris, sans surcoût pour toi.
+            </p>
+          </div>
+        )}
       </main>
     </>
   );
