@@ -135,6 +135,8 @@ export default async function BlogPostPage({ params }: Props) {
           prose-a:text-[var(--accent)] prose-a:no-underline prose-a:hover:underline
           prose-li:text-[var(--muted-foreground)] prose-li:text-[15px]
           prose-hr:border-[var(--border)] prose-hr:my-10
+          prose-table:text-sm prose-th:text-[var(--foreground)] prose-th:font-semibold prose-td:text-[var(--muted-foreground)]
+          prose-thead:border-[var(--border)] prose-tr:border-[var(--border)]
         ">
           <Content />
         </div>
