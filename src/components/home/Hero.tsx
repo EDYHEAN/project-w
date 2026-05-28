@@ -160,9 +160,7 @@ export default function Hero() {
             plus — et on vous dit pourquoi.
           </p>
 
-          <div className="max-w-sm">
-            <SmartSearch />
-          </div>
+          <SmartSearch />
           <a
             href="#categories"
             className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-[var(--accent)] text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors"
