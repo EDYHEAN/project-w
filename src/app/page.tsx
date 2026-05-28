@@ -1,5 +1,4 @@
 import Hero from "@/components/home/Hero";
-import SmartSearch from "@/components/home/SmartSearch";
 import FeaturedTools from "@/components/home/FeaturedTools";
 import AllTools from "@/components/home/AllTools";
 import Newsletter from "@/components/home/Newsletter";
@@ -13,7 +12,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <SmartSearch />
 
       <section id="categories" className="px-6 py-12 max-w-7xl mx-auto">
         <div className="flex items-baseline justify-between mb-8">

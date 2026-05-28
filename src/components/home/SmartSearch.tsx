@@ -152,8 +152,7 @@ export default function SmartSearch() {
   const isIdle = !focused && !query;
 
   return (
-    <section className="sticky top-[72px] z-30 bg-white/80 backdrop-blur-md border-b border-[var(--border)] px-6 pt-3 pb-5 mb-8">
-    <div className="max-w-3xl mx-auto">
+    <div>
       {/* Search bar */}
       <div
         onClick={() => inputRef.current?.focus()}
@@ -215,6 +214,5 @@ export default function SmartSearch() {
         </div>
       )}
     </div>
-    </section>
   );
 }
