@@ -130,7 +130,7 @@ function HeroDecoration() {
 
 export default function Hero() {
   return (
-    <section className="px-6 pt-28 pb-16 max-w-7xl mx-auto">
+    <section className="px-6 pt-16 pb-16 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -160,12 +160,14 @@ export default function Hero() {
             plus — et on vous dit pourquoi.
           </p>
 
-          <SmartSearch />
+          <div className="max-w-sm">
+            <SmartSearch />
+          </div>
           <a
             href="#categories"
-            className="inline-block mt-3 text-xs text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+            className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-[var(--accent)] text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors"
           >
-            Explorer les catégories ↓
+            Explorer tous les outils ↓
           </a>
 
           <motion.div
