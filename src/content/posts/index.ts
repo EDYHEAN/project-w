@@ -17,6 +17,7 @@ export type Post = {
   tags: string[];
   readingTime: number;
   affiliateCta?: AffiliateCta;
+  relatedToolSlugs?: string[];
 };
 
 export const posts: Post[] = [
@@ -29,6 +30,7 @@ export const posts: Post[] = [
     imageAlt: "Personne travaillant sur un MacBook Pro dans un espace de coworking",
     tags: ["cold-email", "rgpd", "comparatif"],
     readingTime: 6,
+    relatedToolSlugs: ["lemlist", "brevo", "crisp"],
     affiliateCta: {
       toolSlug: "lemlist",
       name: "lemlist",

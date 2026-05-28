@@ -61,7 +61,7 @@ function HeroDecoration() {
           { name: "Mistral AI", rating: "4.8", color: "#FF7000" },
           { name: "Brevo", rating: "4.7", color: "#0092FF" },
           { name: "Qonto", rating: "4.7", color: "#111111" },
-          { name: "Penpot", rating: "4.6", color: "#7238EA" },
+          { name: "lemlist", rating: "4.7", color: "#1E4ED8" },
         ].map((item) => (
           <div
             key={item.name}

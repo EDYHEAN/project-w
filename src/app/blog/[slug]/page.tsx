@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { posts, getPost } from "@/content/posts";
+import { tools } from "@/data/tools";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import ReadingProgress from "@/components/blog/ReadingProgress";
 
 const BASE_URL = "https://www.myfrenchtool.com";
 
@@ -54,6 +56,9 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   const { default: Content } = await import(`@/content/posts/${slug}.mdx`);
+  const relatedTools = (post.relatedToolSlugs ?? [])
+    .map((s) => tools.find((t) => t.slug === s))
+    .filter(Boolean);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -70,6 +75,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
+      <ReadingProgress />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -126,12 +132,41 @@ export default async function BlogPostPage({ params }: Props) {
           prose-h3:text-lg prose-h3:mt-8 prose-h3:mb-3
           prose-p:text-[var(--muted-foreground)] prose-p:leading-relaxed prose-p:text-[15px]
           prose-strong:text-[var(--foreground)] prose-strong:font-semibold
-          prose-a:text-[var(--accent)] prose-a:no-underline hover:prose-a:underline
+          prose-a:text-[var(--accent)] prose-a:no-underline prose-a:hover:underline
           prose-li:text-[var(--muted-foreground)] prose-li:text-[15px]
           prose-hr:border-[var(--border)] prose-hr:my-10
         ">
           <Content />
         </div>
+
+        {/* Related tools */}
+        {relatedTools.length > 0 && (
+          <div className="mt-14">
+            <h2 className="text-base font-semibold text-[var(--foreground)] mb-5">Outils cités dans cet article</h2>
+            <div className="grid gap-3">
+              {relatedTools.map((tool) => tool && (
+                <Link
+                  key={tool.slug}
+                  href={`/tool/${tool.slug}`}
+                  className="flex items-center gap-4 p-4 rounded-xl border border-[var(--border)] hover:border-[var(--border-strong)] hover:bg-[var(--muted)] transition-colors group"
+                >
+                  <Image
+                    src={tool.logo}
+                    alt={tool.name}
+                    width={36}
+                    height={36}
+                    className="rounded-lg shrink-0"
+                  />
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold text-[var(--foreground)]">{tool.name}</p>
+                    <p className="text-xs text-[var(--muted-foreground)] truncate">{tool.tagline}</p>
+                  </div>
+                  <ExternalLink className="w-3.5 h-3.5 text-[var(--muted-foreground)] shrink-0 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Affiliate CTA card */}
         {post.affiliateCta && (
