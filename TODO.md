@@ -60,6 +60,7 @@
 - [ ] **Page Contact** (`/contact`) — form de contact (lien grisé en attendant)
 - [ ] **Page About** — sélection, positionnement 100% français, modèle affilié
 - [ ] **Blog** — articles SEO "meilleur outil français pour X"
+  - ⏳ Brief en cours avec Lamia (Lemlist) — angle choisi : "lemlist vs Instantly vs Apollo : ce que les comparatifs ne te disent pas" → à transformer en article + newsletter dès réception
 
 ## ✅ Fait
 
