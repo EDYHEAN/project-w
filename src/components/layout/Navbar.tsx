@@ -123,9 +123,12 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          <span className="px-3 py-1.5 rounded-lg text-[13px] text-[var(--muted-foreground)] opacity-40 cursor-not-allowed select-none">
+          <Link
+            href="/blog"
+            className="px-3 py-1.5 rounded-lg text-[13px] text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors duration-150"
+          >
             Blog
-          </span>
+          </Link>
 
           <a
             href="#newsletter"
