@@ -129,7 +129,7 @@ function HeroDecoration() {
 
 export default function Hero() {
   return (
-    <section className="px-6 pt-28 pb-16 max-w-7xl mx-auto">
+    <section className="px-6 pt-28 pb-4 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
