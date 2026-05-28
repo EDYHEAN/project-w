@@ -22,6 +22,25 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "brevo-vs-mailchimp",
+    title: "Brevo vs Mailchimp : pourquoi les équipes françaises font le mauvais choix",
+    description: "Prix, templates, automation — tout le monde compare les mêmes critères. Ce que personne ne dit : Mailchimp transfère tes données aux États-Unis. Brevo non.",
+    date: "2026-05-28",
+    image: "/blog/brevo-vs-mailchimp.jpg",
+    imageAlt: "Laptop sur table en verre dans un espace de travail moderne",
+    tags: ["email-marketing", "rgpd", "comparatif"],
+    readingTime: 5,
+    relatedToolSlugs: ["brevo", "lemlist", "crisp"],
+    affiliateCta: {
+      toolSlug: "brevo",
+      name: "Brevo",
+      logo: "/logos/brevo.svg",
+      tagline: "Email, SMS, WhatsApp, CRM — tout en un. Hébergé en Europe, conforme RGPD. Plan gratuit sans limite sur le nombre de contacts.",
+      affiliateUrl: "https://get.brevo.com/l2qmecqaww8b",
+      cta: "Essayer Brevo gratuitement",
+    },
+  },
+  {
     slug: "lemlist-vs-instantly-vs-apollo",
     title: "lemlist vs Instantly vs Apollo : ce que les comparatifs ne te disent pas",
     description: "Prix, canaux, templates — tout le monde compare les mêmes critères. Voilà ce qu'ils oublient toujours : l'hébergement de tes données et le RGPD.",
