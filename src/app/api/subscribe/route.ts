@@ -1,9 +1,29 @@
 import { NextRequest, NextResponse } from "next/server";
 import { tools } from "@/data/tools";
+import { posts } from "@/content/posts";
 
 const BASE_URL = "https://www.myfrenchtool.com";
 
 function welcomeEmail(_email: string, toolCount: number): string {
+  const latest = posts[0];
+
+  const articleSection = latest ? `
+          <!-- Latest article -->
+          <tr>
+            <td style="padding-bottom:32px;">
+              <table cellpadding="0" cellspacing="0" width="100%" style="border:1px solid #e5e5ea;border-radius:12px;overflow:hidden;">
+                <tr>
+                  <td style="padding:20px 24px;">
+                    <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#0052CC;">Dernier article</p>
+                    <p style="margin:0 0 8px;font-size:15px;font-weight:600;line-height:1.3;color:#1d1d1f;">${latest.title}</p>
+                    <p style="margin:0 0 14px;font-size:13px;line-height:1.6;color:#6e6e73;">${latest.description}</p>
+                    <a href="${BASE_URL}/blog/${latest.slug}" target="_blank" style="font-size:13px;font-weight:600;color:#0052CC;text-decoration:none;">Lire l'article &rarr;</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>` : "";
+
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -48,6 +68,8 @@ function welcomeEmail(_email: string, toolCount: number): string {
               </p>
             </td>
           </tr>
+
+          ${articleSection}
 
           <!-- CTA text link -->
           <tr>
@@ -102,6 +124,11 @@ export async function POST(req: NextRequest) {
     }
   }
 
+  const latest = posts[0];
+  const textArticle = latest
+    ? `\n\nÀ lire : ${latest.title}\n${BASE_URL}/blog/${latest.slug}`
+    : "";
+
   await fetch("https://api.brevo.com/v3/smtp/email", {
     method: "POST",
     headers: {
@@ -113,7 +140,7 @@ export async function POST(req: NextRequest) {
       to: [{ email }],
       subject: "Bienvenue sur MyFrenchTool",
       htmlContent: welcomeEmail(email, tools.length),
-      textContent: `Bienvenue parmi les curieux.\n\nTu suis maintenant le meilleur du SaaS made in France — ${tools.length} outils référencés, et ça grandit chaque semaine.\n\nChaque semaine : un outil à la une, les mises à jour importantes, les bons plans — seulement ce qui vaut le détour.\n\nDécouvrir tous les outils : ${BASE_URL}\n\n—\nmyfrenchtool · Fait maison, en France.`,
+      textContent: `Bienvenue parmi les curieux.\n\nTu suis maintenant le meilleur du SaaS made in France — ${tools.length} outils référencés, et ça grandit chaque semaine.\n\nChaque semaine : un outil à la une, les mises à jour importantes, les bons plans — seulement ce qui vaut le détour.${textArticle}\n\nDécouvrir tous les outils : ${BASE_URL}\n\n—\nmyfrenchtool · Fait maison, en France.`,
     }),
   });
 
