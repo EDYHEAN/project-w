@@ -1,11 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Fuse from "fuse.js";
 import { tools } from "@/data/tools";
 import { Tool } from "@/types";
 import Link from "next/link";
 import Image from "next/image";
-import { Search, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const EXAMPLES = [
   "envoyer des emails marketing",
@@ -37,27 +37,19 @@ const STOP_WORDS = new Set([
 ]);
 
 const SYNONYMS: Record<string, string> = {
-  // email / envoi
   envoyer: "email", envoi: "email", envoie: "email",
   mails: "email", mail: "email", courriel: "email", courriels: "email",
   newsletter: "email marketing", campagne: "email marketing",
-  // signature / contrats
   signer: "signature", contrat: "signature", contrats: "signature",
-  // comptabilité / facturation
   facture: "facturation comptabilité", factures: "facturation comptabilité",
   facturer: "facturation comptabilité", compta: "comptabilité",
   comptable: "comptabilité", payer: "paiement finance",
-  // prospection / cold email
   prospect: "prospection cold email", prospects: "prospection cold email",
   prospecter: "prospection cold email",
-  // design / maquette
   designer: "design ui", maquette: "design ui", prototype: "design ui",
   concevoir: "design",
-  // ia
   ia: "intelligence artificielle", gpt: "intelligence artificielle",
-  // gestion / projets
   gérer: "gestion", organiser: "gestion projets",
-  // chat / support
   messagerie: "chat", support: "chat crm", client: "crm",
 };
 
@@ -69,43 +61,101 @@ function normalize(q: string): string {
     .join(" ");
 }
 
+type Phase = "typing" | "paused" | "erasing";
+
 export default function SmartSearch() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Tool[]>([]);
-  const [exIdx, setExIdx] = useState(0);
   const [focused, setFocused] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
+  // Typewriter state
+  const [exIdx, setExIdx] = useState(0);
+  const [displayed, setDisplayed] = useState("");
+  const [phase, setPhase] = useState<Phase>("typing");
+
+  // Typewriter engine
   useEffect(() => {
     if (focused || query) return;
-    const t = setInterval(() => setExIdx((i) => (i + 1) % EXAMPLES.length), 3000);
-    return () => clearInterval(t);
+    const example = EXAMPLES[exIdx];
+
+    if (phase === "typing") {
+      if (displayed.length < example.length) {
+        const t = setTimeout(() => setDisplayed(example.slice(0, displayed.length + 1)), 65);
+        return () => clearTimeout(t);
+      }
+      const t = setTimeout(() => setPhase("paused"), 1600);
+      return () => clearTimeout(t);
+    }
+    if (phase === "paused") {
+      const t = setTimeout(() => setPhase("erasing"), 400);
+      return () => clearTimeout(t);
+    }
+    if (phase === "erasing") {
+      if (displayed.length > 0) {
+        const t = setTimeout(() => setDisplayed((d) => d.slice(0, -1)), 32);
+        return () => clearTimeout(t);
+      }
+      setExIdx((i) => (i + 1) % EXAMPLES.length);
+      setPhase("typing");
+    }
+  }, [focused, query, displayed, phase, exIdx]);
+
+  // Reset typewriter when returning to idle
+  useEffect(() => {
+    if (!focused && !query) {
+      setDisplayed("");
+      setPhase("typing");
+    }
   }, [focused, query]);
 
+  // Search
   useEffect(() => {
     const cleaned = normalize(query.replace(PREFIX_RE, "").trim());
     if (cleaned.length < 2) { setResults([]); return; }
     setResults(fuse.search(cleaned, { limit: 3 }).map((r) => r.item));
   }, [query]);
 
-  const placeholder = focused
-    ? "je cherche un outil pour..."
-    : `je cherche un outil pour ${EXAMPLES[exIdx]}`;
+  const isIdle = !focused && !query;
 
   return (
     <section className="px-6 max-w-3xl mx-auto mb-12">
-      <div className="relative">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--muted-foreground)] pointer-events-none" />
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-          placeholder={placeholder}
-          className="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-[var(--border)] bg-white shadow-sm text-[var(--foreground)] text-[15px] placeholder:text-[var(--muted-foreground)] focus:outline-none focus:border-[var(--accent)] focus:shadow-md transition-all"
-        />
+      {/* Search bar */}
+      <div
+        onClick={() => inputRef.current?.focus()}
+        className="flex items-center gap-0 rounded-2xl border border-[var(--border)] bg-white shadow-sm px-5 py-3.5 cursor-text focus-within:border-[var(--accent)] focus-within:shadow-md transition-all"
+      >
+        {/* Fixed prefix */}
+        <span className="text-[15px] text-[var(--foreground)] whitespace-nowrap shrink-0 select-none">
+          Je cherche un outil pour&nbsp;
+        </span>
+
+        {/* Variable part */}
+        <div className="relative flex-1 min-w-0 flex items-center h-6">
+          {/* Typewriter text (idle only) */}
+          {isIdle && (
+            <span className="absolute inset-0 flex items-center pointer-events-none select-none">
+              <span className="text-[15px] text-[var(--muted-foreground)] truncate">
+                {displayed}
+              </span>
+              <span className="inline-block w-px h-[18px] bg-[var(--muted-foreground)] ml-px opacity-70 animate-pulse shrink-0" />
+            </span>
+          )}
+
+          {/* Real input */}
+          <input
+            ref={inputRef}
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            onFocus={() => setFocused(true)}
+            onBlur={() => setTimeout(() => setFocused(false), 150)}
+            className={`absolute inset-0 bg-transparent outline-none text-[15px] text-[var(--foreground)] w-full ${isIdle ? "caret-transparent" : ""}`}
+          />
+        </div>
       </div>
 
+      {/* Results */}
       {results.length > 0 && (
         <div className="mt-2 flex flex-col gap-2">
           {results.map((tool) => (
