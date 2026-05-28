@@ -6,15 +6,15 @@
 
 - [ ] **Affiliés restants**
   - ~~Brevo~~ ✅ accepté — vrai lien en prod
-  - ~~Lemlist~~ ⏳ en attente PartnerStack
-  - ~~Yousign~~ ⏳ candidature Affilae envoyée (100€/abonnement annuel)
+  - ~~Lemlist~~ ✅ accepté — lien prod live (`https://get.lemlist.com/49y3f5w9pa24`), 25% / 12 mois
+  - ~~Yousign~~ 🟡 en discussion Affilae — ont demandé comment on met en avant, répondu
   - ~~Qonto~~ ⏳ candidature Affilae envoyée
   - ~~Shine~~ ⏳ candidature Affilae envoyée
   - ~~Indy~~ ⏳ candidature Affilae envoyée (jusqu'à 345€/lead)
   - ~~Pennylane~~ ⏳ candidature Affilae envoyée
   - ~~Livestorm~~ ⏳ candidature PartnerStack envoyée
   - ~~Plezi~~ 📨 message form de contact envoyé (40% récurrents an 1)
-  - ~~Crisp~~ 🟡 en discussion avec Chrysan (social partnerships)
+  - ~~Crisp~~ 🟡 en discussion avec Chrysan — fiche mise à jour (Hugo IA, omnicanal), en attente réponse sur trafic
   - ~~Scaleway~~ 📨 message contact sales envoyé
   - ~~Talkspirit~~ 📨 message form de contact envoyé
   - ~~OVHcloud~~ 🚫 abandonné (trop complexe, demande n° TVA)
