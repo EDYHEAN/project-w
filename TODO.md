@@ -56,12 +56,10 @@
 
 ## 💡 Priorité basse
 
-- [ ] **Page "Soumettre un outil"** (`/submit`) — à remettre quand prêt
-- [ ] **Page Contact** (`/contact`) — form de contact (lien grisé en attendant)
 - [ ] **Page About** — sélection, positionnement 100% français, modèle affilié
 - [ ] **Blog — suite**
   - Envoyer l'article lemlist à Lamia dès qu'elle répond au message précédent (message prêt en mémoire)
-  - Routine articles autonome ✅ — CronCreate chaque mardi 8h03, réactivable avec "relance la routine articles"
+  - Routine articles autonome ✅ — Claude Code Routines, chaque mardi 8h00
 
 ## ✅ Fait
 
@@ -111,3 +109,6 @@
 - [x] **DNS myfrenchtool.com** — DKIM ✅ DMARC ✅ SPF ✅ (ajouté session 2026-05-28)
 - [x] **Mentions légales** — attribution Gregor Cresnar (CC BY 3.0, Noun Project) pour l'icône coq
 - [x] **Hero decoration** — Penpot remplacé par lemlist
+- [x] **Page Contact** — `/contact` avec formulaire + Brevo email forwarding
+- [x] **Page Soumettre un outil** — `/submit` avec formulaire référencement + affiliation
+- [x] **Smart search** — barre "Je cherche un outil pour" dans le Hero, Fuse.js + intent map + typewriter, zéro coût
