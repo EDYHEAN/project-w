@@ -30,30 +30,41 @@ const fuse = new Fuse(tools, {
 
 const PREFIX_RE = /^(je cherche\s+)?(un outil\s+)?(pour\s+)?/i;
 
+const STOP_WORDS = new Set([
+  "de", "des", "du", "le", "la", "les", "un", "une", "et", "ou",
+  "pour", "par", "avec", "en", "dans", "sur", "au", "aux", "mon",
+  "ma", "mes", "ses", "nos", "vos", "leur", "leurs",
+]);
+
 const SYNONYMS: Record<string, string> = {
-  mails: "email",
-  mail: "email",
-  courriel: "email",
-  courriels: "email",
-  facture: "facturation",
-  factures: "facturation",
-  facturer: "facturation",
-  signer: "signature",
-  contrat: "signature",
-  contrats: "signature",
-  ia: "intelligence artificielle",
-  prospect: "prospection",
-  prospects: "prospection",
-  compta: "comptabilité",
-  comptable: "comptabilité",
-  design: "design ui",
-  designer: "design ui",
-  maquette: "design ui",
+  // email / envoi
+  envoyer: "email", envoi: "email", envoie: "email",
+  mails: "email", mail: "email", courriel: "email", courriels: "email",
+  newsletter: "email marketing", campagne: "email marketing",
+  // signature / contrats
+  signer: "signature", contrat: "signature", contrats: "signature",
+  // comptabilité / facturation
+  facture: "facturation comptabilité", factures: "facturation comptabilité",
+  facturer: "facturation comptabilité", compta: "comptabilité",
+  comptable: "comptabilité", payer: "paiement finance",
+  // prospection / cold email
+  prospect: "prospection cold email", prospects: "prospection cold email",
+  prospecter: "prospection cold email",
+  // design / maquette
+  designer: "design ui", maquette: "design ui", prototype: "design ui",
+  concevoir: "design",
+  // ia
+  ia: "intelligence artificielle", gpt: "intelligence artificielle",
+  // gestion / projets
+  gérer: "gestion", organiser: "gestion projets",
+  // chat / support
+  messagerie: "chat", support: "chat crm", client: "crm",
 };
 
 function normalize(q: string): string {
   return q
     .split(/\s+/)
+    .filter((w) => !STOP_WORDS.has(w.toLowerCase()))
     .map((w) => SYNONYMS[w.toLowerCase()] ?? w)
     .join(" ");
 }
