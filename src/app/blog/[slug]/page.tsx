@@ -167,9 +167,6 @@ export default async function BlogPostPage({ params }: Props) {
                 <ExternalLink className="w-3 h-3" />
               </Link>
             </div>
-            <p className="text-[11px] text-[var(--muted-foreground)] mt-4">
-              Lien affilié — MyFrenchTool perçoit une commission si tu souscris, sans surcoût pour toi.
-            </p>
           </div>
         )}
       </main>
