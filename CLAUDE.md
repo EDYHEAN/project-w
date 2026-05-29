@@ -31,7 +31,7 @@ Fichier : `src/content/posts/{slug}.mdx`
 - Intro directe, pas de titre H1 (il est dans la page)
 - Sections H2 et H3
 - Tableau GFM si comparatif (colonnes : Critère / outil1 / outil2 / outil3)
-- Liens internes : `[nom-outil](/tool/{slug})` et `[MyFrenchTool](/)` quand pertinent
+- Liens internes : `[nom-outil](/tool/{slug})` et `[MyFrenchTool](/)` quand pertinent — **première mention par section H2 uniquement**, les occurrences suivantes restent en texte simple (pas de sur-linking)
 - Pas de lien affilié dans le corps — c'est la CTA card qui le porte
 - Ton : direct, pas de jargon, prise de position claire
 - Longueur : 600-900 mots
@@ -59,6 +59,26 @@ Fichier : `src/content/posts/{slug}.mdx`
   },
 }
 ```
+
+### Liens affiliés par outil
+
+Toujours utiliser le lien affilié réel dans `affiliateCta.affiliateUrl`. Les `?ref=myfrenchtool` sont des placeholders pour les outils sans programme confirmé.
+
+**Affiliés confirmés — liens prod :**
+| Outil | Contexte | URL |
+|---|---|---|
+| Brevo | Tous | `https://get.brevo.com/l2qmecqaww8b` |
+| Lemlist | Tous | `https://get.lemlist.com/49y3f5w9pa24` |
+| Crisp | Tous | `https://crisp.chat/?track=RHG6ktzYNt` |
+| Indy | Général / compta | `https://www.indy.fr/?ae=1612` |
+| Indy | Création d'entreprise | `https://urlr.me/8RXf2K` |
+| Indy | Facturation électronique | `https://urls.fr/46co64` |
+| Indy | Ouverture compte pro | `https://urls.fr/88mrqb` |
+
+**Ressources Indy pour enrichir les articles :**
+- Blog : https://www.indy.fr/blog/
+- Guides & Ebooks par statut : https://www.indy.fr/ebooks/
+- Centre d'aide : https://wikicompta.indy.fr
 
 ## Règles projet
 
