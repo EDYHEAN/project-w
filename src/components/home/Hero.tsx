@@ -130,7 +130,7 @@ function HeroDecoration() {
 
 export default function Hero() {
   return (
-    <section className="px-6 pt-16 pb-16 max-w-7xl mx-auto">
+    <section className="px-6 pt-8 sm:pt-16 pb-16 max-w-7xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -147,11 +147,14 @@ export default function Hero() {
             {tools.length} outils français sélectionnés · mis à jour en mai 2026
           </motion.span>
 
-          <h1 className="text-[56px] md:text-[72px] font-bold tracking-[-0.03em] leading-[1.05] mb-6 text-[var(--foreground)]">
+          <h1 className="text-[36px] sm:text-[56px] md:text-[72px] font-bold tracking-[-0.03em] leading-[1.05] mb-6 text-[var(--foreground)]">
             L'outil qu'il
-            <br />
-            vous faut{" "}
-            <span style={{ color: "var(--accent)" }}>est ici</span>
+            <br className="hidden sm:block" />
+            {" "}
+            <span className="whitespace-nowrap sm:whitespace-normal">
+              vous faut{" "}
+              <span style={{ color: "var(--accent)" }}>est ici</span>
+            </span>
           </h1>
 
           <p className="text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-lg mb-5">
