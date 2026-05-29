@@ -156,49 +156,50 @@ export default function Navbar() {
           </div>
         </nav>
 
-        {/* Mobile menu — fullscreen overlay below navbar */}
-        <AnimatePresence>
-          {mobileOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="md:hidden fixed top-[72px] left-0 right-0 bottom-0 z-40 overflow-y-auto border-t border-[var(--border)] px-6 py-4 flex flex-col gap-1"
-              style={{ background: "rgba(255,255,255,0.98)", backdropFilter: "blur(48px)" }}
-            >
-              <p className="text-xs font-semibold text-[var(--muted-foreground)] uppercase tracking-widest mb-2">Catégories</p>
-              {categories.map((cat) => (
-                <Link
-                  key={cat.slug}
-                  href={`/category/${cat.slug}`}
-                  className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors"
-                >
-                  {cat.name}
-                </Link>
-              ))}
-              <div className="my-2 border-t border-[var(--border)]" />
-              <Link href="/blog" className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors">
-                Blog
-              </Link>
-              <Link href="/contact" className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors">
-                Contact
-              </Link>
-              <Link href="/submit" className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors">
-                Proposer un outil
-              </Link>
-              <div className="mt-2">
-                <a
-                  href="#newsletter"
-                  className="block text-center px-4 py-2.5 text-sm font-medium border border-[var(--border-strong)] rounded-xl hover:bg-[var(--muted)] transition-colors"
-                >
-                  Newsletter
-                </a>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </header>
+
+      {/* Mobile menu — outside <header> to escape backdrop-filter stacking context */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="md:hidden fixed top-[72px] left-0 right-0 bottom-0 z-50 overflow-y-auto border-t border-[var(--border)] px-6 py-4 flex flex-col gap-1"
+            style={{ background: "rgba(255,255,255,0.98)" }}
+          >
+            <p className="text-xs font-semibold text-[var(--muted-foreground)] uppercase tracking-widest mb-2">Catégories</p>
+            {categories.map((cat) => (
+              <Link
+                key={cat.slug}
+                href={`/category/${cat.slug}`}
+                className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors"
+              >
+                {cat.name}
+              </Link>
+            ))}
+            <div className="my-2 border-t border-[var(--border)]" />
+            <Link href="/blog" className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors">
+              Blog
+            </Link>
+            <Link href="/contact" className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors">
+              Contact
+            </Link>
+            <Link href="/submit" className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors">
+              Proposer un outil
+            </Link>
+            <div className="mt-2">
+              <a
+                href="#newsletter"
+                className="block text-center px-4 py-2.5 text-sm font-medium border border-[var(--border-strong)] rounded-xl hover:bg-[var(--muted)] transition-colors"
+              >
+                Newsletter
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
     </>
