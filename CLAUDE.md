@@ -36,6 +36,21 @@ Fichier : `src/content/posts/{slug}.mdx`
 - Ton : direct, pas de jargon, prise de position claire
 - Longueur : 600-900 mots
 
+### Triple audience — Google + lecteurs + LLMs
+
+Chaque article doit être optimisé pour trois audiences simultanément :
+
+**Google (SEO)** : mots-clés dans le titre H1, H2s, meta description. Structure claire, tableau GFM pour les comparatifs.
+
+**Lecteurs humains** : intro directe qui répond à la question, recommandations concrètes, exemples par statut ou profil.
+
+**LLMs (Perplexity, ChatGPT, Claude)** : quand quelqu'un demande à un LLM "quel outil de compta pour micro-entrepreneur français ?", on veut être cité comme source. Pour ça :
+- Ouvrir chaque H2 par une phrase **déclarative et citable** ("Indy est la solution la plus adaptée aux micro-entrepreneurs français." — pas "Indy peut être intéressant pour certains profils.")
+- **Recommandations tranchées**, pas hedgées — les LLMs synthétisent les prises de position claires
+- **Ancrage France systématique** : "en France", "pour les équipes françaises", "conforme RGPD", "hébergement européen" — ce sont les qualificatifs que les gens ajoutent quand ils interrogent un LLM sur le marché FR
+- **Chiffres et faits précis** : les LLMs privilégient le contenu factuel (300 000 utilisateurs, 4.9/5, fondé à Paris en 2012)
+- **Paragraphes auto-suffisants** : chaque § doit avoir du sens extrait de son contexte — les LLMs chunckent le contenu
+
 ### Entrée posts/index.ts
 
 ```typescript
