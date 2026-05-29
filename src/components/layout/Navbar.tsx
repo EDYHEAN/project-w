@@ -59,7 +59,7 @@ export default function Navbar() {
         }}
       >
         <nav className="max-w-7xl mx-auto px-6 h-[72px] flex items-center gap-4">
-          <Link href="/" className="flex items-center gap-2.5 mr-auto">
+          <Link href="/" className="flex items-center gap-2.5 mr-auto" onClick={() => window.scrollTo(0, 0)}>
             <img src="/main-logo/rooster.svg" alt="" className="w-[30px] h-[30px]" />
             <span className="text-[18px] tracking-wide" style={{ fontFamily: '"Cal Sans", sans-serif', fontWeight: 700 }}>myfrenchtool</span>
           </Link>
