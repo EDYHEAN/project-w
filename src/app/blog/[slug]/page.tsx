@@ -125,7 +125,7 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         {/* Corps — article + ToC sidebar desktop */}
-        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_200px] lg:gap-14 lg:items-start">
+        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_156px] lg:gap-10">
           <div className="max-w-3xl">
             {/* Article body */}
             <div className="prose prose-neutral max-w-none

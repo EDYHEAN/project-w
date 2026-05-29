@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react";
 
-type Heading = { id: string; text: string; level: number };
+type Heading = { id: string; text: string };
 
 export default function TableOfContents() {
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [activeId, setActiveId] = useState("");
 
   useEffect(() => {
-    const els = Array.from(document.querySelectorAll(".prose h2, .prose h3"));
+    const els = Array.from(document.querySelectorAll(".prose h2"));
     const items: Heading[] = els.map((el) => {
       if (!el.id) {
         el.id = (el.textContent ?? "")
@@ -20,7 +20,7 @@ export default function TableOfContents() {
           .replace(/\s+/g, "-")
           .trim();
       }
-      return { id: el.id, text: el.textContent ?? "", level: el.tagName === "H2" ? 2 : 3 };
+      return { id: el.id, text: el.textContent ?? "" };
     });
     setHeadings(items);
   }, []);
@@ -44,30 +44,23 @@ export default function TableOfContents() {
   if (headings.length < 2) return null;
 
   return (
-    <nav className="hidden lg:block">
-      <div className="sticky top-[100px]">
-        <p className="text-[11px] font-semibold uppercase tracking-widest text-[var(--muted-foreground)] mb-3">
-          Dans cet article
-        </p>
-        <ul className="space-y-1.5 border-l border-[var(--border)]">
-          {headings.map(({ id, text, level }) => (
-            <li key={id}>
-              <a
-                href={`#${id}`}
-                className={`block text-[13px] leading-snug transition-colors duration-150 pl-3 ${
-                  level === 3 ? "pl-5" : ""
-                } ${
-                  activeId === id
-                    ? "text-[var(--foreground)] font-medium border-l-2 border-[var(--accent)] -ml-px"
-                    : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
-                }`}
-              >
-                {text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
+    <nav className="hidden lg:block self-start sticky top-[100px]">
+      <ul className="space-y-2 border-l border-[var(--border)]">
+        {headings.map(({ id, text }) => (
+          <li key={id}>
+            <a
+              href={`#${id}`}
+              className={`block text-[12px] leading-snug transition-colors duration-150 pl-3 ${
+                activeId === id
+                  ? "text-[var(--foreground)] font-medium border-l-2 border-[var(--accent)] -ml-px"
+                  : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+              }`}
+            >
+              {text}
+            </a>
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 }
