@@ -160,10 +160,14 @@ export default function Hero() {
             plus — et on vous dit pourquoi.
           </p>
 
-          <SmartSearch />
+          {/* SmartSearch — desktop only */}
+          <div className="hidden sm:block">
+            <SmartSearch />
+          </div>
+
           <a
             href="#categories"
-            className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-[var(--accent)] text-white text-sm font-medium rounded-xl hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center justify-center sm:justify-start gap-1.5 mt-4 px-5 py-3 sm:py-2 bg-[var(--accent)] text-white text-sm font-semibold sm:font-medium rounded-xl hover:bg-blue-700 transition-colors w-full sm:w-auto"
           >
             Explorer tous les outils ↓
           </a>

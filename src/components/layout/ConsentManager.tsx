@@ -42,23 +42,25 @@ export default function ConsentManager() {
                 ✕
               </button>
 
-              <div className="flex items-center gap-4 pr-6">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 pr-6">
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <img src="/main-logo/rooster.svg" alt="" className="w-4 h-4 shrink-0" />
-                    <p className="text-sm text-[var(--foreground)]">
-                      On utilise Vercel Analytics pour mieux comprendre ce qui fonctionne — anonymement, sans données personnelles.
-                    </p>
+                  <div className="flex items-start gap-2">
+                    <img src="/main-logo/rooster.svg" alt="" className="w-4 h-4 shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-sm text-[var(--foreground)] leading-snug">
+                        On utilise Vercel Analytics pour mieux comprendre ce qui fonctionne — anonymement, sans données personnelles.
+                      </p>
+                      <Link
+                        href="/politique-cookies"
+                        className="text-xs text-[var(--muted-foreground)] underline hover:text-[var(--foreground)] transition-colors"
+                      >
+                        En savoir plus
+                      </Link>
+                    </div>
                   </div>
-                  <Link
-                    href="/politique-cookies"
-                    className="text-xs text-[var(--muted-foreground)] underline hover:text-[var(--foreground)] transition-colors ml-6"
-                  >
-                    En savoir plus
-                  </Link>
                 </div>
 
-                <div className="flex items-center gap-2 shrink-0">
+                <div className="flex items-center gap-2 shrink-0 self-end sm:self-auto">
                   <button
                     onClick={() => handleConsent("refused")}
                     className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors px-3 py-1.5"
