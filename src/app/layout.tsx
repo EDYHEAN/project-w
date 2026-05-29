@@ -4,7 +4,6 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ConsentManager from "@/components/layout/ConsentManager";
-import ScrollToTop from "@/components/layout/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +33,6 @@ export default function RootLayout({
         <main className="flex-1 pt-[72px]">{children}</main>
         <Footer />
         <ConsentManager />
-        <ScrollToTop />
       </body>
     </html>
   );
