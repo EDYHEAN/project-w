@@ -22,6 +22,25 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "crisp-vs-zendesk-vs-freshdesk",
+    title: "Crisp vs Zendesk vs Freshdesk : lequel pour une équipe française ?",
+    description: "Plan gratuit, RGPD, prix — pourquoi la plupart des équipes françaises choisissent le mauvais outil de support client, et comment choisir selon son profil.",
+    date: "2026-05-29",
+    image: "/blog/crisp-vs-zendesk-vs-freshdesk.jpg",
+    imageAlt: "Femme souriante avec casque au bureau, support client",
+    tags: ["support-client", "rgpd", "comparatif"],
+    readingTime: 5,
+    relatedToolSlugs: ["crisp", "brevo", "lemlist"],
+    affiliateCta: {
+      toolSlug: "crisp",
+      name: "Crisp",
+      logo: "/logos/crisp.svg",
+      tagline: "Support client tout-en-un fondé en France. Chat, email, bot, base de connaissances — plan gratuit pour 2 agents, données hébergées en Europe.",
+      affiliateUrl: "https://crisp.chat/?track=RHG6ktzYNt",
+      cta: "Essayer Crisp gratuitement",
+    },
+  },
+  {
     slug: "indy-vs-pennylane",
     title: "Indy vs Pennylane : lequel choisir selon votre statut ?",
     description: "Micro-entrepreneur, BNC, société — la réponse dépend de ton statut et de ton rapport à la comptabilité, pas des features. On compare les deux.",
