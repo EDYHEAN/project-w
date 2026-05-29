@@ -46,6 +46,14 @@ export default function Footer() {
               </li>
               <li>
                 <Link
+                  href="/politique-cookies"
+                  className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+                >
+                  Politique de cookies
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/blog"
                   className="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
                 >
