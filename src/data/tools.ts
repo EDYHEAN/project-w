@@ -357,7 +357,7 @@ export const tools: Tool[] = [
     category: "finance",
     tags: ["accounting", "freelance", "tax"],
     website: "https://indy.fr",
-    affiliateUrl: "https://indy.fr/?ref=myfrenchtool",
+    affiliateUrl: "https://www.indy.fr/?ae=1612",
     logo: "/logos/indy.png",
     screenshots: ["/screenshots/indy-1.jpg"],
     features: [

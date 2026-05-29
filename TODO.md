@@ -11,7 +11,7 @@
   - ~~Yousign~~ 🟡 en discussion Affilae — ont demandé comment on met en avant, répondu
   - ~~Qonto~~ ⏳ candidature Affilae envoyée
   - ~~Shine~~ ⏳ candidature Affilae envoyée
-  - ~~Indy~~ ⏳ candidature Affilae envoyée (jusqu'à 345€/lead)
+  - ~~Indy~~ ✅ accepté — lien prod : `https://www.indy.fr/?ae=1612` (+10€/inscription, +70€/création société, +250€/abonnement Société)
   - ~~Pennylane~~ ⏳ candidature Affilae envoyée
   - ~~Livestorm~~ ⏳ candidature PartnerStack envoyée
   - ~~Plezi~~ 📨 message form de contact envoyé (40% récurrents an 1)
