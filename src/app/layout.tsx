@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import SiteChrome from "@/components/layout/SiteChrome";
 import ConsentManager from "@/components/layout/ConsentManager";
 
 const geistSans = Geist({
@@ -29,9 +28,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="min-h-screen flex flex-col bg-[var(--background)] text-[var(--foreground)]">
-        <Navbar />
-        <main className="flex-1 pt-[72px]">{children}</main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
         <ConsentManager />
       </body>
     </html>

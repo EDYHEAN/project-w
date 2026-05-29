@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { tools } from "@/data/tools";
 import { posts } from "@/content/posts/index";
 import { affiliates, AffiliateStatus } from "@/data/affiliates";
@@ -18,20 +19,20 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 const STATUS_CONFIG: Record<AffiliateStatus, { label: string; color: string; dot: string }> = {
-  active: { label: "Actif", color: "bg-green-50 text-green-700 border border-green-200", dot: "bg-green-500" },
-  pending: { label: "En discussion", color: "bg-amber-50 text-amber-700 border border-amber-200", dot: "bg-amber-400" },
-  applied: { label: "Candidaté", color: "bg-blue-50 text-blue-700 border border-blue-200", dot: "bg-blue-400" },
-  none: { label: "À candidater", color: "bg-gray-100 text-gray-500 border border-gray-200", dot: "bg-gray-300" },
-  refused: { label: "Refusé", color: "bg-red-50 text-red-600 border border-red-200", dot: "bg-red-400" },
+  active:  { label: "Actif",         color: "bg-green-50 text-green-700 border border-green-200",  dot: "bg-green-500"  },
+  pending: { label: "En discussion", color: "bg-amber-50 text-amber-700 border border-amber-200",  dot: "bg-amber-400"  },
+  applied: { label: "Candidaté",     color: "bg-blue-50 text-blue-700 border border-blue-200",     dot: "bg-blue-400"   },
+  none:    { label: "À candidater",  color: "bg-gray-100 text-gray-500 border border-gray-200",    dot: "bg-gray-300"   },
+  refused: { label: "Refusé",        color: "bg-red-50 text-red-600 border border-red-200",        dot: "bg-red-400"    },
 };
 
 const FILTER_OPTIONS: { label: string; value: AffiliateStatus | "all" }[] = [
-  { label: "Tous", value: "all" },
-  { label: "Actifs", value: "active" },
+  { label: "Tous",          value: "all"     },
+  { label: "Actifs",        value: "active"  },
   { label: "En discussion", value: "pending" },
-  { label: "Candidatés", value: "applied" },
-  { label: "À candidater", value: "none" },
-  { label: "Refusés", value: "refused" },
+  { label: "Candidatés",   value: "applied" },
+  { label: "À candidater",  value: "none"    },
+  { label: "Refusés",       value: "refused" },
 ];
 
 function articleCountByTool(): Record<string, number> {
@@ -46,17 +47,16 @@ function articleCountByTool(): Record<string, number> {
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
-  const copy = () => {
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1500);
-  };
   return (
     <button
-      onClick={copy}
-      className="text-[11px] px-2 py-0.5 rounded bg-[var(--muted)] hover:bg-[var(--border)] text-[var(--muted-foreground)] transition-colors"
+      onClick={() => {
+        navigator.clipboard.writeText(text);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1500);
+      }}
+      className="shrink-0 text-[10px] px-1.5 py-0.5 rounded bg-[var(--muted)] hover:bg-[var(--border)] text-[var(--muted-foreground)] transition-colors"
     >
-      {copied ? "Copié ✓" : "Copier"}
+      {copied ? "✓" : "Copier"}
     </button>
   );
 }
@@ -87,7 +87,11 @@ function PasswordGate({ onAuth }: { onAuth: () => void }) {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[var(--background)]">
       <form onSubmit={submit} className="flex flex-col gap-4 w-full max-w-xs">
-        <p className="text-sm font-medium text-[var(--foreground)]">Dashboard — accès privé</p>
+        <div className="flex items-center gap-2 mb-2">
+          <img src="/main-logo/rooster.svg" alt="" className="w-6 h-6" />
+          <span className="text-sm font-semibold" style={{ fontFamily: '"Cal Sans", sans-serif' }}>myfrenchtool</span>
+        </div>
+        <p className="text-sm text-[var(--muted-foreground)]">Dashboard privé — accès restreint</p>
         <input
           type="password"
           value={value}
@@ -112,38 +116,64 @@ function PasswordGate({ onAuth }: { onAuth: () => void }) {
 export default function DashboardPage() {
   const [authed, setAuthed] = useState<boolean | null>(null);
   const [filter, setFilter] = useState<AffiliateStatus | "all">("all");
+  const [clicks, setClicks] = useState<Record<string, number>>({});
   const articleCounts = articleCountByTool();
 
   useEffect(() => {
     setAuthed(sessionStorage.getItem(STORAGE_KEY) === "1");
   }, []);
 
-  const handleAuth = useCallback(() => setAuthed(true), []);
+  const handleAuth = useCallback(() => {
+    setAuthed(true);
+    fetch("/api/dashboard/clicks")
+      .then((r) => r.json())
+      .then(setClicks)
+      .catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    if (!authed) return;
+    fetch("/api/dashboard/clicks")
+      .then((r) => r.json())
+      .then(setClicks)
+      .catch(() => {});
+  }, [authed]);
 
   if (authed === null) return null;
   if (!authed) return <PasswordGate onAuth={handleAuth} />;
 
   const rows = tools.map((tool) => {
     const affiliate = affiliates[tool.slug] ?? { status: "none" as AffiliateStatus };
-    return { tool, affiliate, articleCount: articleCounts[tool.slug] ?? 0 };
+    return { tool, affiliate, articleCount: articleCounts[tool.slug] ?? 0, clickCount: clicks[tool.slug] ?? 0 };
   });
 
   const filtered = filter === "all" ? rows : rows.filter((r) => r.affiliate.status === filter);
 
   const counts = {
-    active: rows.filter((r) => r.affiliate.status === "active").length,
+    active:  rows.filter((r) => r.affiliate.status === "active").length,
     pending: rows.filter((r) => r.affiliate.status === "pending").length,
     applied: rows.filter((r) => r.affiliate.status === "applied").length,
-    none: rows.filter((r) => r.affiliate.status === "none").length,
+    none:    rows.filter((r) => r.affiliate.status === "none").length,
     refused: rows.filter((r) => r.affiliate.status === "refused").length,
   };
 
+  const totalClicks = Object.values(clicks).reduce((a, b) => a + b, 0);
+
   return (
     <div className="min-h-screen bg-[var(--background)] px-6 py-10 max-w-7xl mx-auto">
+      {/* Minimal header */}
+      <div className="flex items-center gap-2.5 mb-10">
+        <Link href="/" className="flex items-center gap-2 hover:opacity-70 transition-opacity">
+          <img src="/main-logo/rooster.svg" alt="" className="w-7 h-7" />
+          <span className="text-[17px] tracking-wide" style={{ fontFamily: '"Cal Sans", sans-serif', fontWeight: 700 }}>myfrenchtool</span>
+        </Link>
+        <span className="text-[var(--muted-foreground)] text-sm ml-1">/ dashboard</span>
+      </div>
+
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-[var(--foreground)] mb-1">Dashboard affiliés</h1>
+        <h1 className="text-2xl font-bold text-[var(--foreground)] mb-1">Affiliés</h1>
         <p className="text-sm text-[var(--muted-foreground)]">
-          {counts.active} actifs · {counts.pending} en discussion · {counts.applied} candidatés · {counts.none} à candidater
+          {counts.active} actifs · {counts.pending} en discussion · {counts.applied} candidatés · {counts.none} à candidater · {totalClicks} clics CTA au total
         </p>
       </div>
 
@@ -155,13 +185,13 @@ export default function DashboardPage() {
             <button
               key={s}
               onClick={() => setFilter(filter === s ? "all" : s)}
-              className={`rounded-xl border px-4 py-3 text-left transition-all ${
+              className={`rounded-xl border px-4 py-3 text-left transition-all border-[var(--border)] bg-[var(--card)] ${
                 filter === s ? "ring-2 ring-[var(--accent)] ring-offset-1" : "hover:bg-[var(--muted)]"
-              } border-[var(--border)] bg-[var(--card)]`}
+              }`}
             >
               <div className="flex items-center gap-1.5 mb-1">
                 <span className={`w-2 h-2 rounded-full ${cfg.dot}`} />
-                <span className="text-[11px] text-[var(--muted-foreground)]">{cfg.label}</span>
+                <span className="text-[11px] text-[var(--muted-foreground)] whitespace-nowrap">{cfg.label}</span>
               </div>
               <span className="text-2xl font-bold text-[var(--foreground)]">{counts[s]}</span>
             </button>
@@ -175,7 +205,7 @@ export default function DashboardPage() {
           <button
             key={opt.value}
             onClick={() => setFilter(opt.value)}
-            className={`px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors ${
+            className={`px-3 py-1.5 rounded-lg text-[13px] font-medium transition-colors whitespace-nowrap ${
               filter === opt.value
                 ? "bg-[var(--accent)] text-white"
                 : "bg-[var(--muted)] text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
@@ -184,11 +214,7 @@ export default function DashboardPage() {
             {opt.label}
             {opt.value !== "all" && (
               <span className="ml-1.5 opacity-60">
-                {opt.value === "active" ? counts.active
-                  : opt.value === "pending" ? counts.pending
-                  : opt.value === "applied" ? counts.applied
-                  : opt.value === "none" ? counts.none
-                  : counts.refused}
+                {counts[opt.value as AffiliateStatus]}
               </span>
             )}
           </button>
@@ -204,14 +230,14 @@ export default function DashboardPage() {
               <th className="text-left px-4 py-3 text-[11px] font-semibold text-[var(--muted-foreground)] uppercase tracking-wide hidden md:table-cell">Catégorie</th>
               <th className="text-left px-4 py-3 text-[11px] font-semibold text-[var(--muted-foreground)] uppercase tracking-wide">Statut</th>
               <th className="text-left px-4 py-3 text-[11px] font-semibold text-[var(--muted-foreground)] uppercase tracking-wide hidden lg:table-cell">Plateforme</th>
-              <th className="text-left px-4 py-3 text-[11px] font-semibold text-[var(--muted-foreground)] uppercase tracking-wide hidden lg:table-cell">Commission</th>
               <th className="text-center px-4 py-3 text-[11px] font-semibold text-[var(--muted-foreground)] uppercase tracking-wide">Articles</th>
+              <th className="text-center px-4 py-3 text-[11px] font-semibold text-[var(--muted-foreground)] uppercase tracking-wide">Clics CTA</th>
               <th className="text-left px-4 py-3 text-[11px] font-semibold text-[var(--muted-foreground)] uppercase tracking-wide hidden xl:table-cell">Note</th>
-              <th className="text-left px-4 py-3 text-[11px] font-semibold text-[var(--muted-foreground)] uppercase tracking-wide">Lien</th>
+              <th className="text-left px-4 py-3 text-[11px] font-semibold text-[var(--muted-foreground)] uppercase tracking-wide">Liens affiliés</th>
             </tr>
           </thead>
           <tbody>
-            {filtered.map(({ tool, affiliate, articleCount }, i) => {
+            {filtered.map(({ tool, affiliate, articleCount, clickCount }, i) => {
               const cfg = STATUS_CONFIG[affiliate.status];
               const isLast = i === filtered.length - 1;
               return (
@@ -223,43 +249,28 @@ export default function DashboardPage() {
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-3">
                       <div className="w-7 h-7 rounded-lg border border-[var(--border)] bg-white flex items-center justify-center shrink-0 overflow-hidden">
-                        <Image
-                          src={tool.logo}
-                          alt={tool.name}
-                          width={20}
-                          height={20}
-                          className="object-contain"
-                        />
+                        <Image src={tool.logo} alt={tool.name} width={20} height={20} className="object-contain" />
                       </div>
-                      <span className="font-medium text-[var(--foreground)]">{tool.name}</span>
+                      <span className="font-medium text-[var(--foreground)] whitespace-nowrap">{tool.name}</span>
                     </div>
                   </td>
 
                   {/* Catégorie */}
-                  <td className="px-4 py-3 text-[var(--muted-foreground)] hidden md:table-cell">
+                  <td className="px-4 py-3 text-[var(--muted-foreground)] hidden md:table-cell whitespace-nowrap">
                     {CATEGORY_LABELS[tool.category] ?? tool.category}
                   </td>
 
                   {/* Statut */}
                   <td className="px-4 py-3">
-                    <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium ${cfg.color}`}>
-                      <span className={`w-1.5 h-1.5 rounded-full ${cfg.dot}`} />
+                    <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[11px] font-medium whitespace-nowrap ${cfg.color}`}>
+                      <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${cfg.dot}`} />
                       {cfg.label}
                     </span>
                   </td>
 
                   {/* Plateforme */}
-                  <td className="px-4 py-3 text-[var(--muted-foreground)] hidden lg:table-cell">
+                  <td className="px-4 py-3 text-[var(--muted-foreground)] hidden lg:table-cell whitespace-nowrap">
                     {affiliate.platform ?? "—"}
-                  </td>
-
-                  {/* Commission */}
-                  <td className="px-4 py-3 hidden lg:table-cell">
-                    {affiliate.commission ? (
-                      <span className="text-[12px] text-[var(--foreground)]">{affiliate.commission}</span>
-                    ) : (
-                      <span className="text-[var(--muted-foreground)]">—</span>
-                    )}
                   </td>
 
                   {/* Articles */}
@@ -267,6 +278,17 @@ export default function DashboardPage() {
                     {articleCount > 0 ? (
                       <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[var(--accent)] text-white text-[11px] font-bold">
                         {articleCount}
+                      </span>
+                    ) : (
+                      <span className="text-[var(--muted-foreground)]">—</span>
+                    )}
+                  </td>
+
+                  {/* Clics CTA */}
+                  <td className="px-4 py-3 text-center">
+                    {clickCount > 0 ? (
+                      <span className="inline-flex items-center justify-center min-w-[24px] h-6 px-1.5 rounded-full bg-[var(--foreground)] text-[var(--background)] text-[11px] font-bold">
+                        {clickCount}
                       </span>
                     ) : (
                       <span className="text-[var(--muted-foreground)]">—</span>
@@ -282,19 +304,26 @@ export default function DashboardPage() {
                     )}
                   </td>
 
-                  {/* Lien */}
+                  {/* Liens affiliés */}
                   <td className="px-4 py-3">
-                    {affiliate.status === "active" ? (
-                      <div className="flex items-center gap-2">
-                        <a
-                          href={tool.affiliateUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-[var(--accent)] hover:underline text-[12px] max-w-[140px] truncate block"
-                        >
-                          {tool.affiliateUrl}
-                        </a>
-                        <CopyButton text={tool.affiliateUrl} />
+                    {affiliate.links && affiliate.links.length > 0 ? (
+                      <div className="flex flex-col gap-1.5">
+                        {affiliate.links.map((link) => (
+                          <div key={link.url} className="flex items-center gap-2">
+                            <span className="text-[10px] text-[var(--muted-foreground)] bg-[var(--muted)] px-1.5 py-0.5 rounded whitespace-nowrap shrink-0">
+                              {link.intent}
+                            </span>
+                            <a
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[var(--accent)] hover:underline text-[12px] max-w-[130px] truncate block"
+                            >
+                              {link.url}
+                            </a>
+                            <CopyButton text={link.url} />
+                          </div>
+                        ))}
                       </div>
                     ) : (
                       <span className="text-[var(--muted-foreground)]">—</span>

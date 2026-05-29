@@ -1,36 +1,50 @@
 export type AffiliateStatus = "active" | "pending" | "applied" | "refused" | "none";
 
+export type AffiliateLink = {
+  url: string;
+  intent: string;
+};
+
 export type AffiliateEntry = {
   status: AffiliateStatus;
   platform?: string;
-  commission?: string;
   note?: string;
+  links?: AffiliateLink[];
 };
 
 export const affiliates: Record<string, AffiliateEntry> = {
   brevo: {
     status: "active",
     platform: "Native",
+    links: [{ url: "https://get.brevo.com/l2qmecqaww8b", intent: "Général" }],
   },
   lemlist: {
     status: "active",
     platform: "Native",
-    commission: "25% / 12 mois",
+    note: "25% / 12 mois",
+    links: [{ url: "https://get.lemlist.com/49y3f5w9pa24", intent: "Général" }],
   },
   crisp: {
     status: "active",
     platform: "Native",
     note: "Payout PayPal",
+    links: [{ url: "https://crisp.chat/?track=RHG6ktzYNt", intent: "Général" }],
   },
   indy: {
     status: "active",
     platform: "Affilae",
-    commission: "+10€/insc · +70€/société · +250€/abo Société",
+    note: "+10€/insc · +70€/société · +250€/abo Société",
+    links: [
+      { url: "https://www.indy.fr/?ae=1612", intent: "Compta générale" },
+      { url: "https://urlr.me/8RXf2K", intent: "Création entreprise" },
+      { url: "https://urls.fr/46co64", intent: "Fact. électronique" },
+      { url: "https://urls.fr/88mrqb", intent: "Compte pro" },
+    ],
   },
   yousign: {
     status: "pending",
     platform: "Affilae",
-    note: "En discussion — demandé méthodes de mise en avant",
+    note: "En discussion — méthodes de mise en avant demandées",
   },
   qonto: {
     status: "applied",
@@ -51,8 +65,7 @@ export const affiliates: Record<string, AffiliateEntry> = {
   plezi: {
     status: "applied",
     platform: "Direct",
-    commission: "40% récurrents an 1",
-    note: "Relancé via Adeline (welcome workflow)",
+    note: "40% récurrents an 1 — relancé via Adeline",
   },
   scaleway: {
     status: "applied",
@@ -62,13 +75,12 @@ export const affiliates: Record<string, AffiliateEntry> = {
   talkspirit: {
     status: "applied",
     platform: "Direct",
-    note: "Message form de contact envoyé",
+    note: "Form de contact envoyé",
   },
   slite: {
     status: "none",
     platform: "Sovrn/VigLink",
-    commission: "50%",
-    note: "À postuler",
+    note: "50% commission — à postuler",
   },
   ovhcloud: {
     status: "refused",
