@@ -40,6 +40,12 @@ export default function Navbar() {
     setMobileOpen(false);
   }, [pathname]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   const isInCategory = pathname.startsWith("/category/");
 
   return (
@@ -174,19 +180,19 @@ export default function Navbar() {
               <Link
                 key={cat.slug}
                 href={`/category/${cat.slug}`}
-                className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors"
+                className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] active:bg-[var(--muted)] active:text-[var(--foreground)] transition-colors"
               >
                 {cat.name}
               </Link>
             ))}
             <div className="my-2 border-t border-[var(--border)]" />
-            <Link href="/blog" className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors">
+            <Link href="/blog" className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] active:bg-[var(--muted)] active:text-[var(--foreground)] transition-colors">
               Blog
             </Link>
-            <Link href="/contact" className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors">
+            <Link href="/contact" className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] active:bg-[var(--muted)] active:text-[var(--foreground)] transition-colors">
               Contact
             </Link>
-            <Link href="/submit" className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] transition-colors">
+            <Link href="/submit" className="px-3 py-2.5 rounded-lg text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)] active:bg-[var(--muted)] active:text-[var(--foreground)] transition-colors">
               Proposer un outil
             </Link>
             <div className="mt-2">
