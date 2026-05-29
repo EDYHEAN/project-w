@@ -126,12 +126,12 @@ export default async function BlogPostPage({ params }: Props) {
 
         {/* Corps — article + ToC sidebar desktop */}
         <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_156px] lg:gap-10">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto w-full">
             {/* Article body */}
             <div className="prose prose-neutral max-w-none
               prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-[var(--foreground)]
-              prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
-              prose-h3:text-lg prose-h3:mt-8 prose-h3:mb-3
+              prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:scroll-mt-24
+              prose-h3:text-lg prose-h3:mt-8 prose-h3:mb-3 prose-h3:scroll-mt-24
               prose-p:text-[var(--muted-foreground)] prose-p:leading-relaxed prose-p:text-[15px]
               prose-strong:text-[var(--foreground)] prose-strong:font-semibold
               prose-a:text-[var(--accent)] prose-a:no-underline prose-a:hover:underline
