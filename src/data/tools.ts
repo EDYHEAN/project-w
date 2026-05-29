@@ -188,7 +188,7 @@ export const tools: Tool[] = [
     category: "marketing",
     tags: ["chat", "support", "crm", "ia"],
     website: "https://crisp.chat",
-    affiliateUrl: "https://crisp.chat/?ref=myfrenchtool",
+    affiliateUrl: "https://crisp.chat/?track=RHG6ktzYNt",
     logo: "/logos/crisp.svg",
     screenshots: ["/screenshots/crisp-1.png"],
     features: [
