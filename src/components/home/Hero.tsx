@@ -163,7 +163,7 @@ export default function Hero() {
           <SmartSearch />
           <a
             href="#categories"
-            className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-[var(--accent)] text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors"
+            className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-[var(--accent)] text-white text-sm font-medium rounded-xl hover:bg-blue-700 transition-colors"
           >
             Explorer tous les outils ↓
           </a>
