@@ -28,6 +28,8 @@ export default function ConsentManager() {
       {consent === "accepted" && <Analytics />}
 
       {showBanner && (
+        <>
+          <div className="fixed inset-0 z-40 bg-black/30" />
         <div className="fixed bottom-0 left-0 right-0 z-50 p-4">
           <div className="relative max-w-2xl mx-auto bg-white border border-[var(--border)] rounded-2xl shadow-lg px-5 py-4">
             {/* Close button */}
@@ -74,6 +76,7 @@ export default function ConsentManager() {
             </div>
           </div>
         </div>
+        </>
       )}
     </>
   );
