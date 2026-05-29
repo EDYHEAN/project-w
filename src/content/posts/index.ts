@@ -22,6 +22,25 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "indy-vs-pennylane",
+    title: "Indy vs Pennylane : lequel choisir selon votre statut ?",
+    description: "Micro-entrepreneur, BNC, société — la réponse dépend de ton statut et de ton rapport à la comptabilité, pas des features. On compare les deux.",
+    date: "2026-05-29",
+    image: "/blog/indy-vs-pennylane.jpg",
+    imageAlt: "Smartphone et documents fiscaux sur un bureau",
+    tags: ["comptabilité", "finance", "comparatif"],
+    readingTime: 5,
+    relatedToolSlugs: ["indy", "pennylane", "shine"],
+    affiliateCta: {
+      toolSlug: "indy",
+      name: "Indy",
+      logo: "/logos/indy.png",
+      tagline: "Comptabilité automatique pour indépendants français. Plan gratuit pour les micro-entrepreneurs, déclarations fiscales incluses.",
+      affiliateUrl: "https://www.indy.fr/?ae=1612",
+      cta: "Essayer Indy gratuitement",
+    },
+  },
+  {
     slug: "brevo-vs-mailchimp",
     title: "Brevo vs Mailchimp : pourquoi les équipes françaises font le mauvais choix",
     description: "Prix, templates, automation — tout le monde compare les mêmes critères. Ce que personne ne dit : Mailchimp transfère tes données aux États-Unis. Brevo non.",
