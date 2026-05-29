@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const tool = tools.find((t) => t.slug === slug);
   if (!tool) return {};
 
-  const description = `${tool.tagline} — Découvrez ${tool.name}, outil français ${tool.pricing === "free" ? "gratuit" : tool.pricing === "freemium" ? "freemium" : "payant"} dans la catégorie ${tool.category}. Données hébergées en France, conforme RGPD.`;
+  const description = tool.metaDescription ?? `${tool.tagline} — Découvrez ${tool.name}, outil français ${tool.pricing === "free" ? "gratuit" : tool.pricing === "freemium" ? "freemium" : "payant"} dans la catégorie ${tool.category}. Données hébergées en France, conforme RGPD.`;
 
   return {
     title: `${tool.name} — MyFrenchTool`,

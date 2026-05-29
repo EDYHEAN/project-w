@@ -21,4 +21,5 @@ export type Tool = {
   rating: number;
   pricing: "free" | "freemium" | "paid";
   featured: boolean;
+  metaDescription?: string;
 };

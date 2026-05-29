@@ -23,6 +23,7 @@ export const tools: Tool[] = [
     rating: 4.8,
     pricing: "freemium",
     featured: true,
+    metaDescription: "Le modèle IA made in Paris qui tient tête à ChatGPT. Open-source, hébergé en Europe, conforme RGPD. Testez gratuitement le meilleur LLM français.",
   },
   // Design
   {
@@ -46,6 +47,7 @@ export const tools: Tool[] = [
     rating: 4.4,
     pricing: "free",
     featured: false,
+    metaDescription: "L'alternative gratuite à Figma, 100% open-source et hébergée en Europe. Design UI, prototypage, collaboration — sans envoyer vos maquettes chez Adobe.",
   },
   // Productivité
   {
@@ -69,6 +71,7 @@ export const tools: Tool[] = [
     rating: 4.5,
     pricing: "freemium",
     featured: true,
+    metaDescription: "Le wiki d'équipe parisien qui remplace Notion. IA pour retrouver l'info, docs partagés, onboarding — données en Europe. Plan gratuit disponible.",
   },
   {
     slug: "talkspirit",
@@ -90,6 +93,7 @@ export const tools: Tool[] = [
     rating: 4.3,
     pricing: "freemium",
     featured: false,
+    metaDescription: "L'alternative française à Slack : chat, visio, partage de fichiers — données hébergées en France. Conforme RGPD, support en français. Essayez gratuitement.",
   },
   {
     slug: "yousign",
@@ -112,6 +116,7 @@ export const tools: Tool[] = [
     rating: 4.6,
     pricing: "freemium",
     featured: true,
+    metaDescription: "Signez vos contrats en ligne légalement en France. Conforme eIDAS, hébergé en France — valeur juridique garantie. Plan gratuit pour démarrer.",
   },
   {
     slug: "livestorm",
@@ -134,6 +139,7 @@ export const tools: Tool[] = [
     rating: 4.6,
     pricing: "freemium",
     featured: true,
+    metaDescription: "Organisez vos webinaires depuis la France. Aucune installation pour vos participants, analytics complets, replay automatique. Plan gratuit disponible.",
   },
   // Marketing
   {
@@ -156,6 +162,7 @@ export const tools: Tool[] = [
     rating: 4.6,
     pricing: "freemium",
     featured: true,
+    metaDescription: "Email marketing, SMS et automation : l'alternative française à Mailchimp. 300 emails/jour gratuits, données hébergées en Europe. Essayez gratuitement.",
   },
   {
     slug: "lemlist",
@@ -178,6 +185,7 @@ export const tools: Tool[] = [
     rating: 4.5,
     pricing: "paid",
     featured: true,
+    metaDescription: "L'outil de cold email fondé en France. Personnalisation image/vidéo, séquences multicanal email + LinkedIn, hébergement EU. Le choix des équipes B2B françaises.",
   },
   {
     slug: "crisp",
@@ -200,6 +208,7 @@ export const tools: Tool[] = [
     rating: 4.7,
     pricing: "freemium",
     featured: false,
+    metaDescription: "Support client omnicanal made in Nantes. Chat, email, WhatsApp centralisés + agent IA Hugo. Plan gratuit disponible. Données hébergées en Europe.",
   },
   {
     slug: "plezi",
@@ -221,6 +230,7 @@ export const tools: Tool[] = [
     rating: 4.4,
     pricing: "paid",
     featured: false,
+    metaDescription: "L'alternative française à HubSpot pour le marketing B2B. Nurturing automatique, scoring de leads, RGPD natif. Moins complexe, aussi puissant.",
   },
   // Dev & Hébergement
   {
@@ -244,6 +254,7 @@ export const tools: Tool[] = [
     rating: 4.5,
     pricing: "freemium",
     featured: true,
+    metaDescription: "Le cloud français du groupe Iliad : alternative souveraine à AWS. Serveurs, Kubernetes, GPU pour l'IA — données en France, tarifs transparents.",
   },
   {
     slug: "ovhcloud",
@@ -265,6 +276,7 @@ export const tools: Tool[] = [
     rating: 4.3,
     pricing: "paid",
     featured: false,
+    metaDescription: "L'hébergeur n°1 en Europe, fondé à Roubaix. Mutualisé, VPS, dédié — pour tous les budgets. Vos données restent en France, conformité RGPD assurée.",
   },
   // Finance
   {
@@ -288,6 +300,7 @@ export const tools: Tool[] = [
     rating: 4.6,
     pricing: "paid",
     featured: true,
+    metaDescription: "Comptabilité en ligne pour freelances et PME françaises. Factures, TVA, synchro bancaire — pensé pour le droit fiscal français. Essayez 30 jours.",
   },
   {
     slug: "qonto",
@@ -310,6 +323,7 @@ export const tools: Tool[] = [
     rating: 4.7,
     pricing: "paid",
     featured: false,
+    metaDescription: "Compte bancaire pro français ouvert en 24h en ligne. IBAN FR, cartes virtuelles, gestion des dépenses — le compte préféré des startups et freelances.",
   },
   {
     slug: "shine",
@@ -332,6 +346,7 @@ export const tools: Tool[] = [
     rating: 4.5,
     pricing: "paid",
     featured: false,
+    metaDescription: "Le compte bancaire des auto-entrepreneurs français. IBAN FR, facturation intégrée, tableau de bord clair — ouvert en 24h depuis votre téléphone.",
   },
   {
     slug: "indy",
@@ -354,6 +369,7 @@ export const tools: Tool[] = [
     rating: 4.4,
     pricing: "freemium",
     featured: false,
+    metaDescription: "Comptabilité automatique pour indépendants français. Synchro bancaire, déclarations fiscales, bilan — sans expert-comptable. Plan gratuit disponible.",
   },
 ];
 

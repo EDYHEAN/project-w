@@ -29,7 +29,7 @@ export default function ConsentManager() {
 
       {showBanner && (
         <>
-          <div className="fixed inset-0 z-40 bg-black/30" />
+          <div className="fixed inset-0 z-40 bg-black/30 pointer-events-none" />
         <div className="fixed bottom-0 left-0 right-0 z-50 p-4">
           <div className="relative max-w-2xl mx-auto bg-white border border-[var(--border)] rounded-2xl shadow-lg px-5 py-4">
             {/* Close button */}
@@ -47,7 +47,7 @@ export default function ConsentManager() {
                 <div className="flex items-center gap-2 mb-1">
                   <img src="/main-logo/rooster.svg" alt="" className="w-4 h-4 shrink-0" />
                   <p className="text-sm text-[var(--foreground)]">
-                    On utilise des cookies d'analyse anonymes pour améliorer le site.
+                    On utilise Vercel Analytics pour mieux comprendre ce qui fonctionne — anonymement, sans données personnelles.
                   </p>
                 </div>
                 <Link
