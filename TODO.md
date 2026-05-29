@@ -7,6 +7,7 @@
 - [ ] **Affiliés restants**
   - ~~Brevo~~ ✅ accepté — vrai lien en prod
   - ~~Lemlist~~ ✅ accepté — lien prod live (`https://get.lemlist.com/49y3f5w9pa24`), 25% / 12 mois
+  - ~~Crisp~~ ✅ accepté — lien prod : `https://crisp.chat/?track=RHG6ktzYNt` (plateforme native, tracker "MyFrenchTool"), payout PayPal configuré
   - ~~Yousign~~ 🟡 en discussion Affilae — ont demandé comment on met en avant, répondu
   - ~~Qonto~~ ⏳ candidature Affilae envoyée
   - ~~Shine~~ ⏳ candidature Affilae envoyée
@@ -14,18 +15,12 @@
   - ~~Pennylane~~ ⏳ candidature Affilae envoyée
   - ~~Livestorm~~ ⏳ candidature PartnerStack envoyée
   - ~~Plezi~~ 📨 message form de contact envoyé (40% récurrents an 1)
-  - ~~Crisp~~ 🟡 onboarding en cours — fiche + logo officiel mis à jour, infos perso envoyées à Chrysan, en attente confirmation
   - ~~Scaleway~~ 📨 message contact sales envoyé
   - ~~Talkspirit~~ 📨 message form de contact envoyé
   - ~~OVHcloud~~ 🚫 abandonné (trop complexe, demande n° TVA)
   - Mistral AI : pas de programme connu
   - Penpot : open-source, pas de programme affilié
   - Slite : programme via Sovrn/VigLink (50% commission) — à postuler
-
-- [ ] **⚠️ Bannière cookies + politique RGPD** — Vercel Analytics + cookies affiliés tiers (PartnerStack, Affilae) nécessitent consentement
-  - Bannière cookie simple (accept/refuse)
-  - Page politique de cookies
-  - Mettre à jour les mentions légales
 
 - [ ] **Email deliverability — à retester**
   - SPF ajouté sur Namecheap ✅ (`v=spf1 include:sendinblue.com ~all`)
@@ -54,11 +49,13 @@
 
 - [ ] **Screenshots manquants** — Brevo, Talkspirit, OVHcloud, Plezi
 
+- [ ] **Scroll-spy ToC** sur les articles blog — table des matières sticky qui highlight la section active (IntersectionObserver sur H2/H3), vu sur tool-advisor.fr
+
 ## 💡 Priorité basse
 
 - [ ] **Page About** — sélection, positionnement 100% français, modèle affilié
 - [ ] **Blog — suite**
-  - Envoyer l'article lemlist à Lamia dès qu'elle répond au message précédent (message prêt en mémoire)
+  - Collab Lamia (Lemlist) : 1 article/mois centré lemlist, elle propose des thèmes + peut partager sur canaux lemlist, potentiel section "ils parlent de nous" avec backlink
   - Routine articles autonome ✅ — Claude Code Routines, chaque mardi 8h00
 
 ## ✅ Fait
@@ -102,13 +99,17 @@
 - [x] **Lemlist affilié** — accepté PartnerStack, 25% / 12 mois, lien prod live
 - [x] **Crisp logo** — mis à jour avec assets officiels (SVG coloré fourni par Chrysan)
 - [x] **Blog** — setup complet (MDX, @next/mdx, remark-gfm Turbopack, listing + article pages, barre de progression, outils liés, CTA affilié)
-- [x] **Article 1** — "lemlist vs Instantly vs Apollo : ce que les comparatifs ne te disent pas" (live, JSON-LD Article)
+- [x] **Article 1** — "Ce que lemlist apporte en plus face à Instantly et Apollo" (live, réécrit angle lemlist-first + combo gagnant Apollo)
 - [x] **Article 2** — "Brevo vs Mailchimp : pourquoi les équipes françaises font le mauvais choix" (live)
-- [x] **Welcome email** — dernière article affiché en carte dans l'email de bienvenue
+- [x] **Welcome email** — dernier article affiché en carte dans l'email de bienvenue
 - [x] **Sitemap** — blog posts (listing + articles) ajoutés au sitemap dynamique
-- [x] **DNS myfrenchtool.com** — DKIM ✅ DMARC ✅ SPF ✅ (ajouté session 2026-05-28)
+- [x] **DNS myfrenchtool.com** — DKIM ✅ DMARC ✅ SPF ✅
 - [x] **Mentions légales** — attribution Gregor Cresnar (CC BY 3.0, Noun Project) pour l'icône coq
-- [x] **Hero decoration** — Penpot remplacé par lemlist
 - [x] **Page Contact** — `/contact` avec formulaire + Brevo email forwarding
 - [x] **Page Soumettre un outil** — `/submit` avec formulaire référencement + affiliation
 - [x] **Smart search** — barre "Je cherche un outil pour" dans le Hero, Fuse.js + intent map + typewriter, zéro coût
+- [x] **Crisp affilié** — accepté plateforme native, tracker `?track=RHG6ktzYNt`, payout PayPal
+- [x] **Bannière cookies RGPD** — ConsentManager, Vercel Analytics conditionnel, `/politique-cookies`, lien footer
+- [x] **Meta descriptions SEO** — champ `metaDescription` par outil, 16 descriptions benefit-first (~150 chars)
+- [x] **Hero CTA** — border-radius aligné avec SmartSearch (rounded-xl)
+- [x] **Mobile responsive** — bannière cookies responsive, SmartSearch masqué mobile, CTA full-width, burger menu navbar, H1 no-orphan, hero pt-8 mobile, menu fullscreen + scroll lock + active states
