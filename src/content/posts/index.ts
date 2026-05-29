@@ -27,7 +27,7 @@ export const posts: Post[] = [
     description: "Plan gratuit, RGPD, prix — pourquoi la plupart des équipes françaises choisissent le mauvais outil de support client, et comment choisir selon son profil.",
     date: "2026-05-29",
     image: "/blog/crisp-vs-zendesk-vs-freshdesk.jpg",
-    imageAlt: "MacBook Pro et smartphone sur un bureau, espace de travail moderne",
+    imageAlt: "Deux collègues discutant devant un laptop dans un bureau",
     tags: ["support-client", "rgpd", "comparatif"],
     readingTime: 5,
     relatedToolSlugs: ["crisp", "brevo", "lemlist"],
