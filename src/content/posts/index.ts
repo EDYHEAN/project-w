@@ -42,8 +42,8 @@ export const posts: Post[] = [
   },
   {
     slug: "lemlist-vs-instantly-vs-apollo",
-    title: "lemlist vs Instantly vs Apollo : ce que les comparatifs ne te disent pas",
-    description: "Prix, canaux, templates — tout le monde compare les mêmes critères. Voilà ce qu'ils oublient toujours : l'hébergement de tes données et le RGPD.",
+    title: "Ce que lemlist apporte en plus face à Instantly et Apollo",
+    description: "Personnalisation avancée, multicanal natif, hébergement européen — voilà ce que lemlist fait concrètement différemment, et pourquoi ça compte pour le B2B français.",
     date: "2026-05-28",
     image: "/blog/lemlist-vs-instantly-vs-apollo.jpg",
     imageAlt: "Personne travaillant sur un MacBook Pro dans un espace de coworking",
