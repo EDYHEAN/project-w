@@ -103,7 +103,7 @@ export const affiliates: Record<string, AffiliateEntry> = {
   photoroom: {
     status: "applied",
     platform: "Awin",
-    note: "Candidature envoyée — merchant ID 121800",
+    note: "Candidature envoyée — zone US only, mail envoyé à Sacha Sultan pour confirmer couverture FR",
   },
   aircall: {
     status: "none",
