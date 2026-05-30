@@ -111,8 +111,9 @@ export const affiliates: Record<string, AffiliateEntry> = {
     note: "Candidature envoyée",
   },
   kameleoon: {
-    status: "none",
-    note: "À vérifier — programme affilié non confirmé",
+    status: "applied",
+    platform: "Direct",
+    note: "Form partenaire envoyé — commissions 10% Bronze → 20% Platinum",
   },
   axeptio: {
     status: "none",
