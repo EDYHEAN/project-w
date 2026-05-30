@@ -4,32 +4,36 @@
 
 ## 🔥 Priorité haute
 
-- [ ] **Plus d'outils** — objectif 40+ outils 100% français (actuellement 16)
-  - Ajouter dans `src/data/tools.ts` + logo (picto SVG > PNG) dans `public/logos/` + screenshot OG
-  - Chaque nouvel outil = potentiel contenu SEO + candidature affilié
+- [ ] **Plus d'outils** — objectif 40+ outils 100% français (actuellement 26)
+  - Ajouter dans `src/data/tools.ts` + logo icône SVG dans `public/logos/`
+  - Focus : outils IA français (très recherchés en ce moment)
 
 - [ ] **Affiliés restants**
-  - ~~Brevo~~ ✅ accepté
-  - ~~Lemlist~~ ✅ accepté — 25% / 12 mois
-  - ~~Crisp~~ ✅ accepté — payout PayPal
-  - ~~Indy~~ ✅ accepté — 4 liens par intent (compta, création, fact. élec., compte pro)
-  - ~~Yousign~~ 🟡 en discussion Affilae
-  - ~~Qonto~~ ⏳ candidature Affilae envoyée
-  - ~~Shine~~ ⏳ candidature Affilae envoyée
-  - ~~Pennylane~~ ⏳ candidature Affilae envoyée
-  - ~~Livestorm~~ ⏳ candidature PartnerStack envoyée
-  - ~~Plezi~~ 📨 relancé via Adeline — 40% récurrents an 1
-  - ~~Scaleway~~ 📨 message contact sales envoyé
-  - ~~Talkspirit~~ 📨 message form de contact envoyé
-  - Slite : programme via Sovrn/VigLink (50% commission) — **à postuler**
-  - OVHcloud : 🚫 abandonné
-  - Mistral AI / Penpot : pas de programme affilié
+  - ~~Brevo~~ ✅ PartnerStack
+  - ~~Lemlist~~ ✅ PartnerStack — 25% / 12 mois
+  - ~~Crisp~~ ✅ Native — payout PayPal
+  - ~~Indy~~ ✅ Affilae — 4 liens par intent
+  - Yousign 🟡 en discussion Affilae
+  - Qonto ⏳ candidature Affilae
+  - Shine ⏳ candidature Affilae
+  - Pennylane ⏳ candidature Affilae
+  - Livestorm ⏳ candidature PartnerStack
+  - Plezi 📨 relancé via Adeline — 40% récurrents an 1
+  - Scaleway 📨 message contact sales
+  - Talkspirit 📨 message form de contact
+  - Slite : Sovrn/VigLink (50% commission) — **à postuler**
+  - 10 nouveaux outils : vérifier s'ils ont des programmes affiliés (Dust, Photoroom, Aircall, Kameleoon, Axeptio, PayFit, Alan, Clever Cloud, Dougs, Finary)
+
+- [ ] **Dashboard — graphe timeline clics**
+  - Frise chrono clics globaux + par outil
+  - Filtres : 24h / 7j / 30j / Mois / Année / All time
+  - Nécessite de stocker les timestamps dans Vercel KV (Redis sorted sets)
+
+## 📈 Priorité moyenne
 
 - [ ] **Email deliverability — à retester**
   - DNS complet : DKIM ✅ DMARC ✅ SPF ✅
   - Cause probable = domaine récent → se règle avec le temps
-
-## 📈 Priorité moyenne
 
 - [ ] **Newsletter Brevo — suite**
   - Créer template mail hebdo (1 outil à la une, 1-2 news, 1 bon plan)
@@ -43,7 +47,7 @@
 
 - [ ] **Filtres** par pricing (Gratuit / Freemium / Payant) sur les pages catégorie
 
-- [ ] **Screenshots manquants** — Brevo, Talkspirit, OVHcloud, Plezi
+- [ ] **Screenshots manquants** — Brevo, Talkspirit, OVHcloud, Plezi + 10 nouveaux outils
 
 ## 💡 Priorité basse
 
@@ -55,36 +59,24 @@
 ## ✅ Fait
 
 - [x] Init Next.js + TypeScript + Tailwind + Framer Motion
-- [x] Structure de données TypeScript (outils + catégories)
 - [x] Homepage : hero animé + catégories + featured tools + newsletter
-- [x] Pages catégorie générées statiquement (SSG)
-- [x] Pages détail outil avec CTA affilié + outils similaires
+- [x] Pages catégorie + pages détail outil
 - [x] Navbar glassmorphism + Footer
-- [x] Design Apple/Linear cohérent, micro-animations Framer Motion
-- [x] **Pivot MyFrenchTool** — 16 outils 100% français, logo coq, branding complet
+- [x] **Pivot MyFrenchTool** — logo coq, branding complet
 - [x] **Domaine myfrenchtool.com** acheté + connecté sur Vercel
-- [x] **Compteur d'outils réactif** — `tools.length` partout dans le hero
-- [x] **FeaturedTools carousel** + **SearchModal** ⌘K + **Cal Sans** wordmark
-- [x] **Vrais logos** pour les 16 outils — 0 placeholder
-- [x] **SEO technique** — sitemap.xml dynamique, robots.txt, metadata + metaDescription par outil
+- [x] **SEO technique** — sitemap.xml, robots.txt, metadata, JSON-LD
 - [x] **Google Search Console** — propriété vérifiée, sitemap soumis
-- [x] **JSON-LD schema** — SoftwareApplication + BreadcrumbList + Article blog
-- [x] **Newsletter** — connecté à Brevo, welcome email, unsubscribe, DNS complet
-- [x] **Email pro** — `johan@myfrenchtool.com` via Brevo SMTP + forwarding Namecheap
-- [x] **Blog** — MDX, listing + article pages, barre de progression, outils liés, CTA affilié
-- [x] **Article 1** — lemlist vs Instantly vs Apollo
-- [x] **Article 2** — Brevo vs Mailchimp
-- [x] **Article 3** — Indy vs Pennylane (comparatif par statut)
-- [x] **Article 4** — Crisp vs Zendesk vs Freshdesk
-- [x] **Scroll-spy ToC** — H2 uniquement, sticky desktop, barre bleue active
-- [x] **Triple audience** — principe Google + lecteurs + LLMs dans CLAUDE.md
-- [x] **Liens internes articles** — première mention par section H2 uniquement
+- [x] **Newsletter** — Brevo, welcome email, DNS complet
+- [x] **Email pro** — `johan@myfrenchtool.com` via Brevo SMTP
+- [x] **Blog** — MDX, listing + articles, scroll-spy ToC, triple audience
+- [x] **4 articles live** — lemlist, Brevo, Indy vs Pennylane, Crisp vs Zendesk
 - [x] **Bannière cookies RGPD** — ConsentManager, Vercel Analytics conditionnel
-- [x] **Mobile responsive** — burger menu, SmartSearch masqué, scroll lock
-- [x] **Brevo affilié** ✅ + **Lemlist affilié** ✅ + **Crisp affilié** ✅ + **Indy affilié** ✅
-- [x] **scroll-behavior smooth supprimé** — navigation instantanée
-- [x] **HomeScrollReset** — HP toujours en top scroll via useLayoutEffect
-- [x] **Dashboard affiliés** ✅ — `/dashboard` privé, noindex, password gate (DASHBOARD_PASSWORD)
-- [x] **SiteChrome** ✅ — Navbar/Footer absents sur /dashboard
-- [x] **Tracking clics CTA** ✅ — onClick fire-and-forget → Vercel KV (Upstash Redis, Frankfurt)
-- [x] **Upstash Redis** ✅ — Free plan connecté, env vars auto-injectées par Vercel
+- [x] **Mobile responsive** — burger menu, scroll lock
+- [x] **Brevo** ✅ + **Lemlist** ✅ + **Crisp** ✅ + **Indy** ✅ affiliés actifs
+- [x] **Dashboard affiliés** — `/dashboard` privé, password gate, noindex
+- [x] **SiteChrome** — Navbar/Footer absents sur /dashboard
+- [x] **Tracking clics CTA** — onClick fire-and-forget → Vercel KV (Upstash Redis, Frankfurt)
+- [x] **Admin exclusion tracking** — sessionStorage guard sur le CTA
+- [x] **+10 outils** — 26 outils au total (Dust, Photoroom, Aircall, Kameleoon, Axeptio, PayFit, Alan, Clever Cloud, Dougs, Finary)
+- [x] **Logos icônes isolés** — Alan (panda), Axeptio (tick), Finary (F), Kameleoon, Dougs (cercle)
+- [x] **Posture SEO/affiliation** — documentée en mémoire, appliquée par défaut
