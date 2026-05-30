@@ -131,7 +131,7 @@ export const affiliates: Record<string, AffiliateEntry> = {
   },
   "clever-cloud": {
     status: "none",
-    note: "À vérifier — programme affilié non confirmé",
+    note: "Pas de programme affilié public — portal partenaire intégrateurs uniquement",
   },
   dougs: {
     status: "none",
