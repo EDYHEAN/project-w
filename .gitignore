@@ -41,6 +41,7 @@ yarn-error.log*
 
 # brand assets (extracted files committed separately)
 public/logos/Crisp/
+public/logos/Dust_Brand_Logo/
 
 # typescript
 *.tsbuildinfo
