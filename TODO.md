@@ -27,8 +27,12 @@
   - Scaleway 📨 message contact sales
   - Talkspirit 📨 message form de contact
   - Slite : Sovrn/VigLink (50% commission) — **à postuler**
-  - Alan ❌ pas de programme publisher
-  - Kameleoon, Axeptio, Clever Cloud, Dougs, Finary — **à vérifier**
+  - Alan ❌ unavailable (parrainage membres)
+  - Dougs ❌ unavailable (parrainage clients)
+  - Clever Cloud ❌ unavailable (intégrateurs only)
+  - Kameleoon ⏳ applied — form direct
+  - Axeptio ⏳ applied — mail alexis.nabucet@axeptio.eu
+  - Finary ⏳ applied — mail hello@finary.com
 
 ## 📈 Priorité moyenne
 
