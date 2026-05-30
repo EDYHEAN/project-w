@@ -18,11 +18,12 @@ const EXAMPLES = [
 
 const fuse = new Fuse(tools, {
   keys: [
-    { name: "name", weight: 0.5 },
-    { name: "tagline", weight: 0.4 },
+    { name: "name", weight: 0.4 },
+    { name: "tagline", weight: 0.35 },
+    { name: "description", weight: 0.15 },
     { name: "tags", weight: 0.1 },
   ],
-  threshold: 0.3,
+  threshold: 0.42,
   includeScore: true,
   minMatchCharLength: 2,
   ignoreLocation: true,
@@ -32,25 +33,38 @@ const PREFIX_RE = /^(je cherche\s+)?(un outil\s+)?(pour\s+)?/i;
 
 // Intent map — checked before Fuse, covers common French queries
 const INTENT_MAP: { keywords: string[]; slugs: string[] }[] = [
-  { keywords: ["factur", "devis", "comptab", "liasse", "bilan", "fiscalit"], slugs: ["pennylane", "indy", "shine"] },
+  { keywords: ["factur", "devis", "comptab", "liasse", "bilan", "fiscalit", "micro-entrepreneur", "auto-entrepreneur", "indépendant"], slugs: ["pennylane", "indy", "shine"] },
   { keywords: ["banque", "compte pro", "virement", "tréso"], slugs: ["qonto", "shine"] },
   { keywords: ["newsletter", "emailing", "campagne email", "mailing", "abonné"], slugs: ["brevo"] },
-  { keywords: ["cold email", "outreach", "prospecter", "démarch"], slugs: ["lemlist"] },
+  { keywords: ["cold email", "outreach", "prospecter", "démarch", "prospection", "séquence email"], slugs: ["lemlist"] },
   { keywords: ["signer", "signature", "contrat électronique", "paraph"], slugs: ["yousign"] },
-  { keywords: ["chat", "live chat", "support client", "service client"], slugs: ["crisp"] },
-  { keywords: ["intelligence artificielle", "chatgpt", "llm", "génératif"], slugs: ["mistral"] },
-  { keywords: ["maquette", "figma", "prototyp", "ui design", "ux design"], slugs: ["penpot"] },
-  { keywords: ["wiki", "documentation interne", "base de connaissance", "notes équipe"], slugs: ["slite", "talkspirit"] },
-  { keywords: ["webinar", "visioconf", "conférence en ligne", "présentation en ligne"], slugs: ["livestorm"] },
-  { keywords: ["cloud", "hébergement", "serveur", "vps", "infra"], slugs: ["scaleway", "ovhcloud"] },
-  { keywords: ["marketing automation", "inbound", "génér leads", "lead nurturing"], slugs: ["plezi", "brevo"] },
+  { keywords: ["chat", "live chat", "support client", "service client", "helpdesk", "ticket"], slugs: ["crisp"] },
+  { keywords: ["agent ia", "agents ia", "ia générative", "llm", "chatgpt", "génératif", "openai", "intelligence artificielle"], slugs: ["dust", "mistral"] },
+  { keywords: ["agent", "agents", "ia", "modèle ia", "api ia"], slugs: ["dust", "mistral"] },
+  { keywords: ["photo", "retouche", "fond", "background remove", "visuel produit"], slugs: ["photoroom"] },
+  { keywords: ["maquette", "figma", "prototyp", "ui design", "ux design", "wireframe"], slugs: ["penpot"] },
+  { keywords: ["wiki", "documentation interne", "base de connaissance", "notes équipe", "knowledge base"], slugs: ["slite", "talkspirit"] },
+  { keywords: ["webinar", "visioconf", "conférence en ligne", "présentation en ligne", "livestream"], slugs: ["livestorm"] },
+  { keywords: ["cloud", "hébergement", "serveur", "vps", "infra", "déployer"], slugs: ["scaleway", "ovhcloud", "clever-cloud"] },
+  { keywords: ["marketing automation", "inbound", "génér leads", "lead nurturing", "pipeline marketing"], slugs: ["plezi", "brevo"] },
   { keywords: ["messagerie équipe", "collaboration interne", "réseau social entreprise"], slugs: ["talkspirit"] },
+  { keywords: ["paie", "salaire", "rh", "ressources humaines", "bulletin de paie"], slugs: ["payfit"] },
+  { keywords: ["mutuelle", "santé", "assurance santé", "alan"], slugs: ["alan"] },
+  { keywords: ["ab test", "optimisation conversion", "test a/b", "expérimentation"], slugs: ["kameleoon"] },
+  { keywords: ["cookie", "consentement", "rgpd", "cgu", "bannière cookies"], slugs: ["axeptio"] },
+  { keywords: ["téléphonie", "appel", "call center", "centre d'appel", "voip"], slugs: ["aircall"] },
+  { keywords: ["investissement", "portefeuille", "patrimoine", "bourse", "crypto"], slugs: ["finary"] },
+  { keywords: ["comptabilité entreprise", "expert-comptable", "tpe", "pme comptab"], slugs: ["dougs", "pennylane"] },
 ];
 
+// Use word-boundary regex so "ia" doesn't match "pharmacie", "via", etc.
 function intentSearch(raw: string): Tool[] {
   const lower = raw.toLowerCase();
   for (const entry of INTENT_MAP) {
-    if (entry.keywords.some((kw) => lower.includes(kw))) {
+    if (entry.keywords.some((kw) => {
+      const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+      return new RegExp(`\\b${escaped}`, "i").test(lower);
+    })) {
       return entry.slugs
         .map((slug) => tools.find((t) => t.slug === slug))
         .filter(Boolean) as Tool[];
@@ -77,8 +91,13 @@ const SYNONYMS: Record<string, string> = {
   prospecter: "prospection cold email",
   designer: "design ui", maquette: "design ui", prototype: "design ui",
   concevoir: "design",
-  ia: "intelligence artificielle", gpt: "intelligence artificielle",
-  gérer: "gestion", organiser: "gestion projets",
+  // IA: keep "ia" as-is, don't expand — taglines use "IA" not "intelligence artificielle"
+  ia: "ia", gpt: "ia",
+  agent: "ia agents", agents: "ia agents",
+  // Action verbs → nouns (less noise in Fuse)
+  intégrer: "intégration", connecter: "intégration",
+  automatiser: "automatisation",
+  gérer: "gestion", organiser: "gestion",
   messagerie: "chat", support: "chat crm", client: "crm",
 };
 
