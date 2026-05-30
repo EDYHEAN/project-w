@@ -106,8 +106,9 @@ export const affiliates: Record<string, AffiliateEntry> = {
     note: "Candidature envoyée — zone US only, mail envoyé à Sacha Sultan pour confirmer couverture FR",
   },
   aircall: {
-    status: "none",
-    note: "À vérifier — programme affilié non confirmé",
+    status: "applied",
+    platform: "PartnerStack",
+    note: "Candidature envoyée",
   },
   kameleoon: {
     status: "none",
