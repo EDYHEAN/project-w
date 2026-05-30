@@ -101,8 +101,9 @@ export const affiliates: Record<string, AffiliateEntry> = {
     note: "Form partner envoyé — waitlist programme partenaire",
   },
   photoroom: {
-    status: "none",
-    note: "À vérifier — programme affilié non confirmé",
+    status: "applied",
+    platform: "Awin",
+    note: "Candidature envoyée — merchant ID 121800",
   },
   aircall: {
     status: "none",
