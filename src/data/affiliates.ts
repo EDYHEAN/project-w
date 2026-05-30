@@ -118,8 +118,9 @@ export const affiliates: Record<string, AffiliateEntry> = {
     note: "À vérifier — programme affilié non confirmé",
   },
   payfit: {
-    status: "none",
-    note: "À vérifier — programme affilié non confirmé",
+    status: "applied",
+    platform: "Affilae",
+    note: "Candidature envoyée",
   },
   alan: {
     status: "none",
