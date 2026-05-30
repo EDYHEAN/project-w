@@ -87,8 +87,9 @@ export const affiliates: Record<string, AffiliateEntry> = {
     note: "Trop complexe — demande n° TVA",
   },
   mistral: {
-    status: "none",
-    note: "Pas de programme affilié connu",
+    status: "applied",
+    platform: "Direct",
+    note: "Form partner envoyé",
   },
   penpot: {
     status: "none",
