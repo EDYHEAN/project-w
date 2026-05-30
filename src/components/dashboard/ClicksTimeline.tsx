@@ -131,7 +131,7 @@ export default function ClicksTimeline() {
                   boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
                 }}
                 labelStyle={{ fontWeight: 600, color: "var(--foreground)", marginBottom: 2 }}
-                formatter={(v: number) => [`${v} clic${v !== 1 ? "s" : ""}`, ""]}
+                formatter={(v) => [`${v ?? 0} clic${Number(v) !== 1 ? "s" : ""}`, ""]}
                 separator=""
               />
               <Area
