@@ -20,20 +20,22 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 const STATUS_CONFIG: Record<AffiliateStatus, { label: string; color: string; dot: string }> = {
-  active:  { label: "Actif",         color: "bg-green-50 text-green-700 border border-green-200",  dot: "bg-green-500"  },
-  pending: { label: "En discussion", color: "bg-amber-50 text-amber-700 border border-amber-200",  dot: "bg-amber-400"  },
-  applied: { label: "Candidaté",     color: "bg-blue-50 text-blue-700 border border-blue-200",     dot: "bg-blue-400"   },
-  none:    { label: "À candidater",  color: "bg-gray-100 text-gray-500 border border-gray-200",    dot: "bg-gray-300"   },
-  refused: { label: "Refusé",        color: "bg-red-50 text-red-600 border border-red-200",        dot: "bg-red-400"    },
+  active:      { label: "Actif",         color: "bg-green-50 text-green-700 border border-green-200",   dot: "bg-green-500"  },
+  pending:     { label: "En discussion", color: "bg-amber-50 text-amber-700 border border-amber-200",   dot: "bg-amber-400"  },
+  applied:     { label: "Candidaté",     color: "bg-blue-50 text-blue-700 border border-blue-200",      dot: "bg-blue-400"   },
+  none:        { label: "À candidater",  color: "bg-gray-100 text-gray-500 border border-gray-200",     dot: "bg-gray-300"   },
+  refused:     { label: "Refusé",        color: "bg-red-50 text-red-600 border border-red-200",         dot: "bg-red-400"    },
+  unavailable: { label: "Pas de prog.", color: "bg-zinc-100 text-zinc-400 border border-zinc-200",     dot: "bg-zinc-300"   },
 };
 
 const FILTER_OPTIONS: { label: string; value: AffiliateStatus | "all" }[] = [
-  { label: "Tous",          value: "all"     },
-  { label: "Actifs",        value: "active"  },
-  { label: "En discussion", value: "pending" },
-  { label: "Candidatés",   value: "applied" },
-  { label: "À candidater",  value: "none"    },
-  { label: "Refusés",       value: "refused" },
+  { label: "Tous",          value: "all"         },
+  { label: "Actifs",        value: "active"      },
+  { label: "En discussion", value: "pending"     },
+  { label: "Candidatés",   value: "applied"     },
+  { label: "À candidater",  value: "none"        },
+  { label: "Refusés",       value: "refused"     },
+  { label: "Pas de prog.", value: "unavailable" },
 ];
 
 function articleCountByTool(): Record<string, number> {
@@ -151,11 +153,12 @@ export default function DashboardPage() {
   const filtered = filter === "all" ? rows : rows.filter((r) => r.affiliate.status === filter);
 
   const counts = {
-    active:  rows.filter((r) => r.affiliate.status === "active").length,
-    pending: rows.filter((r) => r.affiliate.status === "pending").length,
-    applied: rows.filter((r) => r.affiliate.status === "applied").length,
-    none:    rows.filter((r) => r.affiliate.status === "none").length,
-    refused: rows.filter((r) => r.affiliate.status === "refused").length,
+    active:      rows.filter((r) => r.affiliate.status === "active").length,
+    pending:     rows.filter((r) => r.affiliate.status === "pending").length,
+    applied:     rows.filter((r) => r.affiliate.status === "applied").length,
+    none:        rows.filter((r) => r.affiliate.status === "none").length,
+    refused:     rows.filter((r) => r.affiliate.status === "refused").length,
+    unavailable: rows.filter((r) => r.affiliate.status === "unavailable").length,
   };
 
   const totalClicks = Object.values(clicks).reduce((a, b) => a + b, 0);
@@ -180,7 +183,7 @@ export default function DashboardPage() {
 
       {/* Stat cards */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
-        {(["active", "pending", "applied", "none", "refused"] as AffiliateStatus[]).map((s) => {
+        {(["active", "pending", "applied", "none", "refused", "unavailable"] as AffiliateStatus[]).map((s) => {
           const cfg = STATUS_CONFIG[s];
           return (
             <button

@@ -1,4 +1,4 @@
-export type AffiliateStatus = "active" | "pending" | "applied" | "refused" | "none";
+export type AffiliateStatus = "active" | "pending" | "applied" | "refused" | "none" | "unavailable";
 
 export type AffiliateLink = {
   url: string;
@@ -126,16 +126,16 @@ export const affiliates: Record<string, AffiliateEntry> = {
     note: "Candidature envoyée",
   },
   alan: {
-    status: "none",
-    note: "Pas de programme affilié publisher — parrainage membres uniquement (50€/filleul)",
+    status: "unavailable",
+    note: "Parrainage membres uniquement (50€/filleul) — pas de programme publisher",
   },
   "clever-cloud": {
-    status: "none",
-    note: "Pas de programme affilié public — portal partenaire intégrateurs uniquement",
+    status: "unavailable",
+    note: "Portal partenaire intégrateurs uniquement — pas de programme publisher",
   },
   dougs: {
-    status: "none",
-    note: "Pas de programme affilié publisher — parrainage clients uniquement (1 mois gratuit)",
+    status: "unavailable",
+    note: "Parrainage clients uniquement (1 mois gratuit) — pas de programme publisher",
   },
   finary: {
     status: "applied",
