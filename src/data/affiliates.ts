@@ -138,7 +138,8 @@ export const affiliates: Record<string, AffiliateEntry> = {
     note: "Pas de programme affilié publisher — parrainage clients uniquement (1 mois gratuit)",
   },
   finary: {
-    status: "none",
-    note: "À vérifier — programme affilié non confirmé",
+    status: "applied",
+    platform: "Direct",
+    note: "Mail envoyé à hello@finary.com — programme sur invitation, commission sur Finary Plus",
   },
 };
