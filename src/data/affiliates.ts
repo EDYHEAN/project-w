@@ -135,7 +135,7 @@ export const affiliates: Record<string, AffiliateEntry> = {
   },
   dougs: {
     status: "none",
-    note: "À vérifier — programme affilié non confirmé",
+    note: "Pas de programme affilié publisher — parrainage clients uniquement (1 mois gratuit)",
   },
   finary: {
     status: "none",
