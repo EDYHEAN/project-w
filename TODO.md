@@ -51,6 +51,14 @@
 
 ## 💡 Priorité basse
 
+- [ ] **Smart Search — LLM fallback avec budget cap**
+  - Créer `/api/search` : appel LLM (Mistral cheap ou Haiku) pour interpréter la requête → retourne 3 slugs
+  - Budget cap dans Vercel KV : clé `search_budget:YYYY-MM` en centimes, si > 500 → retourne `{ fallback: true }` sans appel LLM
+  - Reset automatique chaque mois (clé inclut l'année-mois)
+  - SmartSearch.tsx : interroge `/api/search` en premier, bascule silencieusement sur INTENT_MAP + Fuse si `fallback: true` ou erreur
+  - Afficher le spend mensuel dans le dashboard
+  - À faire quand le site a du trafic (coût actuel = ~0)
+
 - [ ] **Page About** — sélection, positionnement 100% français, modèle affilié
 - [ ] **Blog — suite**
   - Collab Lamia (Lemlist) : 1 article/mois centré lemlist
