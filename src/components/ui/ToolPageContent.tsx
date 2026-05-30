@@ -119,7 +119,7 @@ export default function ToolPageContent({ tool, category, related }: Props) {
                 href={tool.affiliateUrl}
                 target="_blank"
                 rel="noopener sponsored"
-                onClick={() => { fetch(`/api/track/${tool.slug}`, { method: "POST" }).catch(() => {}); }}
+                onClick={() => { if (sessionStorage.getItem("mft-dashboard-auth") !== "1") { fetch(`/api/track/${tool.slug}`, { method: "POST" }).catch(() => {}); } }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="flex items-center justify-center gap-2 w-full py-3 bg-[#0052CC] hover:bg-[#003fa3] text-white font-medium rounded-xl transition-colors text-sm"
