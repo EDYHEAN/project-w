@@ -124,7 +124,7 @@ export const affiliates: Record<string, AffiliateEntry> = {
   },
   alan: {
     status: "none",
-    note: "À vérifier — programme affilié non confirmé",
+    note: "Pas de programme affilié publisher — parrainage membres uniquement (50€/filleul)",
   },
   "clever-cloud": {
     status: "none",
