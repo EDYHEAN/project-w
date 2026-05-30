@@ -6,6 +6,7 @@ import Link from "next/link";
 import { tools } from "@/data/tools";
 import { posts } from "@/content/posts/index";
 import { affiliates, AffiliateStatus } from "@/data/affiliates";
+import ClicksTimeline from "@/components/dashboard/ClicksTimeline";
 
 const STORAGE_KEY = "mft-dashboard-auth";
 
@@ -198,6 +199,9 @@ export default function DashboardPage() {
           );
         })}
       </div>
+
+      {/* Timeline clics */}
+      <ClicksTimeline />
 
       {/* Filter tabs */}
       <div className="flex gap-1 mb-5 flex-wrap">
