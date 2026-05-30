@@ -9,25 +9,26 @@
   - Focus : outils IA français (très recherchés en ce moment)
 
 - [ ] **Affiliés restants**
-  - ~~Brevo~~ ✅ PartnerStack
-  - ~~Lemlist~~ ✅ PartnerStack — 25% / 12 mois
-  - ~~Crisp~~ ✅ Native — payout PayPal
-  - ~~Indy~~ ✅ Affilae — 4 liens par intent
+  - ~~Brevo~~ ✅ PartnerStack — https://get.brevo.com/l2qmecqaww8b
+  - ~~Lemlist~~ ✅ PartnerStack — 25% / 12 mois — https://get.lemlist.com/49y3f5w9pa24
+  - ~~Crisp~~ ✅ Native — payout PayPal — https://crisp.chat/?track=RHG6ktzYNt
+  - ~~Indy~~ ✅ Affilae — 4 liens : https://www.indy.fr/?ae=1612 / https://urlr.me/8RXf2K / https://urls.fr/46co64 / https://urls.fr/88mrqb
   - Yousign 🟡 en discussion Affilae
   - Qonto ⏳ candidature Affilae
   - Shine ⏳ candidature Affilae
   - Pennylane ⏳ candidature Affilae
+  - PayFit ⏳ candidature Affilae
   - Livestorm ⏳ candidature PartnerStack
+  - Aircall ⏳ candidature PartnerStack
+  - Dust ⏳ form partner envoyé (programme pas encore lancé)
+  - Mistral ⏳ form partner envoyé
+  - Photoroom ⏳ Awin merchant 121800 — zone US, confirmation FR en attente (Sacha Sultan)
   - Plezi 📨 relancé via Adeline — 40% récurrents an 1
   - Scaleway 📨 message contact sales
   - Talkspirit 📨 message form de contact
   - Slite : Sovrn/VigLink (50% commission) — **à postuler**
-  - 10 nouveaux outils : vérifier s'ils ont des programmes affiliés (Dust, Photoroom, Aircall, Kameleoon, Axeptio, PayFit, Alan, Clever Cloud, Dougs, Finary)
-
-- [ ] **Dashboard — graphe timeline clics**
-  - Frise chrono clics globaux + par outil
-  - Filtres : 24h / 7j / 30j / Mois / Année / All time
-  - Nécessite de stocker les timestamps dans Vercel KV (Redis sorted sets)
+  - Alan ❌ pas de programme publisher
+  - Kameleoon, Axeptio, Clever Cloud, Dougs, Finary — **à vérifier**
 
 ## 📈 Priorité moyenne
 
@@ -88,3 +89,7 @@
 - [x] **+10 outils** — 26 outils au total (Dust, Photoroom, Aircall, Kameleoon, Axeptio, PayFit, Alan, Clever Cloud, Dougs, Finary)
 - [x] **Logos icônes isolés** — Alan (panda), Axeptio (tick), Finary (F), Kameleoon, Dougs (cercle)
 - [x] **Posture SEO/affiliation** — documentée en mémoire, appliquée par défaut
+- [x] **Dashboard — frise timeline clics** — AreaChart Recharts, 5 périodes, sélecteur outil
+- [x] **Smart Search amélioré** — INTENT_MAP étendu, word-boundary regex, Fuse threshold assoupli
+- [x] **Dust, Mistral, Photoroom, PayFit, Aircall** — candidatures affiliés envoyées
+- [x] **Awin** — compte publisher créé (Johan Trigeard)
