@@ -15,12 +15,12 @@ export type AffiliateEntry = {
 export const affiliates: Record<string, AffiliateEntry> = {
   brevo: {
     status: "active",
-    platform: "Native",
+    platform: "PartnerStack",
     links: [{ url: "https://get.brevo.com/l2qmecqaww8b", intent: "Général" }],
   },
   lemlist: {
     status: "active",
-    platform: "Native",
+    platform: "PartnerStack",
     note: "25% / 12 mois",
     links: [{ url: "https://get.lemlist.com/49y3f5w9pa24", intent: "Général" }],
   },
@@ -93,5 +93,45 @@ export const affiliates: Record<string, AffiliateEntry> = {
   penpot: {
     status: "none",
     note: "Open-source, pas de programme affilié",
+  },
+  dust: {
+    status: "none",
+    note: "À vérifier — programme affilié non confirmé",
+  },
+  photoroom: {
+    status: "none",
+    note: "À vérifier — programme affilié non confirmé",
+  },
+  aircall: {
+    status: "none",
+    note: "À vérifier — programme affilié non confirmé",
+  },
+  kameleoon: {
+    status: "none",
+    note: "À vérifier — programme affilié non confirmé",
+  },
+  axeptio: {
+    status: "none",
+    note: "À vérifier — programme affilié non confirmé",
+  },
+  payfit: {
+    status: "none",
+    note: "À vérifier — programme affilié non confirmé",
+  },
+  alan: {
+    status: "none",
+    note: "À vérifier — programme affilié non confirmé",
+  },
+  "clever-cloud": {
+    status: "none",
+    note: "À vérifier — programme affilié non confirmé",
+  },
+  dougs: {
+    status: "none",
+    note: "À vérifier — programme affilié non confirmé",
+  },
+  finary: {
+    status: "none",
+    note: "À vérifier — programme affilié non confirmé",
   },
 };
